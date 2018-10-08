@@ -1,7 +1,8 @@
-package com.dml.base
+package com.dml.base.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.dml.base.R
 
 class MainActivity : AppCompatActivity() {
 

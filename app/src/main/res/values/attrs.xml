@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="appFontStyle" format="enum">
+        <enum name="barlow_regular" value="0" />
+        <enum name="barlow_medium" value="1" />
+        <enum name="barlow_semibold" value="2" />
+    </attr>
+
+    <declare-styleable name="ThemeTextView">
+        <attr name="appFontStyle" />
+    </declare-styleable>
+</resources>

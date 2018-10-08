@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/welcome_background"
+    android:gravity="center_horizontal"
+    android:padding="24dp">
+
+    <ImageView
+        android:id="@+id/iconIV"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_dml_logo" />
+
+    <com.dml.base.ui.ThemeTextView
+        android:id="@+id/titleTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iconIV"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/welcome_title"
+        android:textColor="@color/welcome_text"
+        android:textSize="36dp"
+        app:appFontStyle="barlow_semibold" />
+
+    <com.dml.base.ui.ThemeTextView
+        android:id="@+id/descTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleTV"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/welcome_desc"
+        android:textColor="@color/welcome_text"
+        android:textSize="18dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/startBtn"
+        android:layout_below="@id/descTV"
+        android:layout_marginTop="16dp"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_margin="16dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/img_welcome_logo" />
+    </LinearLayout>
+
+    <com.dml.base.ui.ThemeButton
+        android:id="@+id/startBtn"
+        style="@style/AppTheme.Button.White"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="16dp"
+        android:text="@string/welcome_button_get_started"
+        app:appFontStyle="barlow_semibold" />
+</RelativeLayout>

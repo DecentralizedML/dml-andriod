@@ -1,11 +1,32 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">@color/text</item>
     </style>
 
+    <style name="AppTheme.Button.White" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:background">@drawable/button_white</item>
+        <item name="android:textColor">@color/button_blue</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="AppTheme.Button.Blue" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:background">@drawable/button_blue</item>
+        <item name="android:textColor">@color/button_white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="AppTheme.EditText.Signup" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/edittext_blue_border</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:textColor">@color/signup_edittext_text</item>
+    </style>
 </resources>

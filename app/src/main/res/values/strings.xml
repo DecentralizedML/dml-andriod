@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">DML</string>
+
+    <string name="welcome_title">Decentralized\nMachine Learning</string>
+    <string name="welcome_desc">Get paid for your date, on your terms.</string>
+    <string name="welcome_button_get_started">Get Started</string>
+
+    <string name="activity_signup_first_email">Email</string>
+    <string name="activity_signup_first_Password">Password</string>
+    <string name="activity_signup_first_button_sign_up">Sign up</string>
+    <string name="activity_signup_or">or</string>
 </resources>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:padding="24dp"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/img_facebook_signup" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/img_google_signup" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_centerInParent="true"
+                android:background="@color/divider" />
+
+            <com.dml.base.ui.ThemeTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@color/background"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="@string/activity_signup_or"
+                android:textColor="@color/text_light"
+                android:textSize="18dp" />
+
+        </RelativeLayout>
+
+        <com.dml.base.ui.ThemeTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_signup_first_email"
+            android:textSize="18dp" />
+
+        <com.dml.base.ui.ThemeEditText
+            style="@style/AppTheme.EditText.Signup"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp" />
+
+        <com.dml.base.ui.ThemeTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/activity_signup_first_Password"
+            android:textSize="18dp" />
+
+        <com.dml.base.ui.ThemeEditText
+            android:id="@+id/passwordET"
+            style="@style/AppTheme.EditText.Signup"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:inputType="textPassword"
+            android:drawableEnd="@drawable/ic_password_hidden" />
+
+        <com.dml.base.ui.ThemeButton
+            style="@style/AppTheme.Button.Blue"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/activity_signup_first_button_sign_up"
+            app:appFontStyle="barlow_semibold" />
+    </LinearLayout>
+</ScrollView>

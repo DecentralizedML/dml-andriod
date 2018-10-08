@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#b9b9b9</color>
+    <color name="colorPrimaryDark">#b9b9b9</color>
+    <color name="colorAccent">#8194B2</color>
+
+    <color name="background">#ffffff</color>
+    <color name="text">#0D2957</color>
+    <color name="text_light">#8194B2</color>
+    <color name="divider">#DAE1ED</color>
+
+    <color name="button_white">#ffffff</color>
+    <color name="button_blue">#3c81ed</color>
+    <color name="welcome_background">#3c81ed</color>
+    <color name="welcome_text">#f4f4f4</color>
+
+    <color name="signup_line_light">#DAE1ED</color>
+    <color name="signup_line">#6C80A0</color>
+    <color name="signup_edittext_border">#ADBCD4</color>
+    <color name="signup_edittext_text">#8194B2</color>
 </resources>
