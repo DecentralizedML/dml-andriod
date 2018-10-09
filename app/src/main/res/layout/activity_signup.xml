@@ -2,13 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginRight="24dp">
 
         <LinearLayout
@@ -20,20 +21,19 @@
             android:paddingLeft="12dp"
             android:paddingRight="12dp">
 
-            <View
-                android:id="@+id/FirstProgressBar"
+            <ImageView
+                android:id="@+id/firstProgressBar"
                 android:layout_width="0dp"
                 android:layout_height="4dp"
                 android:layout_weight="1"
-                android:background="@color/signup_line_light"
-                android:backgroundTint="@color/signup_line" />
+                android:src="@color/signup_line_light" />
 
-            <View
-                android:id="@+id/SecondProgressBar"
+            <ImageView
+                android:id="@+id/secondProgressBar"
                 android:layout_width="0dp"
                 android:layout_height="4dp"
                 android:layout_weight="1"
-                android:background="@color/signup_line_light" />
+                android:src="@color/signup_line_light" />
         </LinearLayout>
 
         <ImageView
@@ -61,8 +61,8 @@
             android:src="@drawable/ic_signup_circle_light" />
     </RelativeLayout>
 
-    <FrameLayout
-        android:id="@+id/content"
+    <com.dml.base.ui.NoSwipeViewPager
+        android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

@@ -1,23 +1,27 @@
 package com.dml.base.fragment
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.text.InputType
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.view.MotionEvent
 import android.view.View
+import android.widget.Toast
 import com.dml.base.R
+import com.dml.base.Utils
 import com.dml.base.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_signup_first.*
 
-class SignupFirstFragment : BaseFragment() {
+class SignUpFirstFragment : BaseFragment() {
 
     var showPassword = false
 
-    override fun newInstance(bundle: Bundle?): SignupFirstFragment {
-        val fragment = Fragment() as SignupFirstFragment
-        if (bundle != null)
-            fragment.arguments = bundle
-        return fragment
+    companion object {
+        fun newInstance(bundle: Bundle?): BaseFragment {
+            val fragment = SignUpFirstFragment()
+            if (bundle != null)
+                fragment.arguments = bundle
+            return fragment
+        }
     }
 
     override fun setLayoutId(): Int {
@@ -36,10 +40,10 @@ class SignupFirstFragment : BaseFragment() {
                     if (event.rawX >= passwordET.getRight() - passwordET.compoundDrawables[DRAWABLE_RIGHT].bounds.width()) {
                         if (showPassword) {
                             showPassword = false
-                            passwordET?.inputType = InputType.TYPE_TEXT_VARIATION_PASSWORD
+                            passwordET?.transformationMethod = HideReturnsTransformationMethod.getInstance()
                         } else {
                             showPassword = true
-                            passwordET?.inputType = InputType.TYPE_CLASS_TEXT
+                            passwordET?.transformationMethod = PasswordTransformationMethod.getInstance()
                         }
 
                         return true
@@ -48,5 +52,18 @@ class SignupFirstFragment : BaseFragment() {
                 return false
             }
         })
+
+        signUpBtn?.setOnClickListener { signUp() }
+    }
+
+    private fun signUp() {
+        if (Utils.isValidEmail(emailET?.text.toString()))
+            Toast.makeText(activity, "valid", Toast.LENGTH_SHORT).show()
+        else
+            Toast.makeText(activity, "invalid", Toast.LENGTH_SHORT).show()
+
+//        if (activity is SignUpActivity) {
+//            (activity as SignUpActivity).setState(SignUpState.Second)
+//        }
     }
 }
