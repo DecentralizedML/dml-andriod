@@ -2,12 +2,13 @@ package com.dml.base.ui
 
 import android.content.Context
 import android.graphics.Typeface
+import android.support.design.widget.TextInputEditText
 import android.util.AttributeSet
 import android.widget.Button
 import android.widget.EditText
 import com.dml.base.R
 
-class ThemeEditText : EditText {
+class ThemeEditText : TextInputEditText {
     enum class Font {
         BARLOW_REGULAR, BARLOW_MEDIUM, BARLOW_SEMIBOLD
     }

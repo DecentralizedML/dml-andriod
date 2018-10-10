@@ -77,14 +77,19 @@
                 android:text="@string/activity_signup_first_password"
                 android:textSize="18dp" />
 
-            <com.dml.base.ui.ThemeEditText
-                android:id="@+id/passwordET"
-                style="@style/AppTheme.EditText.Signup"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="8dp"
-                android:drawableEnd="@drawable/ic_password_hidden"
-                android:inputType="textPassword" />
+                android:layout_height="wrap_content"
+                app:passwordToggleEnabled="true">
+
+                <com.dml.base.ui.ThemeEditText
+                    android:id="@+id/passwordET"
+                    style="@style/AppTheme.EditText.Signup"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="8dp"
+                    android:inputType="textPassword" />
+            </android.support.design.widget.TextInputLayout>
         </LinearLayout>
     </ScrollView>
 

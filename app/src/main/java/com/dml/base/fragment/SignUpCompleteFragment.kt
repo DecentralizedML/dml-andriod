@@ -25,7 +25,7 @@ class SignUpCompleteFragment : BaseFragment() {
     }
 
     private fun signUp() {
-//        if (!Utils.isValidEmail(emailET?.text.toString()))
+//        if (!Utility.isValidEmail(emailET?.text.toString()))
 //            Toast.makeText(activity, "valid", Toast.LENGTH_SHORT).show()
 //
         if (activity is SignUpActivity) {

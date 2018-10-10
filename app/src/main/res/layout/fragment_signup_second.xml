@@ -81,7 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="8dp"
-                android:inputType="date" />
+                android:focusable="false" />
 
             <com.dml.base.ui.ThemeTextView
                 android:layout_width="match_parent"
@@ -137,34 +137,11 @@
         </LinearLayout>
     </ScrollView>
 
-    <RelativeLayout
+    <com.dml.base.ui.ThemeButton
+        android:id="@+id/nextBtn"
+        style="@style/AppTheme.Button.Blue"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="24dp">
-
-        <com.dml.base.ui.ThemeButton
-            android:id="@+id/nextBtn"
-            style="@style/AppTheme.Button.Blue"
-            android:layout_width="match_parent"
-            android:layout_height="60dp" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:orientation="horizontal">
-
-            <com.dml.base.ui.ThemeTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/activity_signup_first_button_sign_up"
-                app:appFontStyle="barlow_semibold" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_password_hidden" />
-        </LinearLayout>
-
-    </RelativeLayout>
+        android:layout_marginTop="24dp"
+        android:text="@string/activity_signup_second_button_next" />
 </LinearLayout>

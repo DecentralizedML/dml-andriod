@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">DML</string>
 
+    <string name="common_ok">OK</string>
+    <string name="no_network_title">No network</string>
+    <string name="no_network">No network</string>
+
     <string name="welcome_title">Decentralized\nMachine Learning</string>
     <string name="welcome_desc">Get paid for your date, on your terms.</string>
     <string name="welcome_button_get_started">Get Started</string>

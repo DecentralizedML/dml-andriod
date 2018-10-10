@@ -58,6 +58,7 @@
             android:id="@+id/checkOutBtn"
             style="@style/AppTheme.Button.Blue"
             android:layout_width="match_parent"
+            android:text="@string/activity_signup_complete_button_check_out"
             android:layout_height="60dp" />
 
         <LinearLayout
