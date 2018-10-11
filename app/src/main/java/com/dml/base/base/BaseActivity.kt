@@ -1,8 +1,11 @@
 package com.dml.base.base
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.dml.base.api.service.APIService
+import android.content.Intent
+
+
 
 abstract class BaseActivity : AppCompatActivity() {
 
@@ -17,4 +20,10 @@ abstract class BaseActivity : AppCompatActivity() {
     protected abstract fun setLayoutId(): Int
 
     protected abstract fun connectViews()
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        for (fragment in supportFragmentManager.fragments) {
+            fragment.onActivityResult(requestCode, resultCode, data)
+        }
+    }
 }

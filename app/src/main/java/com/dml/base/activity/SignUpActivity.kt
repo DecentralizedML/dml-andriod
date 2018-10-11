@@ -1,8 +1,8 @@
 package com.dml.base.activity
 
 import android.os.Bundle
-import android.support.v4.app.FragmentPagerAdapter
-import android.support.v4.content.ContextCompat
+import androidx.fragment.app.FragmentPagerAdapter
+import androidx.core.content.ContextCompat
 import com.dml.base.R
 import com.dml.base.adapter.SignUpViewPageAdapter
 import com.dml.base.base.BaseActivity

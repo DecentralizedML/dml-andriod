@@ -1,8 +1,8 @@
 package com.dml.base.adapter
 
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
 import com.dml.base.fragment.SignUpCompleteFragment
 import com.dml.base.fragment.SignUpFirstFragment
 import com.dml.base.fragment.SignUpSecondFragment
@@ -19,7 +19,7 @@ class SignUpViewPageAdapter(fragmentManager: FragmentManager) : FragmentPagerAda
         return NUM_ITEMS
     }
 
-    override fun getItem(position: Int): Fragment? {
+    override fun getItem(position: Int): androidx.fragment.app.Fragment? {
         return when (position) {
             0 -> SignUpFirstFragment.newInstance(null)
             1 -> SignUpSecondFragment.newInstance(null)

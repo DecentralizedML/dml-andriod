@@ -3,7 +3,7 @@ package com.dml.base.fragment
 import android.Manifest
 import android.os.Build
 import android.os.Bundle
-import android.support.v4.content.PermissionChecker
+import androidx.core.content.PermissionChecker
 import com.dml.base.R
 import com.dml.base.activity.SignUpActivity
 import com.dml.base.base.BaseFragment

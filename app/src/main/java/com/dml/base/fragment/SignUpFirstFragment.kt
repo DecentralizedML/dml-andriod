@@ -1,5 +1,6 @@
 package com.dml.base.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
 import android.text.method.HideReturnsTransformationMethod
@@ -30,6 +31,7 @@ import kotlinx.android.synthetic.main.fragment_signup_first.*
 class SignUpFirstFragment : BaseFragment() {
 
     var showPassword = false
+    var callbackManager: CallbackManager? = null
 
     companion object {
         fun newInstance(bundle: Bundle?): BaseFragment {
@@ -73,9 +75,8 @@ class SignUpFirstFragment : BaseFragment() {
 //            }
 //        })
 
-        val callbackManager = CallbackManager.Factory.create()
-        fbSignUpBtn?.setOnClickListener {
-            LoginManager.getInstance()
+        callbackManager = CallbackManager.Factory.create()
+        LoginManager.getInstance()
                 .registerCallback(callbackManager,
                         object : FacebookCallback<LoginResult> {
                             override fun onSuccess(loginResult: LoginResult) {
@@ -93,6 +94,8 @@ class SignUpFirstFragment : BaseFragment() {
                                 // App code
                             }
                         })
+        fbSignUpBtn?.setOnClickListener {
+            LoginManager.getInstance().logInWithReadPermissions(getParentActivity(), arrayListOf("public_profile", "email"))
         }
 
         signUpBtn?.setOnClickListener { signUp() }
@@ -150,5 +153,10 @@ class SignUpFirstFragment : BaseFragment() {
 //        if (activity is SignUpActivity) {
 //            (activity as SignUpActivity).setState(SignUpState.Second)
 //        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        callbackManager?.onActivityResult(requestCode, resultCode, data)
+        //super.onActivityResult(requestCode, resultCode, data);
     }
 }

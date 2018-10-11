@@ -1,13 +1,14 @@
 package com.dml.base.base
 
-import android.app.Activity
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.content.Intent
+
 
 abstract class BaseFragment : Fragment() {
 
@@ -50,4 +51,8 @@ abstract class BaseFragment : Fragment() {
     fun getParentActivity(): BaseActivity {
         return activity as BaseActivity
     }
+
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        //super.onActivityResult(requestCode, resultCode, data);
+//    }
 }

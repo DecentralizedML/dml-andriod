@@ -1,8 +1,8 @@
 package com.dml.base.base
 
 import android.content.Intent
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentTransaction
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import android.text.TextUtils
 import android.view.View
 import android.widget.FrameLayout
@@ -116,10 +116,10 @@ abstract class BaseFragmentActivity : BaseActivity() {
         mFragmentTransaction?.commitAllowingStateLoss()
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        val fragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
-        if (fragment != null)
-            fragment.onActivityResult(requestCode, resultCode, data)
-    }
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        val fragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
+//        if (fragment != null)
+//            fragment.onActivityResult(requestCode, resultCode, data)
+//    }
 }
