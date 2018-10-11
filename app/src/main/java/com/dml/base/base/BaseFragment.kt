@@ -1,8 +1,10 @@
 package com.dml.base.base
 
+import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,4 +47,7 @@ abstract class BaseFragment : Fragment() {
         return activity as Context
     }
 
+    fun getParentActivity(): BaseActivity {
+        return activity as BaseActivity
+    }
 }

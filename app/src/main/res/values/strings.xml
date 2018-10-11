@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">DML</string>
+    <string name="facebook_app_id">1971897396448744</string>
+    <string name="fb_login_protocol_scheme">fb1971897396448744</string>
 
     <string name="common_ok">OK</string>
     <string name="no_network_title">No network</string>

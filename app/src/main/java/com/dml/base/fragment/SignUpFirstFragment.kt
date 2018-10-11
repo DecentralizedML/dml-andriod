@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.text.InputType
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Toast
+import com.dml.base.Preferences
 import com.dml.base.R
 import com.dml.base.Utility
 import com.dml.base.api.service.APIService
@@ -16,10 +18,14 @@ import com.dml.base.model.LoginModel
 import com.dml.base.model.LoginRequestModel
 import com.dml.base.model.SignUpModel
 import com.dml.base.model.SignUpRequestModel
+import com.facebook.CallbackManager
+import com.facebook.FacebookCallback
+import com.facebook.FacebookException
+import com.facebook.login.LoginManager
+import com.facebook.login.LoginResult
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_signup_first.*
-import java.util.prefs.Preferences
 
 class SignUpFirstFragment : BaseFragment() {
 
@@ -67,25 +73,50 @@ class SignUpFirstFragment : BaseFragment() {
 //            }
 //        })
 
+        val callbackManager = CallbackManager.Factory.create()
+        fbSignUpBtn?.setOnClickListener {
+            LoginManager.getInstance()
+                .registerCallback(callbackManager,
+                        object : FacebookCallback<LoginResult> {
+                            override fun onSuccess(loginResult: LoginResult) {
+                                Log.d("facebook", loginResult.toString())
+                                // App code
+                            }
+
+                            override fun onCancel() {
+                                Log.d("facebook", "cancel")
+                                // App code
+                            }
+
+                            override fun onError(exception: FacebookException) {
+                                Log.d("facebook", exception.message)
+                                // App code
+                            }
+                        })
+        }
+
         signUpBtn?.setOnClickListener { signUp() }
     }
 
     private fun postSignUpRequest() {
         var signUpRequestModel = SignUpRequestModel()
         signUpRequestModel.apply {
-            email = "test2@test.com"
-            password = "password123"
-            passwordConfirmation = "password123"
-            firstName = "Ethan"
-            lastName = "Chan"
+            user.apply {
+                email = "test2@test.com"
+                password = "password123"
+                passwordConfirmation = "password123"
+                firstName = "Ethan"
+                lastName = "Chan"
+            }
         }
 
-        APIService().postSignUpRequest(context, signUpRequestModel)
+        getParentActivity().mService.postSignUpRequest(context, signUpRequestModel)
                 ?.subscribeOn(Schedulers.io())
                 ?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribeWith(object : DefaultRequestObserver<SignUpModel>(context) {
                     override fun onNext(model: SignUpModel) {
-                        Toast.makeText(context, model.email, Toast.LENGTH_SHORT).show()
+                        Preferences.setJWT(context, model.jwt)
+                        Toast.makeText(context, "postSignUpRequest success", Toast.LENGTH_SHORT).show()
                     }
                 })
     }
@@ -97,19 +128,20 @@ class SignUpFirstFragment : BaseFragment() {
             password = "password123"
         }
 
-        APIService().postLoginRequest(context, loginRequestModel)
+        getParentActivity().mService.postLoginRequest(context, loginRequestModel)
                 ?.subscribeOn(Schedulers.io())
                 ?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribeWith(object : DefaultRequestObserver<LoginModel>(context) {
                     override fun onNext(model: LoginModel) {
-                        Toast.makeText(context, model.email, Toast.LENGTH_SHORT).show()
+                        Preferences.setJWT(context, model.jwt)
+                        Toast.makeText(context, "postLoginRequest success", Toast.LENGTH_SHORT).show()
                     }
                 })
     }
 
     private fun signUp() {
-//        postSignUpRequest()
-        postLoginRequest()
+        postSignUpRequest()
+//        postLoginRequest()
 //        if (Utility.isValidEmail(emailET?.text.toString()))
 //            Toast.makeText(activity, "valid", Toast.LENGTH_SHORT).show()
 //        else
