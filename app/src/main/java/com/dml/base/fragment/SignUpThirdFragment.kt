@@ -1,8 +1,11 @@
 package com.dml.base.fragment
 
 import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.core.content.PermissionChecker
 import com.dml.base.R
 import com.dml.base.activity.SignUpActivity
@@ -62,22 +65,34 @@ class SignUpThirdFragment : BaseFragment() {
     }
 
     private fun requestPermission() {
-        if (permissionArray.size == 0) {
+        if (permissionArray.size == 0 || Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             nextActivity()
             return
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            requestPermissions(
-                    permissionArray.toTypedArray(),
-                    REQUEST_CODE_PERMISSION
-            )
-        }
+        requestPermissions(
+                permissionArray.toTypedArray(),
+                REQUEST_CODE_PERMISSION
+        )
     }
 
     private fun nextActivity() {
         if (activity is SignUpActivity) {
             (activity as SignUpActivity).setState(SignUpActivity.SignUpState.Complete)
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        when (requestCode) {
+            REQUEST_CODE_PERMISSION -> {
+                if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(context, "denied permission", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(context, "granted permission", Toast.LENGTH_SHORT).show()
+                    nextActivity()
+                }
+                return
+            }
         }
     }
 }

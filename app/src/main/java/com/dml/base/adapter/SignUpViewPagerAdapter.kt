@@ -9,7 +9,7 @@ import com.dml.base.fragment.SignUpSecondFragment
 import com.dml.base.fragment.SignUpThirdFragment
 
 
-class SignUpViewPageAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
+class SignUpViewPagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
 
     companion object {
         private const val NUM_ITEMS = 4

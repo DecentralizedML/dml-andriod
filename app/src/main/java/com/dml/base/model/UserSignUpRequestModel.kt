@@ -3,7 +3,7 @@ package com.dml.base.model
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-class SignUpRequestModel : Serializable {
+class UserSignUpRequestModel : Serializable {
     var user = User()
 
     inner class User : Serializable {

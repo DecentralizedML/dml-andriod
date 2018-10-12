@@ -2,23 +2,18 @@ package com.dml.base.fragment
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.InputType
-import android.text.method.HideReturnsTransformationMethod
-import android.text.method.PasswordTransformationMethod
 import android.util.Log
-import android.view.MotionEvent
-import android.view.View
 import android.widget.Toast
 import com.dml.base.Preferences
 import com.dml.base.R
 import com.dml.base.Utility
-import com.dml.base.api.service.APIService
+import com.dml.base.activity.SignUpActivity
 import com.dml.base.base.BaseFragment
 import com.dml.base.connection.DefaultRequestObserver
-import com.dml.base.model.LoginModel
-import com.dml.base.model.LoginRequestModel
-import com.dml.base.model.SignUpModel
-import com.dml.base.model.SignUpRequestModel
+import com.dml.base.model.UserLoginModel
+import com.dml.base.model.UserLoginRequestModel
+import com.dml.base.model.UserSignUpModel
+import com.dml.base.model.UserSignUpRequestModel
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
 import com.facebook.FacebookException
@@ -102,7 +97,7 @@ class SignUpFirstFragment : BaseFragment() {
     }
 
     private fun postSignUpRequest() {
-        var signUpRequestModel = SignUpRequestModel()
+        var signUpRequestModel = UserSignUpRequestModel()
         signUpRequestModel.apply {
             user.apply {
                 email = "test2@test.com"
@@ -113,50 +108,55 @@ class SignUpFirstFragment : BaseFragment() {
             }
         }
 
-        getParentActivity().mService.postSignUpRequest(context, signUpRequestModel)
+        getParentActivity().mService.postUserSignUpRequest(context, signUpRequestModel)
                 ?.subscribeOn(Schedulers.io())
                 ?.observeOn(AndroidSchedulers.mainThread())
-                ?.subscribeWith(object : DefaultRequestObserver<SignUpModel>(context) {
-                    override fun onNext(model: SignUpModel) {
-                        Preferences.setJWT(context, model.jwt)
-                        Toast.makeText(context, "postSignUpRequest success", Toast.LENGTH_SHORT).show()
+                ?.subscribeWith(object : DefaultRequestObserver<UserSignUpModel>(context) {
+                    override fun onNext(modelUser: UserSignUpModel) {
+                        Preferences.setJWT(context, modelUser.jwt)
+                        Toast.makeText(context, "postUserSignUpRequest success", Toast.LENGTH_SHORT).show()
                     }
                 })
     }
 
     private fun postLoginRequest() {
-        var loginRequestModel = LoginRequestModel()
+        var loginRequestModel = UserLoginRequestModel()
         loginRequestModel.apply {
             email = "user@kyokan.io"
             password = "password123"
         }
 
-        getParentActivity().mService.postLoginRequest(context, loginRequestModel)
+        getParentActivity().mService.postUserLoginRequest(context, loginRequestModel)
                 ?.subscribeOn(Schedulers.io())
                 ?.observeOn(AndroidSchedulers.mainThread())
-                ?.subscribeWith(object : DefaultRequestObserver<LoginModel>(context) {
-                    override fun onNext(model: LoginModel) {
-                        Preferences.setJWT(context, model.jwt)
-                        Toast.makeText(context, "postLoginRequest success", Toast.LENGTH_SHORT).show()
+                ?.subscribeWith(object : DefaultRequestObserver<UserLoginModel>(context) {
+                    override fun onNext(modelUser: UserLoginModel) {
+                        Preferences.setJWT(context, modelUser.jwt)
+                        Toast.makeText(context, "postUserLoginRequest success", Toast.LENGTH_SHORT).show()
                     }
                 })
     }
 
     private fun signUp() {
-        postSignUpRequest()
-//        postLoginRequest()
-//        if (Utility.isValidEmail(emailET?.text.toString()))
-//            Toast.makeText(activity, "valid", Toast.LENGTH_SHORT).show()
-//        else
-//            Toast.makeText(activity, "invalid", Toast.LENGTH_SHORT).show()
+//        postSignUpRequest()
+//        postUserLoginRequest()
 
-//        if (activity is SignUpActivity) {
-//            (activity as SignUpActivity).setState(SignUpState.Second)
-//        }
+        if (!Utility.isValidEmail(emailET?.text.toString())) {
+            Toast.makeText(activity, "email invalid", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (passwordET?.text.isNullOrBlank()) {
+            Toast.makeText(activity, "password invalid", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (activity is SignUpActivity) {
+            (activity as SignUpActivity).setState(SignUpActivity.SignUpState.Second)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         callbackManager?.onActivityResult(requestCode, resultCode, data)
-        //super.onActivityResult(requestCode, resultCode, data);
     }
 }

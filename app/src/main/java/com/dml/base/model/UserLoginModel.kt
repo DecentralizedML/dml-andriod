@@ -2,7 +2,7 @@ package com.dml.base.model
 
 import com.google.gson.annotations.SerializedName
 
-class LoginModel {
+class UserLoginModel {
     @SerializedName("wallet_address")
     var walletAddress = ""
     @SerializedName("last_name")
