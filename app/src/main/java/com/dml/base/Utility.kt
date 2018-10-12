@@ -71,5 +71,10 @@ class Utility {
             return email.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()
         }
 
+        fun setClipboard(context: Context, label: String, text: String) {
+            val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
+            val clip = android.content.ClipData.newPlainText(label, text)
+            clipboard.primaryClip = clip
+        }
     }
 }

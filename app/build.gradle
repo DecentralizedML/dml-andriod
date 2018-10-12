@@ -12,6 +12,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -19,6 +20,14 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/rxjava.properties'
     }
 }
 
@@ -43,6 +52,8 @@ dependencies {
 
 //    implementation 'com.google.android.gms:play-services-auth:15.0.1'
     implementation 'com.facebook.android:facebook-login:[4,5)'
+
+    implementation 'org.web3j:core:3.3.1-android'
 }
 
 //apply plugin: 'com.google.gms.google-services'

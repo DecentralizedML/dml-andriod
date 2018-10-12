@@ -33,6 +33,7 @@ class SignUpActivity : BaseActivity() {
 
         viewPagerAdapter = SignUpViewPagerAdapter(supportFragmentManager)
         pager?.adapter = viewPagerAdapter
+        pager?.offscreenPageLimit = 0
         setState(SignUpState.First)
     }
 
