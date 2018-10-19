@@ -2,91 +2,78 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@drawable/img_background"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginBottom="16dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:layout_centerVertical="true"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingLeft="12dp"
-            android:paddingRight="12dp">
-
-            <ImageView
-                android:id="@+id/firstProgressBar"
-                android:layout_width="0dp"
-                android:layout_height="4dp"
-                android:layout_weight="1"
-                android:src="@color/signup_line_light" />
-
-            <ImageView
-                android:id="@+id/secondProgressBar"
-                android:layout_width="0dp"
-                android:layout_height="4dp"
-                android:layout_weight="1"
-                android:src="@color/signup_line_light" />
-        </LinearLayout>
+        android:layout_marginTop="12dp"
+        android:gravity="center">
 
         <ImageView
-            android:id="@+id/stageFirstBackgroundIV"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_alignParentStart="true"
+            android:id="@+id/stageFirstBgIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:src="@drawable/ic_signup_circle_light" />
+            android:layout_toLeftOf="@+id/firstProgressBar"
+            android:src="@drawable/ic_welcome_empty" />
 
         <ImageView
             android:id="@+id/stageFirstIV"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:padding="6dp"
-            android:src="@drawable/ic_tick" />
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="-20dp"
+            android:layout_toLeftOf="@+id/firstProgressBar"
+            android:src="@drawable/ic_welcome_done" />
 
         <ImageView
-            android:id="@+id/stageSecondBackgroundIV"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_centerInParent="true"
+            android:id="@+id/firstProgressBar"
+            android:layout_width="46dp"
+            android:layout_height="2dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/ic_signup_circle_light" />
+            android:layout_toLeftOf="@+id/stageSecondBgIV"
+            android:src="@color/signup_line_not_finish" />
+
+        <ImageView
+            android:id="@+id/stageSecondBgIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_welcome_empty" />
 
         <ImageView
             android:id="@+id/stageSecondIV"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             android:layout_centerInParent="true"
-            android:layout_centerVertical="true"
-            android:padding="6dp"
-            android:src="@drawable/ic_tick" />
+            android:src="@drawable/ic_welcome_done" />
 
         <ImageView
-            android:id="@+id/stageThirdBackgroundIV"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_alignParentEnd="true"
+            android:id="@+id/secondProgressBar"
+            android:layout_width="46dp"
+            android:layout_height="2dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/ic_signup_circle_light" />
+            android:layout_toRightOf="@+id/stageSecondBgIV"
+            android:src="@color/signup_line_not_finish" />
+
+        <ImageView
+            android:id="@+id/stageThirdBgIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/secondProgressBar"
+            android:src="@drawable/ic_welcome_empty" />
 
         <ImageView
             android:id="@+id/stageThirdIV"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_alignParentEnd="true"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             android:layout_centerVertical="true"
-            android:padding="6dp"
-            android:src="@drawable/ic_tick" />
+            android:layout_marginLeft="-20dp"
+            android:layout_toRightOf="@+id/secondProgressBar"
+            android:src="@drawable/ic_welcome_ongoing" />
     </RelativeLayout>
 
     <com.dml.base.ui.NoSwipeViewPager

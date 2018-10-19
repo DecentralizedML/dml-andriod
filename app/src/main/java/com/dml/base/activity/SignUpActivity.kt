@@ -2,7 +2,6 @@ package com.dml.base.activity
 
 import android.os.Bundle
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.core.content.ContextCompat
 import com.dml.base.R
 import com.dml.base.adapter.SignUpViewPagerAdapter
 import com.dml.base.base.BaseActivity
@@ -41,60 +40,36 @@ class SignUpActivity : BaseActivity() {
         when (state) {
             SignUpState.First -> {
                 pager?.setCurrentItem(0, true)
-                firstProgressBar?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line_light), android.graphics.PorterDuff.Mode.MULTIPLY)
-                secondProgressBar?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line_light), android.graphics.PorterDuff.Mode.MULTIPLY)
-//                stageFirstIV?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line), android.graphics.PorterDuff.Mode.MULTIPLY)
-//                stageSecondIV?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line_light), android.graphics.PorterDuff.Mode.MULTIPLY)
-//                stageThirdIV?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line_light), android.graphics.PorterDuff.Mode.MULTIPLY)
-                stageFirstBackgroundIV?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line), android.graphics.PorterDuff.Mode.MULTIPLY)
-                stageSecondBackgroundIV?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line_light), android.graphics.PorterDuff.Mode.MULTIPLY)
-                stageThirdBackgroundIV?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line_light), android.graphics.PorterDuff.Mode.MULTIPLY)
-                stageFirstIV?.setImageResource(R.drawable.ic_loading)
+                firstProgressBar.setImageResource(R.color.signup_line_not_finish)
+                secondProgressBar.setImageResource(R.color.signup_line_not_finish)
+                stageFirstIV?.setImageResource(R.drawable.ic_welcome_ongoing)
                 stageSecondIV?.setImageResource(0)
                 stageThirdIV?.setImageResource(0)
             }
             SignUpState.Second -> {
                 pager?.setCurrentItem(1, true)
-                firstProgressBar?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line), android.graphics.PorterDuff.Mode.MULTIPLY)
-                secondProgressBar?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line_light), android.graphics.PorterDuff.Mode.MULTIPLY)
-//                stageFirstIV?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line), android.graphics.PorterDuff.Mode.MULTIPLY)
-//                stageSecondIV?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line), android.graphics.PorterDuff.Mode.MULTIPLY)
-//                stageThirdIV?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line_light), android.graphics.PorterDuff.Mode.MULTIPLY)
-                stageFirstBackgroundIV?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line), android.graphics.PorterDuff.Mode.MULTIPLY)
-                stageSecondBackgroundIV?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line), android.graphics.PorterDuff.Mode.MULTIPLY)
-                stageThirdBackgroundIV?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line_light), android.graphics.PorterDuff.Mode.MULTIPLY)
-                stageFirstIV?.setImageResource(R.drawable.ic_tick)
-                stageSecondIV?.setImageResource(R.drawable.ic_loading)
+                firstProgressBar.setImageResource(R.color.signup_line_not_finish)
+                secondProgressBar.setImageResource(R.color.signup_line_not_finish)
+                stageFirstIV?.setImageResource(R.drawable.ic_welcome_done)
+                stageSecondIV?.setImageResource(R.drawable.ic_welcome_ongoing)
                 stageThirdIV?.setImageResource(0)
             }
             SignUpState.Third -> {
                 pager?.setCurrentItem(2, true)
-                firstProgressBar?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line), android.graphics.PorterDuff.Mode.MULTIPLY)
-                secondProgressBar?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line), android.graphics.PorterDuff.Mode.MULTIPLY)
-//                stageFirstIV?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line), android.graphics.PorterDuff.Mode.MULTIPLY)
-//                stageSecondIV?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line), android.graphics.PorterDuff.Mode.MULTIPLY)
-//                stageThirdIV?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line), android.graphics.PorterDuff.Mode.MULTIPLY)
-                stageFirstBackgroundIV?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line), android.graphics.PorterDuff.Mode.MULTIPLY)
-                stageSecondBackgroundIV?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line), android.graphics.PorterDuff.Mode.MULTIPLY)
-                stageThirdBackgroundIV?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line), android.graphics.PorterDuff.Mode.MULTIPLY)
-                stageFirstIV?.setImageResource(R.drawable.ic_tick)
-                stageSecondIV?.setImageResource(R.drawable.ic_tick)
-                stageThirdIV?.setImageResource(R.drawable.ic_loading)
+                firstProgressBar.setImageResource(R.color.signup_line_finish)
+                secondProgressBar.setImageResource(R.color.signup_line_finish)
+                stageFirstIV?.setImageResource(R.drawable.ic_welcome_done)
+                stageSecondIV?.setImageResource(R.drawable.ic_welcome_done)
+                stageThirdIV?.setImageResource(R.drawable.ic_welcome_ongoing)
 
             }
             SignUpState.Complete -> {
                 pager?.setCurrentItem(3, true)
-                firstProgressBar?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line), android.graphics.PorterDuff.Mode.MULTIPLY)
-                secondProgressBar?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line), android.graphics.PorterDuff.Mode.MULTIPLY)
-//                stageFirstIV?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line), android.graphics.PorterDuff.Mode.MULTIPLY)
-//                stageSecondIV?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line), android.graphics.PorterDuff.Mode.MULTIPLY)
-//                stageThirdIV?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line), android.graphics.PorterDuff.Mode.MULTIPLY)
-                stageFirstBackgroundIV?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line), android.graphics.PorterDuff.Mode.MULTIPLY)
-                stageSecondBackgroundIV?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line), android.graphics.PorterDuff.Mode.MULTIPLY)
-                stageThirdBackgroundIV?.setColorFilter(ContextCompat.getColor(this@SignUpActivity, R.color.signup_line), android.graphics.PorterDuff.Mode.MULTIPLY)
-                stageFirstIV?.setImageResource(R.drawable.ic_tick)
-                stageSecondIV?.setImageResource(R.drawable.ic_tick)
-                stageThirdIV?.setImageResource(R.drawable.ic_tick)
+                firstProgressBar.setImageResource(R.color.signup_line_finish)
+                secondProgressBar.setImageResource(R.color.signup_line_finish)
+                stageFirstIV?.setImageResource(R.drawable.ic_welcome_done)
+                stageSecondIV?.setImageResource(R.drawable.ic_welcome_done)
+                stageThirdIV?.setImageResource(R.drawable.ic_welcome_done)
             }
         }
     }

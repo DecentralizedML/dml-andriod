@@ -7,7 +7,9 @@
                 android:endColor="@color/button_end"
                 android:startColor="@color/button_start"
                 android:type="linear" />
-            <corners android:radius="100dp" />
+            <corners
+                android:bottomLeftRadius="100dp"
+                android:topLeftRadius="100dp" />
         </shape>
     </item>
 </ripple>

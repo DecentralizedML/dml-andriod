@@ -93,7 +93,10 @@ class SignUpFirstFragment : BaseFragment() {
             LoginManager.getInstance().logInWithReadPermissions(getParentActivity(), arrayListOf("public_profile", "email"))
         }
 
-        signUpBtn?.setOnClickListener { signUp() }
+        signUpBtn?.apply {
+            setText(R.string.activity_signup_first_button_sign_up)
+            setOnClickListener { signUp() }
+        }
     }
 
     private fun postSignUpRequest() {

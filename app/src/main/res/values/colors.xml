@@ -2,20 +2,28 @@
 <resources>
     <color name="colorPrimary">#b9b9b9</color>
     <color name="colorPrimaryDark">#b9b9b9</color>
-    <color name="colorAccent">#8194B2</color>
+    <color name="colorAccent">#23E280</color>
 
     <color name="background">#ffffff</color>
-    <color name="text">#0D2957</color>
+    <color name="background_start">#003B98</color>
+    <color name="background_end">#001434</color>
+    <color name="text">#F7F9FC</color>
+    <color name="text_title">#ffffff</color>
+    <color name="text_green">#46E546</color>
     <color name="text_light">#8194B2</color>
-    <color name="divider">#DAE1ED</color>
+    <color name="text_dark">#ADBCD4</color>
+    <color name="divider">#3D68B0</color>
 
     <color name="button_white">#ffffff</color>
     <color name="button_blue">#3c81ed</color>
+    <color name="button_start">#46E546</color>
+    <color name="button_end">#03DFB5</color>
     <color name="welcome_background">#3c81ed</color>
-    <color name="welcome_text">#f4f4f4</color>
 
-    <color name="signup_line_light">#DAE1ED</color>
-    <color name="signup_line">#6C80A0</color>
+    <color name="signup_line_not_finish">#3D68B0</color>
+    <color name="signup_line_finish">#F7F9FC</color>
     <color name="signup_edittext_border">#ADBCD4</color>
     <color name="signup_edittext_text">#8194B2</color>
+
+    <color name="edittext_title">#67A1FF</color>
 </resources>

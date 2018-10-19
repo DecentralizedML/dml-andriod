@@ -1,11 +1,8 @@
 package com.dml.base.fragment
 
-import android.content.ContextWrapper
+import android.net.wifi.hotspot2.pps.Credential
 import android.os.Bundle
-import android.os.Environment
-import android.util.Log
 import android.view.View
-import android.widget.Toast
 import com.dml.base.Configure
 import com.dml.base.R
 import com.dml.base.Utility
@@ -13,14 +10,11 @@ import com.dml.base.base.BaseFragment
 import com.dml.base.utility.web3j.WalletUtils
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_signup_wallet.*
-import org.web3j.protocol.Web3j
 import org.web3j.protocol.Web3jFactory
 import org.web3j.protocol.http.HttpService
 import java.io.File
-import io.reactivex.internal.disposables.DisposableHelper.isDisposed
 
 
 class SignUpWalletFragment : BaseFragment() {
@@ -31,7 +25,7 @@ class SignUpWalletFragment : BaseFragment() {
 
     private var mnemonic = ""
 
-    private var mCompositeDisposable = CompositeDisposable()
+    private var credentials: Credential? = null
 
     companion object {
         fun newInstance(bundle: Bundle?): BaseFragment {
@@ -69,15 +63,6 @@ class SignUpWalletFragment : BaseFragment() {
         val bip39Wallet = WalletUtils.generateBip39Wallet(password, File(path.toString()))
         val fileName = bip39Wallet.filename
         mnemonic = bip39Wallet.mnemonic
-        val credentials = WalletUtils.loadBip39Credentials(password, mnemonic)
-
-        Log.v("createWallet", mnemonic)
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-
-        if (!mCompositeDisposable.isDisposed)
-            mCompositeDisposable.dispose()
+        credentials?.let { WalletUtils.loadBip39Credentials(password, mnemonic) }
     }
 }

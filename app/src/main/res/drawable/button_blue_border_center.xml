@@ -4,8 +4,8 @@
     <shape android:shape="rectangle">
         <stroke
             android:width="2dp"
-            android:color="@color/signup_edittext_border" />
-        <solid android:color="@color/background" />
+            android:color="@color/colorAccent" />
+        <solid android:color="@android:color/transparent" />
 
     </shape>
 </item>
@@ -16,8 +16,8 @@
     <shape android:shape="rectangle">
         <stroke
             android:width="2dp"
-            android:color="@color/background" />
-        <solid android:color="@color/background" />
+            android:color="@android:color/transparent" />
+        <solid android:color="@android:color/transparent" />
     </shape>
 </item>
 

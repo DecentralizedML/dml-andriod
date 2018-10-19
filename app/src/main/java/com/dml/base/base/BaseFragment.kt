@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.content.Intent
+import io.reactivex.disposables.CompositeDisposable
 
 
 abstract class BaseFragment : Fragment() {
@@ -17,6 +18,8 @@ abstract class BaseFragment : Fragment() {
     protected var layoutId: Int = 0
 
     protected var mLanguage: String? = null
+
+    protected var mCompositeDisposable = CompositeDisposable()
 
     protected abstract fun setLayoutId(): Int
 
@@ -55,4 +58,11 @@ abstract class BaseFragment : Fragment() {
 //    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 //        //super.onActivityResult(requestCode, resultCode, data);
 //    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        if (!mCompositeDisposable.isDisposed)
+            mCompositeDisposable.dispose()
+    }
 }

@@ -6,25 +6,28 @@
     <string name="common_ok">OK</string>
     <string name="no_network_title">No network</string>
     <string name="no_network">No network</string>
+    <string name="agree_tnc">I agree to the Terms &#38; Conditions</string>
 
     <string name="welcome_title">Decentralized\nMachine Learning</string>
     <string name="welcome_desc">Get paid for your date, on your terms.</string>
-    <string name="welcome_button_get_started">Get Started</string>
+    <string name="welcome_button_sign_up">Sign up</string>
+    <string name="welcome_button_login">Log in</string>
 
     <string name="activity_signup_first_email">Email</string>
     <string name="activity_signup_first_password">Password</string>
     <string name="activity_signup_first_button_sign_up">Sign up</string>
-    <string name="activity_signup_first_or">or</string>
+    <string name="activity_signup_first_or">OR</string>
+    <string name="activity_signup_first_learn_more">Learn more</string>
 
     <string name="activity_signup_second_title">Tell us about yourself</string>
-    <string name="activity_signup_second_button_skip">Skip (you can do this later)</string>
+    <string name="activity_signup_second_button_later">Remind me later</string>
     <string name="activity_signup_second_full_name">Full name</string>
-    <string name="activity_signup_second_city">City</string>
+    <string name="activity_signup_second_country">Country</string>
     <string name="activity_signup_second_date_of_birth">Date of Birth</string>
     <string name="activity_signup_second_gender">Gender</string>
     <string name="activity_signup_second_male">Male</string>
     <string name="activity_signup_second_female">Female</string>
-    <string name="activity_signup_second_other">Other</string>
+    <string name="activity_signup_second_other">N/A</string>
     <string name="activity_signup_second_education_level">Education Level</string>
     <string name="activity_signup_second_button_next">Next</string>
 

@@ -3,64 +3,83 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/welcome_background"
+    android:background="@drawable/img_background"
     android:gravity="center_horizontal"
     android:padding="24dp">
-
-    <ImageView
-        android:id="@+id/iconIV"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/ic_dml_logo" />
-
-    <com.dml.base.ui.ThemeTextView
-        android:id="@+id/titleTV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/iconIV"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:text="@string/welcome_title"
-        android:textColor="@color/welcome_text"
-        android:textSize="36dp"
-        app:appFontStyle="barlow_semibold" />
-
-    <com.dml.base.ui.ThemeTextView
-        android:id="@+id/descTV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/titleTV"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:text="@string/welcome_desc"
-        android:textColor="@color/welcome_text"
-        android:textSize="18dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/startBtn"
-        android:layout_below="@id/descTV"
-        android:layout_marginTop="16dp"
-        android:gravity="center">
+        android:layout_above="@+id/signUpBtn"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <ImageView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_margin="16dp"
-            android:adjustViewBounds="true"
-            android:src="@drawable/img_welcome_logo" />
+            android:id="@+id/iconIV"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_dml_logo" />
+
+        <com.dml.base.ui.ThemeTextView
+            android:id="@+id/titleTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iconIV"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:text="@string/welcome_title"
+            android:textColor="@color/text_title"
+            android:textSize="24dp"
+            app:appFontStyle="barlow_medium" />
+
+        <com.dml.base.ui.ThemeTextView
+            android:id="@+id/descTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titleTV"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@string/welcome_desc"
+            android:textColor="@color/text_dark" />
+
     </LinearLayout>
 
-    <com.dml.base.ui.ThemeButton
-        android:id="@+id/startBtn"
-        style="@style/AppTheme.Button.White"
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_above="@id/signUpBtn"-->
+    <!--android:layout_below="@id/descTV"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:gravity="center"-->
+    <!--android:visibility="gone">-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="fill_parent"-->
+    <!--android:layout_margin="16dp"-->
+    <!--android:adjustViewBounds="true"-->
+    <!--android:src="@drawable/img_welcome_logo" />-->
+    <!--</LinearLayout>-->
+
+    <com.dml.base.ui.CustomThemeButton
+        android:id="@+id/signUpBtn"
+        android:layout_width="256dp"
+        android:layout_height="52dp"
+        android:layout_above="@+id/loginBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <com.dml.base.ui.ThemeTextView
+        android:id="@+id/loginBtn"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="16dp"
-        android:text="@string/welcome_button_get_started"
+        android:gravity="center"
+        android:text="@string/welcome_button_login"
+        android:textColor="@color/text_green"
+        android:textSize="18dp"
         app:appFontStyle="barlow_semibold" />
 </RelativeLayout>
