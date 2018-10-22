@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/activity_signup_second_title"
+                android:text="@string/activity_signup_information_title"
                 android:textColor="@color/text_title"
                 android:textSize="24dp"
                 app:appFontStyle="barlow_medium" />
@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
                 android:layout_marginTop="24dp"
-                android:text="@string/activity_signup_second_button_later"
+                android:text="@string/activity_signup_information_button_later"
                 app:appFontStyle="barlow_semibold" />
 
             <com.dml.base.ui.ThemeTextView
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="24dp"
-                android:text="@string/activity_signup_second_full_name"
+                android:text="@string/activity_signup_information_full_name"
                 app:appFontStyle="barlow_semibold" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -62,14 +62,12 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.dml.base.ui.ThemeTextView
+                style="@style/AppTheme.EditText.Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="30dp"
-                android:text="@string/activity_signup_second_country"
-                android:textAllCaps="true"
-                android:textColor="@color/edittext_title"
-                android:textSize="12dp"
+                android:text="@string/activity_signup_information_country"
                 app:appFontStyle="barlow_semibold" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -86,14 +84,12 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.dml.base.ui.ThemeTextView
+                style="@style/AppTheme.EditText.Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="30dp"
-                android:text="@string/activity_signup_second_date_of_birth"
-                android:textAllCaps="true"
-                android:textColor="@color/edittext_title"
-                android:textSize="12dp"
+                android:text="@string/activity_signup_information_date_of_birth"
                 app:appFontStyle="barlow_semibold" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -110,14 +106,12 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.dml.base.ui.ThemeTextView
+                style="@style/AppTheme.EditText.Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="30dp"
-                android:text="@string/activity_signup_second_gender"
-                android:textAllCaps="true"
-                android:textColor="@color/edittext_title"
-                android:textSize="12dp"
+                android:text="@string/activity_signup_information_gender"
                 app:appFontStyle="barlow_semibold" />
 
             <LinearLayout
@@ -134,9 +128,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="@string/activity_signup_second_male"
-                    android:textAllCaps="false"
-                    android:textSize="18dp" />
+                    android:text="@string/activity_signup_information_male"
+                    android:textAllCaps="false" />
 
                 <View
                     android:layout_width="2dp"
@@ -149,9 +142,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="@string/activity_signup_second_female"
-                    android:textAllCaps="false"
-                    android:textSize="18dp" />
+                    android:text="@string/activity_signup_information_female"
+                    android:textAllCaps="false" />
 
                 <View
                     android:layout_width="2dp"
@@ -164,21 +156,24 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="@string/activity_signup_second_other"
-                    android:textAllCaps="false"
-                    android:textSize="18dp" />
+                    android:text="@string/activity_signup_information_other"
+                    android:textAllCaps="false" />
             </LinearLayout>
 
             <com.dml.base.ui.ThemeTextView
+                style="@style/AppTheme.EditText.Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="30dp"
-                android:text="@string/activity_signup_second_education_level"
-                android:textAllCaps="true"
-                android:textColor="@color/edittext_title"
-                android:textSize="12dp"
+                android:text="@string/activity_signup_information_education_level"
                 app:appFontStyle="barlow_semibold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/educationLevelRecycleView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp" />
 
             <com.dml.base.ui.CustomThemeButton
                 android:id="@+id/nextBtn"

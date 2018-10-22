@@ -4,22 +4,20 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
-import androidx.core.content.PermissionChecker
 import com.dml.base.R
 import com.dml.base.activity.SignUpActivity
 import com.dml.base.base.BaseFragment
-import kotlinx.android.synthetic.main.fragment_signup_third.*
+import kotlinx.android.synthetic.main.fragment_signup_connect.*
 
-class SignUpThirdFragment : BaseFragment() {
+class SignUpConnectFragment : BaseFragment() {
 
-    val REQUEST_CODE_PERMISSION = 0
+    val REQUEST_CODE_PERMISSION = 1001
     var permissionArray: ArrayList<String> = ArrayList()
 
     companion object {
         fun newInstance(bundle: Bundle?): BaseFragment {
-            val fragment = SignUpThirdFragment()
+            val fragment = SignUpConnectFragment()
             if (bundle != null)
                 fragment.arguments = bundle
             return fragment
@@ -27,7 +25,7 @@ class SignUpThirdFragment : BaseFragment() {
     }
 
     override fun setLayoutId(): Int {
-        return R.layout.fragment_signup_third
+        return R.layout.fragment_signup_connect
     }
 
     override fun connectViews() {

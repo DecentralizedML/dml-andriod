@@ -13,32 +13,42 @@
     <string name="welcome_button_sign_up">Sign up</string>
     <string name="welcome_button_login">Log in</string>
 
-    <string name="activity_signup_first_email">Email</string>
-    <string name="activity_signup_first_password">Password</string>
-    <string name="activity_signup_first_button_sign_up">Sign up</string>
-    <string name="activity_signup_first_or">OR</string>
-    <string name="activity_signup_first_learn_more">Learn more</string>
+    <string name="activity_signup_email">Email</string>
+    <string name="activity_signup_password">Password</string>
+    <string name="activity_signup_button_sign_up">Sign up</string>
+    <string name="activity_signup_or">OR</string>
+    <string name="activity_signup_learn_more">Learn more</string>
 
-    <string name="activity_signup_second_title">Tell us about yourself</string>
-    <string name="activity_signup_second_button_later">Remind me later</string>
-    <string name="activity_signup_second_full_name">Full name</string>
-    <string name="activity_signup_second_country">Country</string>
-    <string name="activity_signup_second_date_of_birth">Date of Birth</string>
-    <string name="activity_signup_second_gender">Gender</string>
-    <string name="activity_signup_second_male">Male</string>
-    <string name="activity_signup_second_female">Female</string>
-    <string name="activity_signup_second_other">N/A</string>
-    <string name="activity_signup_second_education_level">Education Level</string>
-    <string name="activity_signup_second_button_next">Next</string>
+    <string name="activity_signup_google_desc">Thanks for connecting your Google account. In order to encrypt your private key (the thing that will protect your tokens), you need to also create a password. </string>
 
-    <string name="activity_signup_third_title">Connect with us</string>
-    <string name="activity_signup_third_desc">Please connect your data sources in order to start earning DML tokens. If you change you’re mind, you’ll be able to revoke access at any time.</string>
-    <string name="activity_signup_third_sms">SMS</string>
-    <string name="activity_signup_third_camera_roll">Camera Roll</string>
-    <string name="activity_signup_third_address_book">Address Book</string>
+    <string name="activity_signup_information_title">Tell us about yourself</string>
+    <string name="activity_signup_information_button_later">Remind me later</string>
+    <string name="activity_signup_information_full_name">Full name</string>
+    <string name="activity_signup_information_country">Country</string>
+    <string name="activity_signup_information_date_of_birth">Date of Birth</string>
+    <string name="activity_signup_information_gender">Gender</string>
+    <string name="activity_signup_information_male">Male</string>
+    <string name="activity_signup_information_female">Female</string>
+    <string name="activity_signup_information_other">N/A</string>
+    <string name="activity_signup_information_education_level">Education Level</string>
+    <string name="activity_signup_information_button_next">Next</string>
+
+    <string name="activity_signup_connect_title">Connect with us</string>
+    <string name="activity_signup_connect_desc">Please connect your data sources in order to start earning DML tokens. If you change you’re mind, you’ll be able to revoke access at any time.</string>
+    <string name="activity_signup_connect_sms">SMS</string>
+    <string name="activity_signup_connect_camera_roll">Camera Roll</string>
+    <string name="activity_signup_connect_address_book">Address Book</string>
 
     <string name="activity_signup_complete_title">Thank you!</string>
-    <string name="activity_signup_complete_desc">Because you connected all your data sources, you just earned 100 DML.</string>
-    <string name="activity_signup_complete_desc_2">Check out your DML wallet to learn more!</string>
+    <string name="activity_signup_complete_desc">Because you connected all your data sources, you just earned 100 DML. Check out your DML wallet to learn more.</string>
     <string name="activity_signup_complete_button_check_out">Check out your wallet</string>
+
+    <string-array name="array_education_level">
+        <item>Primary</item>
+        <item>Secondary</item>
+        <item>Associate\'s</item>
+        <item>Bachelor\'s</item>
+        <item>Master\'s</item>
+        <item>Doctorate or higher</item>
+    </string-array>
 </resources>

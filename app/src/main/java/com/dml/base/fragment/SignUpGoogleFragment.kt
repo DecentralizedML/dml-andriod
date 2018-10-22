@@ -4,13 +4,13 @@ import android.os.Bundle
 import com.dml.base.R
 import com.dml.base.activity.SignUpActivity
 import com.dml.base.base.BaseFragment
-import kotlinx.android.synthetic.main.fragment_signup_complete.*
+import kotlinx.android.synthetic.main.fragment_signup_google.*
 
-class SignUpCompleteFragment : BaseFragment() {
+class SignUpGoogleFragment : BaseFragment() {
 
     companion object {
         fun newInstance(bundle: Bundle?): BaseFragment {
-            val fragment = SignUpCompleteFragment()
+            val fragment = SignUpGoogleFragment()
             if (bundle != null)
                 fragment.arguments = bundle
             return fragment
@@ -18,13 +18,14 @@ class SignUpCompleteFragment : BaseFragment() {
     }
 
     override fun setLayoutId(): Int {
-        return R.layout.fragment_signup_complete
+        return R.layout.fragment_signup_google
     }
 
     override fun connectViews() {
-        checkOutBtn?.apply {
-            setText(R.string.activity_signup_complete_button_check_out)
-            showRightIcon(true)
+        emailET?.setText((activity as SignUpActivity).getUserSignUpRequestModel()?.user?.email)
+
+        signUpBtn?.apply {
+            setText(R.string.activity_signup_button_sign_up)
             setOnClickListener { checkOut() }
         }
     }

@@ -19,18 +19,27 @@ import com.facebook.FacebookCallback
 import com.facebook.FacebookException
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.Task
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_signup_first.*
+import kotlinx.android.synthetic.main.fragment_signup.*
 
-class SignUpFirstFragment : BaseFragment() {
+class SignUpFragment : BaseFragment() {
+
+    val REQUEST_CODE_GOOGLE_SIGN_UP = 1001
 
     var showPassword = false
     var callbackManager: CallbackManager? = null
+    var mGoogleSignInClient: GoogleSignInClient? = null
 
     companion object {
         fun newInstance(bundle: Bundle?): BaseFragment {
-            val fragment = SignUpFirstFragment()
+            val fragment = SignUpFragment()
             if (bundle != null)
                 fragment.arguments = bundle
             return fragment
@@ -38,38 +47,10 @@ class SignUpFirstFragment : BaseFragment() {
     }
 
     override fun setLayoutId(): Int {
-        return R.layout.fragment_signup_first
+        return R.layout.fragment_signup
     }
 
     override fun connectViews() {
-//        passwordET?.setOnTouchListener(object : View.OnTouchListener {
-//            override fun onTouch(v: View, event: MotionEvent): Boolean {
-//                val DRAWABLE_LEFT = 0
-//                val DRAWABLE_TOP = 1
-//                val DRAWABLE_RIGHT = 2
-//                val DRAWABLE_BOTTOM = 3
-//
-//                if (event.action == MotionEvent.ACTION_UP) {
-//                    if (event.rawX >= passwordET.getRight() - passwordET.compoundDrawables[DRAWABLE_RIGHT].bounds.width()) {
-//                        if (showPassword) {
-//                            showPassword = false
-//                            passwordET?.transformationMethod = null
-//                        } else {
-//                            showPassword = true
-//                            passwordET?.transformationMethod = PasswordTransformationMethod.getInstance()
-//                        }
-//
-//                        val start = passwordET.selectionStart
-//                        var end = passwordET.selectionEnd
-//                        passwordET?.setSelection(start, end)
-//
-//                        return true
-//                    }
-//                }
-//                return false
-//            }
-//        })
-
         callbackManager = CallbackManager.Factory.create()
         LoginManager.getInstance()
                 .registerCallback(callbackManager,
@@ -89,12 +70,24 @@ class SignUpFirstFragment : BaseFragment() {
                                 // App code
                             }
                         })
+
         fbSignUpBtn?.setOnClickListener {
             LoginManager.getInstance().logInWithReadPermissions(getParentActivity(), arrayListOf("public_profile", "email"))
         }
 
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build()
+
+        mGoogleSignInClient = GoogleSignIn.getClient(context, gso)
+        val account = GoogleSignIn.getLastSignedInAccount(context)
+
+        googleSignUpBtn?.setOnClickListener {
+            signUpByGoogle()
+        }
+
         signUpBtn?.apply {
-            setText(R.string.activity_signup_first_button_sign_up)
+            setText(R.string.activity_signup_button_sign_up)
             setOnClickListener { signUp() }
         }
     }
@@ -140,6 +133,11 @@ class SignUpFirstFragment : BaseFragment() {
                 })
     }
 
+    private fun signUpByGoogle() {
+        val signInIntent = mGoogleSignInClient?.signInIntent
+        activity?.startActivityForResult(signInIntent, REQUEST_CODE_GOOGLE_SIGN_UP)
+    }
+
     private fun signUp() {
 //        postSignUpRequest()
 //        postUserLoginRequest()
@@ -155,11 +153,33 @@ class SignUpFirstFragment : BaseFragment() {
         }
 
         if (activity is SignUpActivity) {
-            (activity as SignUpActivity).setState(SignUpActivity.SignUpState.Second)
+            (activity as SignUpActivity).setState(SignUpActivity.SignUpState.Information)
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         callbackManager?.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == REQUEST_CODE_GOOGLE_SIGN_UP) {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            handleSignInResult(task)
+        }
+    }
+
+    private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
+        try {
+            val account = completedTask.getResult(ApiException::class.java)
+            var userSignUpRequestModel = UserSignUpRequestModel()
+            userSignUpRequestModel.apply {
+                user.email = if (account?.email == null) "" else account.email.toString()
+            }
+
+            (activity as SignUpActivity).updateUserSignUpRequestModel(userSignUpRequestModel)
+            (activity as SignUpActivity).setState(SignUpActivity.SignUpState.Google)
+
+        } catch (e: ApiException) {
+            Log.d("MainActivity", "fail: ${e.statusCode}")
+        }
+
     }
 }

@@ -5,16 +5,84 @@ import androidx.fragment.app.FragmentPagerAdapter
 import com.dml.base.R
 import com.dml.base.adapter.SignUpViewPagerAdapter
 import com.dml.base.base.BaseActivity
+import com.dml.base.model.UserSignUpRequestModel
 import kotlinx.android.synthetic.main.activity_signup.*
 
 
 class SignUpActivity : BaseActivity() {
 
     sealed class SignUpState {
-        object First : SignUpState()
-        object Second : SignUpState()
-        object Third : SignUpState()
+        object SignUp : SignUpState()
+        object Google : SignUpState()
+        object Information : SignUpState()
+        object Connect : SignUpState()
         object Complete : SignUpState()
+    }
+
+    private var viewPagerAdapter: FragmentPagerAdapter? = null
+    private var userSignUpRequestModel: UserSignUpRequestModel? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        viewPagerAdapter = SignUpViewPagerAdapter(supportFragmentManager)
+        pager?.adapter = viewPagerAdapter
+        pager?.offscreenPageLimit = 0
+        setState(SignUpState.SignUp)
+    }
+
+    fun updateUserSignUpRequestModel(userSignUpRequestModel: UserSignUpRequestModel) {
+        this.userSignUpRequestModel = userSignUpRequestModel
+    }
+
+    fun getUserSignUpRequestModel(): UserSignUpRequestModel? {
+        return userSignUpRequestModel
+    }
+
+    fun setState(state: SignUpState) {
+        when (state) {
+            SignUpState.SignUp -> {
+                pager?.setCurrentItem(SignUpViewPagerAdapter.PAGE_SIGNUP, true)
+                firstProgressBar.setImageResource(R.color.signup_line_not_finish)
+                secondProgressBar.setImageResource(R.color.signup_line_not_finish)
+                stageFirstIV?.setImageResource(R.drawable.ic_welcome_ongoing)
+                stageSecondIV?.setImageResource(0)
+                stageThirdIV?.setImageResource(0)
+            }
+            SignUpState.Google -> {
+                pager?.setCurrentItem(SignUpViewPagerAdapter.PAGE_GOOGLE, true)
+                firstProgressBar.setImageResource(R.color.signup_line_not_finish)
+                secondProgressBar.setImageResource(R.color.signup_line_not_finish)
+                stageFirstIV?.setImageResource(R.drawable.ic_welcome_ongoing)
+                stageSecondIV?.setImageResource(0)
+                stageThirdIV?.setImageResource(0)
+            }
+            SignUpState.Information -> {
+                pager?.setCurrentItem(SignUpViewPagerAdapter.PAGE_INFORMATION, true)
+                firstProgressBar.setImageResource(R.color.signup_line_not_finish)
+                secondProgressBar.setImageResource(R.color.signup_line_not_finish)
+                stageFirstIV?.setImageResource(R.drawable.ic_welcome_done)
+                stageSecondIV?.setImageResource(R.drawable.ic_welcome_ongoing)
+                stageThirdIV?.setImageResource(0)
+            }
+            SignUpState.Connect -> {
+                pager?.setCurrentItem(SignUpViewPagerAdapter.PAGE_CONNECT, true)
+                firstProgressBar.setImageResource(R.color.signup_line_finish)
+                secondProgressBar.setImageResource(R.color.signup_line_finish)
+                stageFirstIV?.setImageResource(R.drawable.ic_welcome_done)
+                stageSecondIV?.setImageResource(R.drawable.ic_welcome_done)
+                stageThirdIV?.setImageResource(R.drawable.ic_welcome_ongoing)
+
+            }
+            SignUpState.Complete -> {
+                pager?.setCurrentItem(SignUpViewPagerAdapter.PAGE_COMPLETE, true)
+                firstProgressBar.setImageResource(R.color.signup_line_finish)
+                secondProgressBar.setImageResource(R.color.signup_line_finish)
+                stageFirstIV?.setImageResource(R.drawable.ic_welcome_done)
+                stageSecondIV?.setImageResource(R.drawable.ic_welcome_done)
+                stageThirdIV?.setImageResource(R.drawable.ic_welcome_done)
+            }
+        }
     }
 
     override fun connectViews() {
@@ -25,52 +93,4 @@ class SignUpActivity : BaseActivity() {
         return R.layout.activity_signup
     }
 
-    var viewPagerAdapter: FragmentPagerAdapter? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        viewPagerAdapter = SignUpViewPagerAdapter(supportFragmentManager)
-        pager?.adapter = viewPagerAdapter
-        pager?.offscreenPageLimit = 0
-        setState(SignUpState.First)
-    }
-
-    public fun setState(state: SignUpState) {
-        when (state) {
-            SignUpState.First -> {
-                pager?.setCurrentItem(0, true)
-                firstProgressBar.setImageResource(R.color.signup_line_not_finish)
-                secondProgressBar.setImageResource(R.color.signup_line_not_finish)
-                stageFirstIV?.setImageResource(R.drawable.ic_welcome_ongoing)
-                stageSecondIV?.setImageResource(0)
-                stageThirdIV?.setImageResource(0)
-            }
-            SignUpState.Second -> {
-                pager?.setCurrentItem(1, true)
-                firstProgressBar.setImageResource(R.color.signup_line_not_finish)
-                secondProgressBar.setImageResource(R.color.signup_line_not_finish)
-                stageFirstIV?.setImageResource(R.drawable.ic_welcome_done)
-                stageSecondIV?.setImageResource(R.drawable.ic_welcome_ongoing)
-                stageThirdIV?.setImageResource(0)
-            }
-            SignUpState.Third -> {
-                pager?.setCurrentItem(2, true)
-                firstProgressBar.setImageResource(R.color.signup_line_finish)
-                secondProgressBar.setImageResource(R.color.signup_line_finish)
-                stageFirstIV?.setImageResource(R.drawable.ic_welcome_done)
-                stageSecondIV?.setImageResource(R.drawable.ic_welcome_done)
-                stageThirdIV?.setImageResource(R.drawable.ic_welcome_ongoing)
-
-            }
-            SignUpState.Complete -> {
-                pager?.setCurrentItem(3, true)
-                firstProgressBar.setImageResource(R.color.signup_line_finish)
-                secondProgressBar.setImageResource(R.color.signup_line_finish)
-                stageFirstIV?.setImageResource(R.drawable.ic_welcome_done)
-                stageSecondIV?.setImageResource(R.drawable.ic_welcome_done)
-                stageThirdIV?.setImageResource(R.drawable.ic_welcome_done)
-            }
-        }
-    }
 }
