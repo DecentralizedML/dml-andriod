@@ -29,37 +29,41 @@ class SignUpConnectFragment : BaseFragment() {
     }
 
     override fun connectViews() {
-        smsSwitch?.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked) {
-                if (!permissionArray.contains(Manifest.permission.READ_SMS))
-                    permissionArray.add(Manifest.permission.READ_SMS)
+        smsBtn?.setOnClickListener {
+            if (permissionArray.contains(Manifest.permission.READ_SMS)) {
+                permissionArray.remove(Manifest.permission.READ_SMS)
+                smsBtn.setImageResource(R.drawable.bg_circle)
             } else {
-                if (permissionArray.contains(Manifest.permission.READ_SMS))
-                    permissionArray.remove(Manifest.permission.READ_SMS)
+                permissionArray.add(Manifest.permission.READ_SMS)
+                smsBtn.setImageResource(R.drawable.bg_circle_filled)
             }
         }
 
-        cameraRollSwitch?.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked) {
-                if (!permissionArray.contains(Manifest.permission.CAMERA))
-                    permissionArray.add(Manifest.permission.CAMERA)
+        cameraBtn?.setOnClickListener {
+            if (permissionArray.contains(Manifest.permission.CAMERA)) {
+                permissionArray.remove(Manifest.permission.CAMERA)
+                cameraBtn.setImageResource(R.drawable.bg_circle)
             } else {
-                if (permissionArray.contains(Manifest.permission.CAMERA))
-                    permissionArray.remove(Manifest.permission.CAMERA)
+                permissionArray.add(Manifest.permission.CAMERA)
+                cameraBtn.setImageResource(R.drawable.bg_circle_filled)
             }
         }
 
-        addressBookSwitch?.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked) {
-                if (!permissionArray.contains(Manifest.permission.READ_CONTACTS))
-                    permissionArray.add(Manifest.permission.READ_CONTACTS)
+        addressBookBtn?.setOnClickListener {
+            if (permissionArray.contains(Manifest.permission.READ_CONTACTS)) {
+                permissionArray.remove(Manifest.permission.READ_CONTACTS)
+                addressBookBtn.setImageResource(R.drawable.bg_circle)
             } else {
-                if (permissionArray.contains(Manifest.permission.READ_CONTACTS))
-                    permissionArray.remove(Manifest.permission.READ_CONTACTS)
+                permissionArray.add(Manifest.permission.READ_CONTACTS)
+                addressBookBtn.setImageResource(R.drawable.bg_circle_filled)
             }
         }
 
-        nextBtn?.setOnClickListener { requestPermission() }
+        nextBtn?.apply {
+            setText(R.string.activity_signup_information_button_next)
+            showRightIcon(true)
+            setOnClickListener { requestPermission() }
+        }
     }
 
     private fun requestPermission() {

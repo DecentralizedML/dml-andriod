@@ -7,6 +7,7 @@
     <string name="no_network_title">No network</string>
     <string name="no_network">No network</string>
     <string name="agree_tnc">I agree to the Terms &#38; Conditions</string>
+    <string name="login">Login</string>
 
     <string name="welcome_title">Decentralized\nMachine Learning</string>
     <string name="welcome_desc">Get paid for your date, on your terms.</string>

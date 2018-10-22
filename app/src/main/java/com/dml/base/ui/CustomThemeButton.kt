@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.layout_button.view.*
 
 class CustomThemeButton : RelativeLayout {
     var text = ""
+    var showRightIcon = false
 
     constructor(context: Context) : super(context)
 
@@ -27,6 +28,8 @@ class CustomThemeButton : RelativeLayout {
     }
 
     fun showRightIcon(show: Boolean) {
+        showRightIcon = show
+
         if (show)
             rightIV?.visibility = View.VISIBLE
         else
@@ -34,10 +37,19 @@ class CustomThemeButton : RelativeLayout {
     }
 
     fun showProgressBar(show: Boolean) {
-        if (show)
+        if (show) {
             progressBar?.visibility = View.VISIBLE
-        else
+            btnTV?.visibility = View.GONE
+            rightIV?.visibility = View.GONE
+        } else {
             progressBar?.visibility = View.GONE
+            btnTV?.visibility = View.VISIBLE
+
+            if (showRightIcon)
+                rightIV?.visibility = View.VISIBLE
+            else
+                rightIV?.visibility = View.GONE
+        }
     }
 
 }

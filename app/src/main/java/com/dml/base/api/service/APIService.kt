@@ -15,6 +15,9 @@ class APIService : BaseService<Endpoint>() {
     fun postUserSignUpRequest(context: Context, userSignUpRequestModel: UserSignUpRequestModel): Observable<UserSignUpModel>? {
         return getServiceInstance(context)?.postUserSignUp(userSignUpRequestModel)
     }
+    fun putUserRequest(context: Context, userSignUpRequestModel: UserSignUpRequestModel): Observable<UserSignUpModel>? {
+        return getServiceInstance(context)?.postUserSignUp(userSignUpRequestModel)
+    }
 
     fun postUserLoginRequest(context: Context, userLoginRequestModel: UserLoginRequestModel): Observable<UserLoginModel>? {
         return getServiceInstance(context)?.postUserLogin(userLoginRequestModel)

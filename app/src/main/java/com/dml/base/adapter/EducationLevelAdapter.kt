@@ -27,7 +27,7 @@ class EducationLevelAdapter(var context: Context, val listener: OnItemClickListe
         }
 
         if (selectedPosition == position) {
-            holder.itemView.titleTV.setBackgroundResource(R.drawable.bg_education_level_filled)
+            holder.itemView.titleTV.setBackgroundResource(R.drawable.bg_circle_filled)
         } else {
             holder.itemView.titleTV.setBackgroundResource(0)
         }

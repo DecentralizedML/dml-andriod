@@ -10,8 +10,6 @@ import com.dml.base.Utility
 import com.dml.base.activity.SignUpActivity
 import com.dml.base.base.BaseFragment
 import com.dml.base.connection.DefaultRequestObserver
-import com.dml.base.model.UserLoginModel
-import com.dml.base.model.UserLoginRequestModel
 import com.dml.base.model.UserSignUpModel
 import com.dml.base.model.UserSignUpRequestModel
 import com.facebook.CallbackManager
@@ -33,7 +31,6 @@ class SignUpFragment : BaseFragment() {
 
     val REQUEST_CODE_GOOGLE_SIGN_UP = 1001
 
-    var showPassword = false
     var callbackManager: CallbackManager? = null
     var mGoogleSignInClient: GoogleSignInClient? = null
 
@@ -88,49 +85,8 @@ class SignUpFragment : BaseFragment() {
 
         signUpBtn?.apply {
             setText(R.string.activity_signup_button_sign_up)
-            setOnClickListener { signUp() }
+            setOnClickListener { signUpByEmail() }
         }
-    }
-
-    private fun postSignUpRequest() {
-        var signUpRequestModel = UserSignUpRequestModel()
-        signUpRequestModel.apply {
-            user.apply {
-                email = "test2@test.com"
-                password = "password123"
-                passwordConfirmation = "password123"
-                firstName = "Ethan"
-                lastName = "Chan"
-            }
-        }
-
-        getParentActivity().mService.postUserSignUpRequest(context, signUpRequestModel)
-                ?.subscribeOn(Schedulers.io())
-                ?.observeOn(AndroidSchedulers.mainThread())
-                ?.subscribeWith(object : DefaultRequestObserver<UserSignUpModel>(context) {
-                    override fun onNext(modelUser: UserSignUpModel) {
-                        Preferences.setJWT(context, modelUser.jwt)
-                        Toast.makeText(context, "postUserSignUpRequest success", Toast.LENGTH_SHORT).show()
-                    }
-                })
-    }
-
-    private fun postLoginRequest() {
-        var loginRequestModel = UserLoginRequestModel()
-        loginRequestModel.apply {
-            email = "user@kyokan.io"
-            password = "password123"
-        }
-
-        getParentActivity().mService.postUserLoginRequest(context, loginRequestModel)
-                ?.subscribeOn(Schedulers.io())
-                ?.observeOn(AndroidSchedulers.mainThread())
-                ?.subscribeWith(object : DefaultRequestObserver<UserLoginModel>(context) {
-                    override fun onNext(modelUser: UserLoginModel) {
-                        Preferences.setJWT(context, modelUser.jwt)
-                        Toast.makeText(context, "postUserLoginRequest success", Toast.LENGTH_SHORT).show()
-                    }
-                })
     }
 
     private fun signUpByGoogle() {
@@ -138,10 +94,7 @@ class SignUpFragment : BaseFragment() {
         activity?.startActivityForResult(signInIntent, REQUEST_CODE_GOOGLE_SIGN_UP)
     }
 
-    private fun signUp() {
-//        postSignUpRequest()
-//        postUserLoginRequest()
-
+    private fun signUpByEmail() {
         if (!Utility.isValidEmail(emailET?.text.toString())) {
             Toast.makeText(activity, "email invalid", Toast.LENGTH_SHORT).show()
             return
@@ -152,9 +105,45 @@ class SignUpFragment : BaseFragment() {
             return
         }
 
-        if (activity is SignUpActivity) {
-            (activity as SignUpActivity).setState(SignUpActivity.SignUpState.Information)
+        if (!agreeRadioBtn.isChecked)
+            return
+
+        postSignUpRequest()
+//        //Testing
+//        (activity as SignUpActivity).setState(SignUpActivity.SignUpState.Information)
+    }
+
+    private fun postSignUpRequest() {
+        var signUpRequestModel = UserSignUpRequestModel()
+        signUpRequestModel.apply {
+            user.apply {
+                email = emailET?.text.toString()
+                password = passwordET?.text.toString()
+                passwordConfirmation = passwordET?.text.toString()
+                firstName = ""
+                lastName = ""
+            }
         }
+
+        getParentActivity().mService.postUserSignUpRequest(context, signUpRequestModel)
+                ?.subscribeOn(Schedulers.io())
+                ?.observeOn(AndroidSchedulers.mainThread())
+                ?.subscribeWith(object : DefaultRequestObserver<UserSignUpModel>(context) {
+                    override fun onNext(modelUser: UserSignUpModel) {
+                        Preferences.setJWT(context, modelUser.jwt)
+                        (activity as SignUpActivity).setState(SignUpActivity.SignUpState.Information)
+                    }
+
+                    override fun onComplete() {
+                        super.onComplete()
+                        signUpBtn?.showProgressBar(false)
+                    }
+
+                    override fun onStart() {
+                        super.onStart()
+                        signUpBtn?.showProgressBar(true)
+                    }
+                })
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

@@ -34,91 +34,129 @@
                 android:gravity="center"
                 android:text="@string/activity_signup_connect_desc" />
 
-            <LinearLayout
+
+            <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="40dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp">
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/ic_sms" />
+                <TableRow>
 
-                <com.dml.base.ui.ThemeTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_weight="1"
-                    android:text="@string/activity_signup_connect_sms"
-                    android:textSize="18dp"
-                    app:appFontStyle="barlow_medium" />
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="12dp"
+                        android:layout_weight="1">
 
-                <Switch
-                    android:id="@+id/smsSwitch"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp" />
-            </LinearLayout>
+                        <ImageView
+                            android:id="@+id/smsBtn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_circle" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/ic_camera_roll" />
+                            <ImageView
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/ic_sms" />
 
-                <com.dml.base.ui.ThemeTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_weight="1"
-                    android:text="@string/activity_signup_connect_camera_roll"
-                    android:textSize="18dp"
-                    app:appFontStyle="barlow_medium" />
+                            <com.dml.base.ui.ThemeTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/activity_signup_connect_sms"
+                                android:textColor="@android:color/white"
+                                app:appFontStyle="barlow_semibold" />
+                        </LinearLayout>
+                    </RelativeLayout>
 
-                <Switch
-                    android:id="@+id/cameraRollSwitch"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp" />
-            </LinearLayout>
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="12dp"
+                        android:layout_weight="1">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                        <ImageView
+                            android:id="@+id/cameraBtn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_circle" />
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/ic_address_book" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
 
-                <com.dml.base.ui.ThemeTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_weight="1"
-                    android:text="@string/activity_signup_connect_address_book"
-                    android:textSize="18dp"
-                    app:appFontStyle="barlow_medium" />
+                            <ImageView
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/ic_camera_roll" />
 
-                <Switch
-                    android:id="@+id/addressBookSwitch"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp" />
-            </LinearLayout>
+                            <com.dml.base.ui.ThemeTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/activity_signup_connect_camera_roll"
+                                android:textColor="@android:color/white"
+                                app:appFontStyle="barlow_semibold" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                </TableRow>
 
+                <TableRow>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="12dp"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/addressBookBtn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_circle" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/ic_address_book" />
+
+                            <com.dml.base.ui.ThemeTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/activity_signup_connect_address_book"
+                                android:textColor="@android:color/white"
+                                app:appFontStyle="barlow_semibold" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="12dp"
+                        android:layout_weight="1"></RelativeLayout>
+                </TableRow>
+            </TableLayout>
         </LinearLayout>
     </ScrollView>
 

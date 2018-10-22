@@ -7,11 +7,15 @@ import com.dml.base.model.UserSignUpRequestModel
 import io.reactivex.Observable
 import retrofit2.http.Body
 import retrofit2.http.POST
+import retrofit2.http.PUT
 
 interface Endpoint {
 
     @POST("/api/users")
     fun postUserSignUp(@Body body: UserSignUpRequestModel): Observable<UserSignUpModel>
+
+    @PUT("/api/users")
+    fun updateUser(@Body body: UserSignUpRequestModel): Observable<UserSignUpModel>
 
     @POST("/api/users/authenticate")
     fun postUserLogin(@Body body: UserLoginRequestModel): Observable<UserLoginModel>

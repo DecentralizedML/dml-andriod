@@ -27,6 +27,8 @@ class WelcomeActivity : BaseActivity() {
         }
 
         loginBtn?.setOnClickListener {
+            startActivity(Intent(this@WelcomeActivity, LoginActivity::class.java))
+            finish()
         }
     }
 }

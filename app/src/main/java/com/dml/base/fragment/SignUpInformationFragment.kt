@@ -6,12 +6,18 @@ import android.os.Bundle
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.dml.base.Preferences
 import com.dml.base.R
 import com.dml.base.activity.SignUpActivity
 import com.dml.base.adapter.EducationLevelAdapter
 import com.dml.base.adapter.EducationLevelAdapter.OnItemClickListener
 import com.dml.base.base.BaseFragment
+import com.dml.base.connection.DefaultRequestObserver
+import com.dml.base.model.UserSignUpModel
+import com.dml.base.model.UserSignUpRequestModel
 import com.dml.base.utility.MarginItemHorizontalDecoration
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_signup_infomation.*
 import java.util.*
 
@@ -133,8 +139,40 @@ class SignUpInformationFragment : BaseFragment() {
 //        if (!Utility.isValidEmail(emailET?.text.toString()))
 //            Toast.makeText(activity, "valid", Toast.LENGTH_SHORT).show()
 //
-        if (activity is SignUpActivity) {
-            (activity as SignUpActivity).setState(SignUpActivity.SignUpState.Connect)
+        updateUserRequest()
+//            (activity as SignUpActivity).setState(SignUpActivity.SignUpState.Connect)
+    }
+
+    private fun updateUserRequest() {
+        var signUpRequestModel = UserSignUpRequestModel()
+        signUpRequestModel.apply {
+            user.apply {
+//                email = emailET?.text.toString()
+//                password = passwordET?.text.toString()
+//                passwordConfirmation = passwordET?.text.toString()
+                firstName = fullNameET?.text.toString()
+                lastName = fullNameET?.text.toString()
+            }
         }
+
+        getParentActivity().mService.putUserRequest(context, signUpRequestModel)
+                ?.subscribeOn(Schedulers.io())
+                ?.observeOn(AndroidSchedulers.mainThread())
+                ?.subscribeWith(object : DefaultRequestObserver<UserSignUpModel>(context) {
+                    override fun onNext(modelUser: UserSignUpModel) {
+                        Preferences.setJWT(context, modelUser.jwt)
+                        (activity as SignUpActivity).setState(SignUpActivity.SignUpState.Information)
+                    }
+
+                    override fun onComplete() {
+                        super.onComplete()
+                        nextBtn?.showProgressBar(false)
+                    }
+
+                    override fun onStart() {
+                        super.onStart()
+                        nextBtn?.showProgressBar(true)
+                    }
+                })
     }
 }
