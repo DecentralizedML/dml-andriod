@@ -17,17 +17,14 @@ abstract class BaseDialogFragment : DialogFragment() {
 
     protected abstract fun connectViews(dialogView: View)
 
-    protected abstract fun setTextLang()
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        dialog.setCanceledOnTouchOutside(true)
+        dialog.setCanceledOnTouchOutside(false)
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val view = activity!!.layoutInflater.inflate(setDialogLayoutId(), null)
         connectViews(view)
-        setTextLang()
         init()
 
         val dialog = Dialog(activity!!)

@@ -4,7 +4,6 @@ import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dml.base.Preferences
 import com.dml.base.R
@@ -50,7 +49,7 @@ class SignUpInformationFragment : BaseFragment() {
         nextBtn?.apply {
             setText(R.string.activity_signup_information_button_next)
             showRightIcon(true)
-            setOnClickListener { signUp() }
+            setOnClickListener { updateUserInformation() }
         }
 //        dateOfBirthET?.let {
 //            DateInputMask(dateOfBirthET).listen()
@@ -91,7 +90,7 @@ class SignUpInformationFragment : BaseFragment() {
     private fun setEducationLevelAdapter() {
         var adapter = EducationLevelAdapter(context, object : OnItemClickListener {
             override fun onClick(title: String) {
-                Toast.makeText(context, "clicked item $title", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(context, "clicked item $title", Toast.LENGTH_SHORT).show()
             }
         })
         educationLevelRecycleView?.adapter = adapter
@@ -135,19 +134,22 @@ class SignUpInformationFragment : BaseFragment() {
         datePickerDialog.show()
     }
 
-    private fun signUp() {
+    private fun updateUserInformation() {
 //        if (!Utility.isValidEmail(emailET?.text.toString()))
 //            Toast.makeText(activity, "valid", Toast.LENGTH_SHORT).show()
 //
+
+        if (fullNameET?.text.toString().isNullOrEmpty())
+            return
+
         updateUserRequest()
-//            (activity as SignUpActivity).setState(SignUpActivity.SignUpState.Connect)
     }
 
     private fun updateUserRequest() {
         var signUpRequestModel = UserSignUpRequestModel()
         signUpRequestModel.apply {
             user.apply {
-//                email = emailET?.text.toString()
+                //                email = emailET?.text.toString()
 //                password = passwordET?.text.toString()
 //                passwordConfirmation = passwordET?.text.toString()
                 firstName = fullNameET?.text.toString()
@@ -167,11 +169,13 @@ class SignUpInformationFragment : BaseFragment() {
                     override fun onComplete() {
                         super.onComplete()
                         nextBtn?.showProgressBar(false)
+                        nextBtn?.isEnabled = true
                     }
 
                     override fun onStart() {
                         super.onStart()
                         nextBtn?.showProgressBar(true)
+                        nextBtn?.isEnabled = false
                     }
                 })
     }

@@ -8,14 +8,14 @@ import com.dml.base.fragment.*
 class SignUpViewPagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
 
     companion object {
-        const val NUM_ITEMS = 6
+        const val NUM_ITEMS = 5
 
         const val PAGE_SIGNUP = 0
         const val PAGE_GOOGLE = 1
         const val PAGE_INFORMATION = 2
         const val PAGE_CONNECT = 3
-        const val PAGE_WALLET = 4
-        const val PAGE_COMPLETE = 5
+//        const val PAGE_WALLET = 4
+        const val PAGE_COMPLETE = 4
     }
 
     override fun getCount(): Int {
@@ -28,7 +28,7 @@ class SignUpViewPagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAd
             PAGE_GOOGLE -> SignUpGoogleFragment.newInstance(null)
             PAGE_INFORMATION -> SignUpInformationFragment.newInstance(null)
             PAGE_CONNECT -> SignUpConnectFragment.newInstance(null)
-            PAGE_WALLET -> SignUpWalletFragment.newInstance(null)
+//            PAGE_WALLET -> SignUpWalletFragment.newInstance(null)
             PAGE_COMPLETE -> SignUpCompleteFragment.newInstance(null)
             else -> null
         }

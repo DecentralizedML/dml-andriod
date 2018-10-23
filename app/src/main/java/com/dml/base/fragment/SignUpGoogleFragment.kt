@@ -26,17 +26,14 @@ class SignUpGoogleFragment : BaseFragment() {
 
         signUpBtn?.apply {
             setText(R.string.activity_signup_button_sign_up)
-            setOnClickListener { checkOut() }
+            setOnClickListener { signUpByGoogle() }
         }
     }
 
-    private fun checkOut() {
+    private fun signUpByGoogle() {
+        if (!agreeRadioBtn.isChecked)
+            return
 
-    }
-
-    private fun signUp() {
-        if (activity is SignUpActivity) {
-            (activity as SignUpActivity).setState(SignUpActivity.SignUpState.Complete)
-        }
+        (activity as SignUpActivity).setState(SignUpActivity.SignUpState.Complete)
     }
 }

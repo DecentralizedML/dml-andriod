@@ -137,11 +137,13 @@ class SignUpFragment : BaseFragment() {
                     override fun onComplete() {
                         super.onComplete()
                         signUpBtn?.showProgressBar(false)
+                        signUpBtn?.isEnabled = true
                     }
 
                     override fun onStart() {
                         super.onStart()
                         signUpBtn?.showProgressBar(true)
+                        signUpBtn?.isEnabled = false
                     }
                 })
     }
@@ -158,7 +160,7 @@ class SignUpFragment : BaseFragment() {
     private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
         try {
             val account = completedTask.getResult(ApiException::class.java)
-            var userSignUpRequestModel = UserSignUpRequestModel()
+            val userSignUpRequestModel = UserSignUpRequestModel()
             userSignUpRequestModel.apply {
                 user.email = if (account?.email == null) "" else account.email.toString()
             }

@@ -70,6 +70,43 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/agreeRadioBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:orientation="vertical">
+
+                    <com.dml.base.ui.ThemeTextView
+                        android:id="@+id/agreeTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/agree_tnc"
+                        android:textSize="14dp"
+                        app:appFontStyle="barlow_medium" />
+
+                    <com.dml.base.ui.ThemeTextView
+                        android:id="@+id/learnMoreTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/activity_signup_learn_more"
+                        android:textColor="@color/text_green"
+                        android:textSize="14dp"
+                        app:appFontStyle="barlow_medium" />
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

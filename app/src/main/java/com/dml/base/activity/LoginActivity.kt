@@ -24,7 +24,8 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun postLoginRequest() {
-        if (emailET?.text.isNullOrEmpty() || passwordET?.text.isNullOrEmpty())
+        if (emailET?.text.isNullOrEmpty()
+                || passwordET?.text.isNullOrEmpty())
             return
 
         var loginRequestModel = UserLoginRequestModel()
@@ -45,11 +46,13 @@ class LoginActivity : BaseActivity() {
                     override fun onComplete() {
                         super.onComplete()
                         loginBtn?.showProgressBar(false)
+                        loginBtn?.isEnabled = true
                     }
 
                     override fun onStart() {
                         super.onStart()
                         loginBtn?.showProgressBar(true)
+                        loginBtn?.isEnabled = false
                     }
                 })
     }

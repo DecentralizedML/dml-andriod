@@ -12,8 +12,8 @@ import kotlinx.android.synthetic.main.fragment_signup_connect.*
 
 class SignUpConnectFragment : BaseFragment() {
 
-    val REQUEST_CODE_PERMISSION = 1001
-    var permissionArray: ArrayList<String> = ArrayList()
+    private val REQUEST_CODE_PERMISSION = 1001
+    private val permissionArray: ArrayList<String> = ArrayList()
 
     companion object {
         fun newInstance(bundle: Bundle?): BaseFragment {
@@ -68,30 +68,25 @@ class SignUpConnectFragment : BaseFragment() {
 
     private fun requestPermission() {
         if (permissionArray.size == 0 || Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            nextActivity()
+            goNextStep()
             return
         }
 
-        requestPermissions(
-                permissionArray.toTypedArray(),
-                REQUEST_CODE_PERMISSION
-        )
+        requestPermissions(permissionArray.toTypedArray(), REQUEST_CODE_PERMISSION)
     }
 
-    private fun nextActivity() {
-        if (activity is SignUpActivity) {
-            (activity as SignUpActivity).setState(SignUpActivity.SignUpState.Complete)
-        }
+    private fun goNextStep() {
+        (activity as SignUpActivity).setState(SignUpActivity.SignUpState.Complete)
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         when (requestCode) {
             REQUEST_CODE_PERMISSION -> {
                 if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(context, "denied permission", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Denied permission", Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast.makeText(context, "granted permission", Toast.LENGTH_SHORT).show()
-                    nextActivity()
+                    Toast.makeText(context, "Granted permission", Toast.LENGTH_SHORT).show()
+                    goNextStep()
                 }
                 return
             }

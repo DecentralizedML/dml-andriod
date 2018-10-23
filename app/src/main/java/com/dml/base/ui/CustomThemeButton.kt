@@ -9,8 +9,8 @@ import com.dml.base.R
 import kotlinx.android.synthetic.main.layout_button.view.*
 
 class CustomThemeButton : RelativeLayout {
-    var text = ""
-    var showRightIcon = false
+    private var text = ""
+    private var showRightIcon = false
 
     constructor(context: Context) : super(context)
 
@@ -24,6 +24,11 @@ class CustomThemeButton : RelativeLayout {
 
     fun setText(id: Int) {
         text = context.getString(id)
+        btnTV?.text = text
+    }
+
+    fun setTextString(text: String) {
+        this.text = text
         btnTV?.text = text
     }
 

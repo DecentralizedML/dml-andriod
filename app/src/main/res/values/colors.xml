@@ -7,6 +7,7 @@
     <color name="background">#ffffff</color>
     <color name="background_start">#003B98</color>
     <color name="background_end">#001434</color>
+    <color name="background_dialog">#033D9A</color>
     <color name="text">#F7F9FC</color>
     <color name="text_title">#ffffff</color>
     <color name="text_green">#46E546</color>
