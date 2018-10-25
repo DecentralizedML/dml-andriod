@@ -1,6 +1,7 @@
 package com.dml.base.activity
 
-import android.util.Log
+import android.animation.ObjectAnimator
+import android.view.animation.LinearInterpolator
 import com.dml.base.R
 import com.dml.base.Utility
 import com.dml.base.base.BaseActivity
@@ -8,7 +9,8 @@ import kotlinx.android.synthetic.main.activity_transaction_detail.*
 
 
 class TransactionDetailActivity : BaseActivity() {
-    var previousscrollY = 0
+    var oldScrollY = 0
+    var isHiding = false
 
     override fun setLayoutId(): Int {
         return R.layout.activity_transaction_detail
@@ -18,29 +20,61 @@ class TransactionDetailActivity : BaseActivity() {
         toolbar?.setTitle(R.string.activity_transaction_detail_toolbar_title)
 
         contentScrollView?.viewTreeObserver?.addOnScrollChangedListener {
-            val scrollX = contentScrollView?.scrollX
-            val scrollY = contentScrollView?.scrollY
+            val scrollY = contentScrollView.scrollY
 
-            scrollY?.let {
-                if (scrollY > 0
-                        && scrollY < contentScrollView?.getChildAt(0)!!.height
-                        && Math.abs(scrollY - previousscrollY) > 10) {
-                    Log.v("Scroll", "previousscrollY: $previousscrollY scrollY: $scrollY")
+            if (Utility.canScroll(contentScrollView)) {
+                if (Math.abs(scrollY - oldScrollY) > 20) {
+                    if (scrollY > oldScrollY) {
+                        if (!isHiding) {
+                            val transAnimation = ObjectAnimator.ofFloat(0f, 300f)
+                            transAnimation.addUpdateListener {
+                                val value = it.animatedValue as Float
+                                signUpBtn.translationY = value
+                            }
+                            transAnimation.interpolator = LinearInterpolator()
+                            transAnimation.duration = 200
+                            transAnimation.start()
 
-                    if (scrollY > previousscrollY) {
-                        if (toolbar?.height!! > Utility.convertDpToPixel(this@TransactionDetailActivity, 58f)) {
-//                            toolbar?.layoutParams = LinearLayout.LayoutParams(toolbar.width, toolbar.height - 10)
-                            toolbar?.translationY = toolbar.height - 10f
+                            isHiding = true
                         }
                     } else {
-                        if (toolbar?.height!! < Utility.convertDpToPixel(this@TransactionDetailActivity, 170f)) {
-//                            toolbar?.layoutParams = LinearLayout.LayoutParams(toolbar.width, toolbar.height + 10)
-                            toolbar?.translationY = toolbar.height + 10f
+                        if (isHiding) {
+                            val transAnimation = ObjectAnimator.ofFloat(300f, 0f)
+                            transAnimation.addUpdateListener {
+                                val value = it.animatedValue as Float
+                                signUpBtn.translationY = value
+                            }
+                            transAnimation.interpolator = LinearInterpolator()
+                            transAnimation.duration = 200
+                            transAnimation.start()
+
+                            isHiding = false
                         }
                     }
-                    previousscrollY = scrollY
                 }
+                oldScrollY = scrollY
             }
+
+//            scrollY?.let {
+//                if (scrollY > 0
+//                        && scrollY < contentScrollView?.getChildAt(0)!!.height
+//                        && Math.abs(scrollY - oldScrollY) > 10) {
+//                    Log.v("Scroll", "oldScrollY: $oldScrollY scrollY: $scrollY")
+//
+//                    if (scrollY > oldScrollY) {
+//                        if (toolbar?.height!! > Utility.convertDpToPixel(this@TransactionDetailActivity, 58f)) {
+////                            toolbar?.layoutParams = LinearLayout.LayoutParams(toolbar.width, toolbar.height - 10)
+//                            toolbar?.translationY = toolbar.height - 10f
+//                        }
+//                    } else {
+//                        if (toolbar?.height!! < Utility.convertDpToPixel(this@TransactionDetailActivity, 170f)) {
+////                            toolbar?.layoutParams = LinearLayout.LayoutParams(toolbar.width, toolbar.height + 10)
+//                            toolbar?.translationY = toolbar.height + 10f
+//                        }
+//                    }
+//                    oldScrollY = scrollY
+//                }
+//            }
         }
     }
 }

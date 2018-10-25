@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp">
+    android:padding="16dp">
 
     <com.dml.base.ui.ThemeTextView
         android:id="@+id/titleTV"
@@ -32,14 +32,14 @@
         android:layout_centerInParent="true"
         android:layout_margin="16dp"
         android:adjustViewBounds="true"
-        android:maxWidth="200dp"
-        android:maxHeight="200dp"
+        android:maxWidth="160dp"
+        android:maxHeight="160dp"
         android:src="@drawable/ic_celebration" />
 
     <com.dml.base.ui.CustomThemeButton
         android:id="@+id/checkOutBtn"
         android:layout_width="match_parent"
-        android:layout_height="52dp"
+        android:layout_height="48dp"
         android:layout_alignParentBottom="true"
         app:appFontStyle="barlow_semibold" />
 </RelativeLayout>

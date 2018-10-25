@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:padding="24dp">
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -65,7 +65,7 @@
     <com.dml.base.ui.CustomThemeButton
         android:id="@+id/signUpBtn"
         android:layout_width="256dp"
-        android:layout_height="52dp"
+        android:layout_height="48dp"
         android:layout_above="@+id/loginBtn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp" />
@@ -75,7 +75,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
         android:gravity="center"
         android:text="@string/welcome_button_login"
         android:textColor="@color/text_green"

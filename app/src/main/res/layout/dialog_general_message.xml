@@ -33,7 +33,7 @@
     <com.dml.base.ui.CustomThemeButton
         android:id="@+id/confirmBtn"
         android:layout_width="wrap_content"
-        android:layout_height="52dp"
+        android:layout_height="48dp"
         android:layout_marginTop="32dp"
         android:minWidth="256dp" />
 

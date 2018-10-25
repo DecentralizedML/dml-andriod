@@ -23,10 +23,13 @@
                 android:id="@+id/jobsBtn"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?selectableItemBackground"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingStart="24dp"
-                android:paddingEnd="24dp">
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -53,10 +56,13 @@
                 android:id="@+id/profileBtn"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?selectableItemBackground"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingStart="24dp"
-                android:paddingEnd="24dp">
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -83,10 +89,13 @@
                 android:id="@+id/dataSourcesBtn"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?selectableItemBackground"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingStart="24dp"
-                android:paddingEnd="24dp">
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -113,10 +122,13 @@
                 android:id="@+id/currencyBtn"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?selectableItemBackground"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingStart="24dp"
-                android:paddingEnd="24dp">
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -143,30 +155,21 @@
                 android:id="@+id/logoutBtn"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?selectableItemBackground"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingStart="24dp"
-                android:paddingEnd="24dp">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_settings_currency" />
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
 
                 <com.dml.base.ui.ThemeTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
                     android:layout_weight="1"
-                    android:text="{logout}"
+                    android:gravity="center"
+                    android:text="{Logout}"
                     app:appFontStyle="barlow_medium" />
-
-                <ImageView
-                    android:layout_width="12dp"
-                    android:layout_height="12dp"
-                    android:layout_marginStart="24dp"
-                    android:src="@drawable/ic_btn_next"
-                    android:tint="@color/text" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

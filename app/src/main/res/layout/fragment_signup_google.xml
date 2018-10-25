@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:padding="16dp">
 
             <com.dml.base.ui.ThemeTextView
                 android:id="@+id/descTV"
@@ -52,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="24dp"
                 android:text="@string/activity_signup_password"
                 app:appFontStyle="barlow_semibold" />
 
@@ -74,7 +74,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -113,7 +113,9 @@
     <com.dml.base.ui.CustomThemeButton
         android:id="@+id/signUpBtn"
         android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_margin="24dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         app:appFontStyle="barlow_semibold" />
 </LinearLayout>

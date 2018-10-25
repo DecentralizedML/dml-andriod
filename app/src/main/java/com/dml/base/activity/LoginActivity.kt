@@ -1,6 +1,8 @@
 package com.dml.base.activity
 
+import android.app.Activity
 import android.content.Intent
+import androidx.core.app.ActivityCompat
 import com.dml.base.Preferences
 import com.dml.base.R
 import com.dml.base.base.BaseActivity
@@ -40,7 +42,10 @@ class LoginActivity : BaseActivity() {
                 ?.subscribeWith(object : DefaultRequestObserver<UserLoginModel>(this@LoginActivity) {
                     override fun onNext(modelUser: UserLoginModel) {
                         Preferences.setJWT(context, modelUser.jwt)
-                        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                        var intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        startActivity(intent)
+                        ActivityCompat.finishAffinity(context as Activity)
                         finish()
                     }
 
@@ -58,4 +63,8 @@ class LoginActivity : BaseActivity() {
                 })
     }
 
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(R.anim.keep_stay, R.anim.exit_to_down)
+    }
 }

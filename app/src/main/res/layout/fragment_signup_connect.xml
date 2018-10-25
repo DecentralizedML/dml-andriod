@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:padding="16dp">
 
             <com.dml.base.ui.ThemeTextView
                 android:layout_width="match_parent"
@@ -34,11 +34,10 @@
                 android:gravity="center"
                 android:text="@string/activity_signup_connect_desc" />
 
-
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp">
+                android:layout_marginTop="32dp">
 
                 <TableRow>
 
@@ -63,8 +62,8 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="36dp"
-                                android:layout_height="36dp"
+                                android:layout_width="28dp"
+                                android:layout_height="28dp"
                                 android:adjustViewBounds="true"
                                 android:src="@drawable/ic_sms" />
 
@@ -98,8 +97,8 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="36dp"
-                                android:layout_height="36dp"
+                                android:layout_width="28dp"
+                                android:layout_height="28dp"
                                 android:adjustViewBounds="true"
                                 android:src="@drawable/ic_camera_roll" />
 
@@ -136,8 +135,8 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="36dp"
-                                android:layout_height="36dp"
+                                android:layout_width="28dp"
+                                android:layout_height="28dp"
                                 android:adjustViewBounds="true"
                                 android:src="@drawable/ic_address_book" />
 
@@ -154,7 +153,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="12dp"
-                        android:layout_weight="1"></RelativeLayout>
+                        android:layout_weight="1" />
                 </TableRow>
             </TableLayout>
         </LinearLayout>
@@ -163,7 +162,9 @@
     <com.dml.base.ui.CustomThemeButton
         android:id="@+id/nextBtn"
         android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_margin="24dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         app:appFontStyle="barlow_semibold" />
 </LinearLayout>

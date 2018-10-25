@@ -28,14 +28,13 @@ class WelcomeActivity : BaseActivity() {
     override fun connectViews() {
         loginBtn?.setOnClickListener {
             startActivity(Intent(this@WelcomeActivity, LoginActivity::class.java))
-            finish()
+            overridePendingTransition(R.anim.enter_from_down, R.anim.keep_stay)
         }
 
         signUpBtn?.apply {
             setText(R.string.welcome_button_sign_up)
             setOnClickListener {
                 startActivity(Intent(this@WelcomeActivity, SignUpActivity::class.java))
-                finish()
             }
         }
     }

@@ -26,6 +26,9 @@ class SplashActivity : BaseActivity() {
                         startActivity(Intent(this@SplashActivity, WelcomeActivity::class.java))
                         finish()
                     }
+//                    //For Testing
+//                    startActivity(Intent(this@SplashActivity, TransactionDetailActivity::class.java))
+//                    finish()
                 })
     }
 

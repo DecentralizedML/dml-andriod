@@ -7,8 +7,11 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.util.DisplayMetrics
 import android.util.Patterns
+import android.widget.ScrollView
 import androidx.core.app.ActivityCompat.finishAffinity
 import com.dml.base.activity.WelcomeActivity
+
+
 
 
 class Utility {
@@ -95,6 +98,15 @@ class Utility {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
             context.startActivity(intent)
             finishAffinity(context as Activity)
+        }
+
+        fun canScroll(scrollView: ScrollView): Boolean {
+            val child = scrollView.getChildAt(0)
+            if (child != null) {
+                val childHeight = child.height
+                return scrollView.height < childHeight + scrollView.paddingTop + scrollView.paddingBottom
+            }
+            return false
         }
     }
 }
