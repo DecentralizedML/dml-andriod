@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#b9b9b9</color>
     <color name="colorAccent">#23E280</color>
 
+    <color name="action_bar">#67A1FF</color>
+
     <color name="background">#ffffff</color>
     <color name="background_start">#003B98</color>
     <color name="background_end">#001434</color>
@@ -27,4 +29,5 @@
     <color name="signup_edittext_text">#8194B2</color>
 
     <color name="edittext_title">#67A1FF</color>
+    <color name="textview_title">#67A1FF</color>
 </resources>

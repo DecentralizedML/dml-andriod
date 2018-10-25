@@ -2,6 +2,8 @@ package com.dml.base.connection
 
 import android.content.Context
 import com.dml.base.Configure
+import com.dml.base.Preferences
+import com.dml.base.Utility
 import okhttp3.Interceptor
 import okhttp3.JavaNetCookieJar
 import okhttp3.OkHttpClient
@@ -10,7 +12,6 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
-import java.util.prefs.Preferences
 
 
 class RetrofitClient {
@@ -63,8 +64,11 @@ class RetrofitClient {
                     val original = chain.request()
 
                     val builder = original.newBuilder()
-//                    builder.header("User-Agent", "Android")
                     builder.header("Content-Type", "application/x-www-form-urlencoded")
+
+                    if (Utility.isLoggedIn(context))
+                        builder.header("Authorization", Preferences.getJWT(context))
+
                     builder.build()
 
                     val request = builder.build()

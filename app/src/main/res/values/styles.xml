@@ -7,6 +7,14 @@
         <item name="android:textColor">@color/text</item>
         <item name="android:textSize">16dp</item>
         <item name="android:windowBackground">@drawable/bg_main</item>
+        <item name="android:windowAnimationStyle">@style/AppTheme.Activity.Animation</item>
+    </style>
+
+    <style name="AppTheme.Activity.Animation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/enter_from_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/exit_to_left</item>
+        <item name="android:activityCloseEnterAnimation">@anim/enter_from_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/exit_to_right</item>
     </style>
 
     <style name="AppTheme.Welcome" parent="Theme.AppCompat.NoActionBar">
@@ -16,6 +24,7 @@
         <item name="android:textColor">@color/text</item>
         <item name="android:textSize">16dp</item>
         <item name="android:windowBackground">@drawable/bg_main</item>
+        <item name="android:windowAnimationStyle">@style/AppTheme.Activity.Animation</item>
     </style>
 
     <style name="AppTheme.Button.White" parent="Widget.AppCompat.Button.Colored">
@@ -78,6 +87,12 @@
 
     <style name="AppTheme.EditText.Title" parent="TextAppearance.AppCompat">
         <item name="android:textColor">@color/edittext_title</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="AppTheme.TextView.Title" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/textview_title</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textSize">12dp</item>
     </style>

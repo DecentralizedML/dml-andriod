@@ -51,6 +51,11 @@ class SignUpInformationFragment : BaseFragment() {
             showRightIcon(true)
             setOnClickListener { updateUserInformation() }
         }
+
+        skipBtn?.setOnClickListener {
+            (activity as SignUpActivity).setState(SignUpActivity.SignUpState.Connect)
+        }
+
 //        dateOfBirthET?.let {
 //            DateInputMask(dateOfBirthET).listen()
 //        }
@@ -157,13 +162,13 @@ class SignUpInformationFragment : BaseFragment() {
             }
         }
 
-        getParentActivity().mService.putUserRequest(context, signUpRequestModel)
+        getParentActivity().mService.updateUserRequest(context, signUpRequestModel)
                 ?.subscribeOn(Schedulers.io())
                 ?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribeWith(object : DefaultRequestObserver<UserSignUpModel>(context) {
                     override fun onNext(modelUser: UserSignUpModel) {
                         Preferences.setJWT(context, modelUser.jwt)
-                        (activity as SignUpActivity).setState(SignUpActivity.SignUpState.Information)
+                        (activity as SignUpActivity).setState(SignUpActivity.SignUpState.Connect)
                     }
 
                     override fun onComplete() {

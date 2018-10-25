@@ -26,17 +26,17 @@ class WelcomeActivity : BaseActivity() {
     }
 
     override fun connectViews() {
+        loginBtn?.setOnClickListener {
+            startActivity(Intent(this@WelcomeActivity, LoginActivity::class.java))
+            finish()
+        }
+
         signUpBtn?.apply {
             setText(R.string.welcome_button_sign_up)
             setOnClickListener {
                 startActivity(Intent(this@WelcomeActivity, SignUpActivity::class.java))
                 finish()
             }
-        }
-
-        loginBtn?.setOnClickListener {
-            startActivity(Intent(this@WelcomeActivity, LoginActivity::class.java))
-            finish()
         }
     }
 }

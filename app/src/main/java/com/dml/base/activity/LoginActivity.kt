@@ -1,6 +1,6 @@
 package com.dml.base.activity
 
-import android.widget.Toast
+import android.content.Intent
 import com.dml.base.Preferences
 import com.dml.base.R
 import com.dml.base.base.BaseActivity
@@ -40,7 +40,8 @@ class LoginActivity : BaseActivity() {
                 ?.subscribeWith(object : DefaultRequestObserver<UserLoginModel>(this@LoginActivity) {
                     override fun onNext(modelUser: UserLoginModel) {
                         Preferences.setJWT(context, modelUser.jwt)
-                        Toast.makeText(context, "postUserLoginRequest success", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                        finish()
                     }
 
                     override fun onComplete() {

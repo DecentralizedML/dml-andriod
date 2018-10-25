@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.dml.base.ui.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:id="@+id/contentScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <com.dml.base.ui.ThemeTextView
+                style="@style/AppTheme.TextView.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/activity_transaction_detail_to"
+                app:appFontStyle="barlow_semibold" />
+
+            <com.dml.base.ui.ThemeTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="708923i4ugiuawe0f87jhkakuhg09as8doqi234oi"
+                app:appFontStyle="barlow_medium" />
+
+            <com.dml.base.ui.ThemeTextView
+                style="@style/AppTheme.TextView.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/activity_transaction_detail_to"
+                app:appFontStyle="barlow_semibold" />
+
+            <com.dml.base.ui.ThemeTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="708923i4ugiuawe0f87jhkakuhg09as8doqi234oi"
+                app:appFontStyle="barlow_medium" />
+
+            <com.dml.base.ui.ThemeTextView
+                style="@style/AppTheme.TextView.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/activity_transaction_detail_to"
+                app:appFontStyle="barlow_semibold" />
+
+            <com.dml.base.ui.ThemeTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="708923i4ugiuawe0f87jhkakuhg09as8doqi234oi"
+                app:appFontStyle="barlow_medium" />
+
+            <com.dml.base.ui.ThemeTextView
+                style="@style/AppTheme.TextView.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/activity_transaction_detail_to"
+                app:appFontStyle="barlow_semibold" />
+
+            <com.dml.base.ui.ThemeTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="708923i4ugiuawe0f87jhkakuhg09as8doqi234oi"
+                app:appFontStyle="barlow_medium" />
+
+            <com.dml.base.ui.ThemeTextView
+                style="@style/AppTheme.TextView.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/activity_transaction_detail_to"
+                app:appFontStyle="barlow_semibold" />
+
+            <com.dml.base.ui.ThemeTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="708923i4ugiuawe0f87jhkakuhg09as8doqi234oi"
+                app:appFontStyle="barlow_medium" />
+
+            <com.dml.base.ui.ThemeTextView
+                style="@style/AppTheme.TextView.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/activity_transaction_detail_to"
+                app:appFontStyle="barlow_semibold" />
+
+            <com.dml.base.ui.ThemeTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="708923i4ugiuawe0f87jhkakuhg09as8doqi234oi"
+                app:appFontStyle="barlow_medium" />
+
+            <com.dml.base.ui.ThemeTextView
+                style="@style/AppTheme.TextView.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/activity_transaction_detail_to"
+                app:appFontStyle="barlow_semibold" />
+
+            <com.dml.base.ui.ThemeTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="708923i4ugiuawe0f87jhkakuhg09as8doqi234oi"
+                app:appFontStyle="barlow_medium" />
+
+            <com.dml.base.ui.ThemeTextView
+                style="@style/AppTheme.TextView.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/activity_transaction_detail_to"
+                app:appFontStyle="barlow_semibold" />
+
+            <com.dml.base.ui.ThemeTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="708923i4ugiuawe0f87jhkakuhg09as8doqi234oi"
+                app:appFontStyle="barlow_medium" />
+
+            <com.dml.base.ui.ThemeTextView
+                style="@style/AppTheme.TextView.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/activity_transaction_detail_to"
+                app:appFontStyle="barlow_semibold" />
+
+            <com.dml.base.ui.ThemeTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="708923i4ugiuawe0f87jhkakuhg09as8doqi234oi"
+                app:appFontStyle="barlow_medium" />
+
+            <com.dml.base.ui.ThemeTextView
+                style="@style/AppTheme.TextView.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/activity_transaction_detail_to"
+                app:appFontStyle="barlow_semibold" />
+
+            <com.dml.base.ui.ThemeTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="708923i4ugiuawe0f87jhkakuhg09as8doqi234oi"
+                app:appFontStyle="barlow_medium" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

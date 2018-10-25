@@ -8,6 +8,8 @@
     <string name="no_network">No network</string>
     <string name="agree_tnc">I agree to the Terms &#38; Conditions</string>
     <string name="login">Login</string>
+    <string name="settings">Settings</string>
+    <string name="current_balance">Current Balance</string>
 
     <string name="welcome_title">Decentralized\nMachine Learning</string>
     <string name="welcome_desc">Get paid for your date, on your terms.</string>
@@ -52,4 +54,13 @@
         <item>Master\'s</item>
         <item>Doctorate or higher</item>
     </string-array>
+
+
+    <string name="activity_transaction_detail_toolbar_title">Transaction Detail</string>
+    <string name="activity_transaction_detail_to">To (Wallet Address)</string>
+
+    <string name="settings_jobs">Jobs</string>
+    <string name="settings_profile">Profile</string>
+    <string name="settings_data_sources">Data Sources</string>
+    <string name="settings_currency">Currency</string>
 </resources>

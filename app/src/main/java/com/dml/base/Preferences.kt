@@ -1,7 +1,6 @@
 package com.dml.base
 
 import android.content.Context
-import com.dml.base.Configure
 
 class Preferences {
 
@@ -23,7 +22,7 @@ class Preferences {
             getPreferences(context).edit().putString(Configure.KEY_JWT, key).commit()
         }
 
-        fun getSWT(context: Context): String {
+        fun getJWT(context: Context): String {
             return getPreferences(context).getString(Configure.KEY_JWT, "")
         }
     }
