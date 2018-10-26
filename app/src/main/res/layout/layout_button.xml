@@ -17,14 +17,14 @@
         android:orientation="horizontal">
 
         <com.dml.base.ui.ThemeTextView
-            android:id="@+id/btnTV"
+            android:id="@+id/btnTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18dp"
             app:appFontStyle="barlow_semibold" />
 
         <ImageView
-            android:id="@+id/rightIV"
+            android:id="@+id/rightImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"

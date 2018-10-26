@@ -27,9 +27,9 @@ class EducationLevelAdapter(var context: Context, val listener: OnItemClickListe
         }
 
         if (selectedPosition == position) {
-            holder.itemView.titleTV.setBackgroundResource(R.drawable.bg_circle_filled)
+            holder.itemView.titleTextView.setBackgroundResource(R.drawable.bg_circle_filled)
         } else {
-            holder.itemView.titleTV.setBackgroundResource(0)
+            holder.itemView.titleTextView.setBackgroundResource(0)
         }
     }
 
@@ -41,7 +41,7 @@ class EducationLevelAdapter(var context: Context, val listener: OnItemClickListe
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bindData(context: Context, title: String) {
-            itemView.titleTV.text = title
+            itemView.titleTextView.text = title
         }
     }
 }

@@ -6,7 +6,7 @@
     android:padding="16dp">
 
     <com.dml.base.ui.ThemeTextView
-        android:id="@+id/titleTV"
+        android:id="@+id/titleTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -16,10 +16,10 @@
         app:appFontStyle="barlow_medium" />
 
     <com.dml.base.ui.ThemeTextView
-        android:id="@+id/descTV"
+        android:id="@+id/descTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/titleTV"
+        android:layout_below="@+id/titleTextView"
         android:layout_marginTop="16dp"
         android:gravity="center"
         android:text="@string/activity_signup_complete_desc" />
@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:layout_above="@id/checkOutBtn"
-        android:layout_below="@id/descTV"
+        android:layout_below="@id/descTextView"
         android:layout_centerInParent="true"
         android:layout_margin="16dp"
         android:adjustViewBounds="true"

@@ -40,13 +40,13 @@ class LargeToolbar : RelativeLayout {
     }
 
     fun setTitle(title: String) {
-        titleTV?.text = title
-        titleTV?.visibility = View.VISIBLE
+        titleTextView?.text = title
+        titleTextView?.visibility = View.VISIBLE
     }
 
     fun setTitle(title: Int) {
-        titleTV?.text = context.getString(title)
-        titleTV?.visibility = View.VISIBLE
+        titleTextView?.text = context.getString(title)
+        titleTextView?.visibility = View.VISIBLE
     }
 
     fun setWalletButton(onClickListener: OnClickListener?) {

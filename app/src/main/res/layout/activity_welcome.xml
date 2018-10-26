@@ -14,7 +14,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/iconIV"
+            android:id="@+id/iconImageView"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_alignParentTop="true"
@@ -22,10 +22,10 @@
             android:src="@drawable/ic_dml_logo" />
 
         <com.dml.base.ui.ThemeTextView
-            android:id="@+id/titleTV"
+            android:id="@+id/titleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/iconIV"
+            android:layout_below="@+id/iconImageView"
             android:layout_marginTop="40dp"
             android:gravity="center"
             android:text="@string/welcome_title"
@@ -34,10 +34,10 @@
             app:appFontStyle="barlow_medium" />
 
         <com.dml.base.ui.ThemeTextView
-            android:id="@+id/descTV"
+            android:id="@+id/descTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/titleTV"
+            android:layout_below="@+id/titleTextView"
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="@string/welcome_desc"
@@ -49,7 +49,7 @@
     <!--android:layout_width="match_parent"-->
     <!--android:layout_height="match_parent"-->
     <!--android:layout_above="@id/signUpBtn"-->
-    <!--android:layout_below="@id/descTV"-->
+    <!--android:layout_below="@id/descTextView"-->
     <!--android:layout_marginTop="16dp"-->
     <!--android:gravity="center"-->
     <!--android:visibility="gone">-->

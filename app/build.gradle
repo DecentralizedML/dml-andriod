@@ -54,6 +54,8 @@ dependencies {
     implementation 'com.facebook.android:facebook-login:[4,5)'
 
     implementation 'org.web3j:core:3.3.1-android'
+
+    implementation 'com.github.rubensousa:gravitysnaphelper:1.5'
 }
 
 apply plugin: 'com.google.gms.google-services'

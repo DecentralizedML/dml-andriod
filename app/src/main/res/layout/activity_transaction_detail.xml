@@ -34,7 +34,7 @@
                     app:appFontStyle="barlow_semibold" />
 
                 <com.dml.base.ui.ThemeTextView
-                    android:id="@+id/toAddressTV"
+                    android:id="@+id/toAddressTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -50,7 +50,7 @@
                     app:appFontStyle="barlow_semibold" />
 
                 <com.dml.base.ui.ThemeTextView
-                    android:id="@+id/memoTV"
+                    android:id="@+id/memoTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -66,7 +66,7 @@
                     app:appFontStyle="barlow_semibold" />
 
                 <com.dml.base.ui.ThemeTextView
-                    android:id="@+id/timeTV"
+                    android:id="@+id/timeTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -82,7 +82,7 @@
                     app:appFontStyle="barlow_semibold" />
 
                 <com.dml.base.ui.ThemeTextView
-                    android:id="@+id/networkFeeTV"
+                    android:id="@+id/networkFeeTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -98,7 +98,7 @@
                     app:appFontStyle="barlow_semibold" />
 
                 <com.dml.base.ui.ThemeTextView
-                    android:id="@+id/transactionHashTV"
+                    android:id="@+id/transactionHashTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"

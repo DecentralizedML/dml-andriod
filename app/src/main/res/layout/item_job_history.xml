@@ -4,8 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingStart="24dp"
-    android:paddingEnd="24dp">
+    android:paddingStart="16dp"
+    android:paddingTop="8dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,7 +15,7 @@
         android:orientation="horizontal">
 
         <com.dml.base.ui.ThemeTextView
-            android:id="@+id/nameTV"
+            android:id="@+id/nameTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.5"
@@ -22,7 +24,7 @@
             app:appFontStyle="barlow_medium" />
 
         <com.dml.base.ui.ThemeTextView
-            android:id="@+id/amountTV"
+            android:id="@+id/amountTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -39,7 +41,7 @@
         android:orientation="horizontal">
 
         <com.dml.base.ui.ThemeTextView
-            android:id="@+id/dateTV"
+            android:id="@+id/dateTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.5"
@@ -47,7 +49,7 @@
             android:textSize="12dp" />
 
         <com.dml.base.ui.ThemeTextView
-            android:id="@+id/rateTV"
+            android:id="@+id/rateTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"

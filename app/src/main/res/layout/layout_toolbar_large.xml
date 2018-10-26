@@ -2,8 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="180dp"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="128dp"
+        android:background="@drawable/bg_action_bar_shadow" />
 
     <ImageView
         android:layout_width="match_parent"
@@ -13,6 +20,7 @@
         android:src="@drawable/bg_action_bar_large" />
 
     <RelativeLayout
+        android:id="@+id/layout_action_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true">
@@ -26,7 +34,7 @@
             android:padding="16dp" />
 
         <com.dml.base.ui.ThemeTextView
-            android:id="@+id/titleTV"
+            android:id="@+id/titleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -45,7 +53,7 @@
     </RelativeLayout>
 
     <com.dml.base.ui.ThemeTextView
-        android:id="@+id/amountTV"
+        android:id="@+id/amountTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -56,10 +64,10 @@
         android:textSize="40dp" />
 
     <com.dml.base.ui.ThemeTextView
-        android:id="@+id/lastUpdateTV"
+        android:id="@+id/lastUpdateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/amountTV"
+        android:layout_below="@id/amountTextView"
         android:layout_centerHorizontal="true"
         android:text="{Last updated 11:31am, Oct 19th}"
         android:textColor="@color/action_bar"
@@ -67,10 +75,10 @@
 
     <ImageView
         android:id="@+id/walletBtn"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="98dp"
         android:src="@drawable/ic_wallet"
         android:visibility="gone" />
 </RelativeLayout>

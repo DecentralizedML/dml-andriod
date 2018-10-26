@@ -12,13 +12,13 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/iconIV"
+            android:id="@+id/iconImageView"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:src="@drawable/ic_dml_logo" />
 
         <com.dml.base.ui.ThemeTextView
-            android:id="@+id/titleTV"
+            android:id="@+id/titleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

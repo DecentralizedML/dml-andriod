@@ -15,7 +15,7 @@
         app:appFontStyle="barlow_semibold" />
 
     <com.dml.base.ui.ThemeTextView
-        android:id="@+id/mnemonicTV"
+        android:id="@+id/mnemonicTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

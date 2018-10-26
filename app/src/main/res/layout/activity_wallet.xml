@@ -13,8 +13,7 @@
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp"
+        android:padding="16dp"
         android:scrollbars="none">
 
         <LinearLayout
@@ -29,7 +28,7 @@
                 android:orientation="vertical">
 
                 <com.dml.base.ui.ThemeTextView
-                    android:id="@+id/dateTV"
+                    android:id="@+id/dateTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="date"
@@ -53,7 +52,7 @@
                 android:orientation="vertical">
 
                 <com.dml.base.ui.ThemeTextView
-                    android:id="@+id/pendingTV"
+                    android:id="@+id/pendingTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="pending"
@@ -77,7 +76,7 @@
                 android:orientation="vertical">
 
                 <com.dml.base.ui.ThemeTextView
-                    android:id="@+id/tokenTV"
+                    android:id="@+id/tokenTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="token"
@@ -101,7 +100,7 @@
                 android:orientation="vertical">
 
                 <com.dml.base.ui.ThemeTextView
-                    android:id="@+id/valueTV"
+                    android:id="@+id/valueTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="fiat value"
@@ -121,8 +120,6 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="24dp"
-        android:padding="24dp" />
+        android:layout_height="match_parent" />
 
 </LinearLayout>

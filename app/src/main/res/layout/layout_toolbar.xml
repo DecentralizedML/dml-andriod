@@ -18,7 +18,7 @@
         android:padding="16dp" />
 
     <com.dml.base.ui.ThemeTextView
-        android:id="@+id/titleTV"
+        android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"

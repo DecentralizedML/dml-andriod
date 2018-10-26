@@ -43,7 +43,7 @@ class SignUpWalletFragment : BaseFragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
-                    mnemonicTV?.text = mnemonic
+                    mnemonicTextView?.text = mnemonic
                     progressBar?.visibility = View.GONE
                 })
     }

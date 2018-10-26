@@ -12,7 +12,7 @@
         android:gravity="center">
 
         <ImageView
-            android:id="@+id/stageFirstBgIV"
+            android:id="@+id/stageFirstBgImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -20,7 +20,7 @@
             android:src="@drawable/ic_welcome_empty" />
 
         <ImageView
-            android:id="@+id/stageFirstIV"
+            android:id="@+id/stageFirstImageView"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_alignParentTop="true"
@@ -33,18 +33,18 @@
             android:layout_width="46dp"
             android:layout_height="2dp"
             android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/stageSecondBgIV"
+            android:layout_toLeftOf="@+id/stageSecondBgImageView"
             android:src="@color/signup_line_not_finish" />
 
         <ImageView
-            android:id="@+id/stageSecondBgIV"
+            android:id="@+id/stageSecondBgImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:src="@drawable/ic_welcome_empty" />
 
         <ImageView
-            android:id="@+id/stageSecondIV"
+            android:id="@+id/stageSecondImageView"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_centerInParent="true"
@@ -55,11 +55,11 @@
             android:layout_width="46dp"
             android:layout_height="2dp"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/stageSecondBgIV"
+            android:layout_toRightOf="@+id/stageSecondBgImageView"
             android:src="@color/signup_line_not_finish" />
 
         <ImageView
-            android:id="@+id/stageThirdBgIV"
+            android:id="@+id/stageThirdBgImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -67,7 +67,7 @@
             android:src="@drawable/ic_welcome_empty" />
 
         <ImageView
-            android:id="@+id/stageThirdIV"
+            android:id="@+id/stageThirdImageView"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_centerVertical="true"

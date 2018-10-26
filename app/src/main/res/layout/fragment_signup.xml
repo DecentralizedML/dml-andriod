@@ -132,7 +132,7 @@
                     android:orientation="vertical">
 
                     <com.dml.base.ui.ThemeTextView
-                        android:id="@+id/agreeTV"
+                        android:id="@+id/agreeTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/agree_tnc"
@@ -140,7 +140,7 @@
                         app:appFontStyle="barlow_medium" />
 
                     <com.dml.base.ui.ThemeTextView
-                        android:id="@+id/learnMoreTV"
+                        android:id="@+id/learnMoreTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"

@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <com.dml.base.ui.ThemeTextView
-        android:id="@+id/titleTV"
+        android:id="@+id/titleTextView"
         android:layout_width="112dp"
         android:layout_height="112dp"
         android:gravity="center"

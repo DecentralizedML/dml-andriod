@@ -24,36 +24,36 @@ class CustomThemeButton : RelativeLayout {
 
     fun setText(id: Int) {
         text = context.getString(id)
-        btnTV?.text = text
+        btnTextView?.text = text
     }
 
     fun setTextString(text: String) {
         this.text = text
-        btnTV?.text = text
+        btnTextView?.text = text
     }
 
     fun showRightIcon(show: Boolean) {
         showRightIcon = show
 
         if (show)
-            rightIV?.visibility = View.VISIBLE
+            rightImageView?.visibility = View.VISIBLE
         else
-            rightIV?.visibility = View.GONE
+            rightImageView?.visibility = View.GONE
     }
 
     fun showProgressBar(show: Boolean) {
         if (show) {
             progressBar?.visibility = View.VISIBLE
-            btnTV?.visibility = View.GONE
-            rightIV?.visibility = View.GONE
+            btnTextView?.visibility = View.GONE
+            rightImageView?.visibility = View.GONE
         } else {
             progressBar?.visibility = View.GONE
-            btnTV?.visibility = View.VISIBLE
+            btnTextView?.visibility = View.VISIBLE
 
             if (showRightIcon)
-                rightIV?.visibility = View.VISIBLE
+                rightImageView?.visibility = View.VISIBLE
             else
-                rightIV?.visibility = View.GONE
+                rightImageView?.visibility = View.GONE
         }
     }
 

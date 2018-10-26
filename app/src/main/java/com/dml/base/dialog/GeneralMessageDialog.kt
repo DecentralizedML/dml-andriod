@@ -25,16 +25,16 @@ class GeneralMessageDialog : BaseDialogFragment() {
 
     override fun connectViews(dialogView: View) {
         if (titleId == 0)
-            dialogView.titleTV?.text = title
+            dialogView.titleTextView?.text = title
         else
-            dialogView.titleTV?.text = getString(titleId)
+            dialogView.titleTextView?.text = getString(titleId)
 
         if (descId == 0)
-            dialogView.descTV?.text = desc
+            dialogView.descTextView?.text = desc
         else
-            dialogView.descTV?.text = getString(descId)
+            dialogView.descTextView?.text = getString(descId)
 
-        dialogView.iconIV?.setImageResource(image)
+        dialogView.iconImageView?.setImageResource(image)
 
         dialogView.confirmBtn?.apply {
             if (btnTextId == 0)
