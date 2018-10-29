@@ -1,4 +1,4 @@
-package com.dml.base.fragment
+package com.dml.base.fragment.signup
 
 import android.Manifest
 import android.content.pm.PackageManager

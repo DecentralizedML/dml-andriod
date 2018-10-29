@@ -1,4 +1,4 @@
-package com.dml.base.fragment
+package com.dml.base.fragment.signup
 
 import android.os.Bundle
 import com.dml.base.R

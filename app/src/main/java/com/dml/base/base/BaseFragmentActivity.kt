@@ -1,11 +1,10 @@
 package com.dml.base.base
 
-import android.content.Intent
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import android.text.TextUtils
 import android.view.View
 import android.widget.FrameLayout
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.dml.base.R
 
 abstract class BaseFragmentActivity : BaseActivity() {
@@ -33,6 +32,14 @@ abstract class BaseFragmentActivity : BaseActivity() {
 //        }
 
         super.onBackPressed()
+
+//        if (supportFragmentManager.backStackEntryCount > 0) {
+//            mFragmentTransaction = supportFragmentManager.beginTransaction()
+//            mFragmentTransaction?.setCustomAnimations(R.anim.exit, R.anim.enter)
+//            supportFragmentManager.popBackStack()
+//        } else {
+//            super.onBackPressed()
+//        }
 
 //        var currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
 //        if (currentFragment is DashboardFragment) {
@@ -105,7 +112,7 @@ abstract class BaseFragmentActivity : BaseActivity() {
         mFragmentTransaction = supportFragmentManager.beginTransaction()
 
         if (!isAnimation) {
-            //            mFragmentTransaction.setCustomAnimations(0, 0, 0, 0);
+//            mFragmentTransaction?.setCustomAnimations(R.anim.exit, R.anim.enter)
         }
 
         mFragmentTransaction?.remove(fragment)

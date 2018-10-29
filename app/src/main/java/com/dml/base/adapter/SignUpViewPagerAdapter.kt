@@ -2,7 +2,7 @@ package com.dml.base.adapter
 
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.dml.base.fragment.*
+import com.dml.base.fragment.signup.*
 
 
 class SignUpViewPagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {

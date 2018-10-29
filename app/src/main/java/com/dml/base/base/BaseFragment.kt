@@ -2,16 +2,16 @@ package com.dml.base.base
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.content.Intent
+import androidx.fragment.app.Fragment
 import io.reactivex.disposables.CompositeDisposable
 
 
 abstract class BaseFragment : Fragment() {
+
+    protected var mParentActivity: BaseFragmentActivity? = null
 
     protected var mView: View? = null
 
@@ -51,18 +51,31 @@ abstract class BaseFragment : Fragment() {
         return activity as Context
     }
 
-    fun getParentActivity(): BaseActivity {
-        return activity as BaseActivity
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        this.mParentActivity = context as BaseFragmentActivity
     }
-
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        //super.onActivityResult(requestCode, resultCode, data);
-//    }
 
     override fun onDestroy() {
         super.onDestroy()
 
         if (!mCompositeDisposable.isDisposed)
             mCompositeDisposable.dispose()
+    }
+
+    fun startFragment(fragment: BaseFragment, isAnimation: Boolean) {
+        mParentActivity?.startFragment(fragment, isAnimation)
+    }
+
+    fun startFragment(fragment: BaseFragment, tag: String, isAnimation: Boolean) {
+        mParentActivity?.startFragment(fragment, tag, isAnimation)
+    }
+
+    fun addFragment(fragment: BaseFragment, tag: String, isAnimation: Boolean) {
+        mParentActivity?.addFragment(fragment, tag, isAnimation)
+    }
+
+    fun finishFragment(fragment: BaseFragment, isAnimation: Boolean) {
+        mParentActivity?.finishFragment(fragment, isAnimation)
     }
 }

@@ -1,4 +1,4 @@
-package com.dml.base.fragment
+package com.dml.base.fragment.signup
 
 import android.content.Intent
 import android.os.Bundle
@@ -69,7 +69,7 @@ class SignUpFragment : BaseFragment() {
                         })
 
         fbSignUpBtn?.setOnClickListener {
-            LoginManager.getInstance().logInWithReadPermissions(getParentActivity(), arrayListOf("public_profile", "email"))
+            LoginManager.getInstance().logInWithReadPermissions(mParentActivity, arrayListOf("public_profile", "email"))
         }
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -125,7 +125,7 @@ class SignUpFragment : BaseFragment() {
             }
         }
 
-        getParentActivity().mService.postUserSignUpRequest(context, signUpRequestModel)
+        mParentActivity?.mService?.postUserSignUpRequest(context, signUpRequestModel)
                 ?.subscribeOn(Schedulers.io())
                 ?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribeWith(object : DefaultRequestObserver<UserSignUpModel>(context) {

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <com.dml.base.ui.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <com.dml.base.ui.ThemeTextView
+                style="@style/AppTheme.EditText.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/activity_signup_information_full_name"
+                app:appFontStyle="barlow_semibold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/AppTheme.SignUp.InputLayout">
+
+                <com.dml.base.ui.ThemeEditText
+                    android:id="@+id/fullNameET"
+                    style="@style/AppTheme.SignUp.TextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:lines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.dml.base.ui.ThemeTextView
+                style="@style/AppTheme.EditText.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/activity_signup_information_country"
+                app:appFontStyle="barlow_semibold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/AppTheme.SignUp.InputLayout">
+
+                <com.dml.base.ui.ThemeEditText
+                    android:id="@+id/countryET"
+                    style="@style/AppTheme.SignUp.TextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.dml.base.ui.ThemeTextView
+                style="@style/AppTheme.EditText.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/activity_signup_information_date_of_birth"
+                app:appFontStyle="barlow_semibold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/AppTheme.SignUp.InputLayout">
+
+                <com.dml.base.ui.ThemeEditText
+                    android:id="@+id/dateOfBirthET"
+                    style="@style/AppTheme.SignUp.TextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.dml.base.ui.ThemeTextView
+                style="@style/AppTheme.EditText.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/activity_signup_information_gender"
+                app:appFontStyle="barlow_semibold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/button_white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.dml.base.ui.ThemeTextView
+                    android:id="@+id/genderMaleBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/activity_signup_information_male"
+                    android:textAllCaps="false" />
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorAccent" />
+
+                <com.dml.base.ui.ThemeTextView
+                    android:id="@+id/genderFemaleBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/activity_signup_information_female"
+                    android:textAllCaps="false" />
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorAccent" />
+
+                <com.dml.base.ui.ThemeTextView
+                    android:id="@+id/genderOtherBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/activity_signup_information_other"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <com.dml.base.ui.ThemeTextView
+                style="@style/AppTheme.EditText.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/activity_signup_information_education_level"
+                app:appFontStyle="barlow_semibold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/educationLevelRecycleView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp" />
+
+            <com.dml.base.ui.CustomThemeButton
+                android:id="@+id/nextBtn"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="24dp"
+                app:appFontStyle="barlow_semibold" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

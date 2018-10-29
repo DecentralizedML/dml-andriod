@@ -2,37 +2,56 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="?android:attr/actionBarSize"
-    android:background="@drawable/bg_action_bar_small"
+    android:layout_height="66dp"
     android:orientation="vertical">
 
-    <!--android:layout_height="?android:attr/actionBarSize"-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="46dp"
+        android:background="@drawable/bg_action_bar_shadow" />
 
     <ImageView
-        android:id="@+id/leftBtn"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="6dp"
-        android:padding="16dp" />
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_action_bar_small" />
 
-    <com.dml.base.ui.ThemeTextView
-        android:id="@+id/titleTextView"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/layout_action_bar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textAllCaps="true"
-        android:textColor="@color/action_bar"
-        android:textSize="12dp"
-        app:appFontStyle="barlow_semibold" />
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp">
 
-    <ImageView
-        android:id="@+id/rightBtn"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="6dp"
-        android:padding="16dp" />
+        <ImageView
+            android:id="@+id/leftBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="6dp"
+            android:padding="16dp" />
+
+        <com.dml.base.ui.ThemeTextView
+            android:id="@+id/titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textAllCaps="true"
+            android:textColor="@color/action_bar"
+            android:textSize="12dp"
+            app:appFontStyle="barlow_semibold" />
+
+        <ImageView
+            android:id="@+id/rightBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="6dp"
+            android:padding="16dp" />
+    </RelativeLayout>
 </RelativeLayout>

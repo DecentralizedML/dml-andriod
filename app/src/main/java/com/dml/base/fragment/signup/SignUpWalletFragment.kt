@@ -1,4 +1,4 @@
-package com.dml.base.fragment
+package com.dml.base.fragment.signup
 
 import android.net.wifi.hotspot2.pps.Credential
 import android.os.Bundle
@@ -59,7 +59,7 @@ class SignUpWalletFragment : BaseFragment() {
     }
 
     private fun createWallet() {
-        val path = getParentActivity().filesDir
+        val path = mParentActivity?.filesDir
         val bip39Wallet = WalletUtils.generateBip39Wallet(password, File(path.toString()))
         val fileName = bip39Wallet.filename
         mnemonic = bip39Wallet.mnemonic

@@ -1,4 +1,4 @@
-package com.dml.base.fragment
+package com.dml.base.fragment.signup
 
 import android.app.AlertDialog
 import android.app.DatePickerDialog
@@ -162,7 +162,7 @@ class SignUpInformationFragment : BaseFragment() {
             }
         }
 
-        getParentActivity().mService.updateUserRequest(context, signUpRequestModel)
+        mParentActivity?.mService?.updateUserRequest(context, signUpRequestModel)
                 ?.subscribeOn(Schedulers.io())
                 ?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribeWith(object : DefaultRequestObserver<UserSignUpModel>(context) {
