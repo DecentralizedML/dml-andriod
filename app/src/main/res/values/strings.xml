@@ -11,6 +11,9 @@
     <string name="settings">Settings</string>
     <string name="current_balance">Current Balance</string>
 
+    <string name="error_email_format">Invalid email format</string>
+    <string name="error_password_format">Password should have at least 8 digits</string>
+
     <string name="welcome_title">Decentralized\nMachine Learning</string>
     <string name="welcome_desc">Get paid for your date, on your terms.</string>
     <string name="welcome_button_sign_up">Sign up</string>

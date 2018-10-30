@@ -16,7 +16,7 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <com.dml.base.ui.ThemeTextView
+        <com.dml.base.view.custom.ThemeTextView
             android:id="@+id/btnTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

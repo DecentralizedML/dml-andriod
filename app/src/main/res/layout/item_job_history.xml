@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <com.dml.base.ui.ThemeTextView
+        <com.dml.base.view.custom.ThemeTextView
             android:id="@+id/nameTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
             android:maxLines="1"
             app:appFontStyle="barlow_medium" />
 
-        <com.dml.base.ui.ThemeTextView
+        <com.dml.base.view.custom.ThemeTextView
             android:id="@+id/amountTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
         android:layout_marginTop="8dp"
         android:orientation="horizontal">
 
-        <com.dml.base.ui.ThemeTextView
+        <com.dml.base.view.custom.ThemeTextView
             android:id="@+id/dateTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
             android:textColor="@color/text_dark"
             android:textSize="12dp" />
 
-        <com.dml.base.ui.ThemeTextView
+        <com.dml.base.view.custom.ThemeTextView
             android:id="@+id/rateTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

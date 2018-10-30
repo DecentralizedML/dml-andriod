@@ -19,7 +19,7 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <com.dml.base.ui.ThemeTextView
+            <com.dml.base.view.custom.ThemeTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -27,7 +27,7 @@
                 android:textSize="24dp"
                 app:appFontStyle="barlow_medium" />
 
-            <com.dml.base.ui.ThemeTextView
+            <com.dml.base.view.custom.ThemeTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -48,7 +48,7 @@
                         android:layout_weight="1">
 
                         <ImageView
-                            android:id="@+id/smsBtn"
+                            android:id="@+id/smsButton"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:adjustViewBounds="true"
@@ -67,7 +67,7 @@
                                 android:adjustViewBounds="true"
                                 android:src="@drawable/ic_sms" />
 
-                            <com.dml.base.ui.ThemeTextView
+                            <com.dml.base.view.custom.ThemeTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/activity_signup_connect_sms"
@@ -83,7 +83,7 @@
                         android:layout_weight="1">
 
                         <ImageView
-                            android:id="@+id/cameraBtn"
+                            android:id="@+id/cameraButton"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:adjustViewBounds="true"
@@ -102,7 +102,7 @@
                                 android:adjustViewBounds="true"
                                 android:src="@drawable/ic_camera_roll" />
 
-                            <com.dml.base.ui.ThemeTextView
+                            <com.dml.base.view.custom.ThemeTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/activity_signup_connect_camera_roll"
@@ -121,7 +121,7 @@
                         android:layout_weight="1">
 
                         <ImageView
-                            android:id="@+id/addressBookBtn"
+                            android:id="@+id/addressBookButton"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:adjustViewBounds="true"
@@ -140,7 +140,7 @@
                                 android:adjustViewBounds="true"
                                 android:src="@drawable/ic_address_book" />
 
-                            <com.dml.base.ui.ThemeTextView
+                            <com.dml.base.view.custom.ThemeTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/activity_signup_connect_address_book"
@@ -159,8 +159,8 @@
         </LinearLayout>
     </ScrollView>
 
-    <com.dml.base.ui.CustomThemeButton
-        android:id="@+id/nextBtn"
+    <com.dml.base.view.custom.CustomThemeButton
+        android:id="@+id/nextButton"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"

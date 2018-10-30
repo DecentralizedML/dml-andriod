@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.dml.base.ui.LargeToolbar
+    <com.dml.base.view.custom.LargeToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <com.dml.base.ui.ThemeTextView
+        <com.dml.base.view.custom.ThemeTextView
             style="@style/AppTheme.TextView.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

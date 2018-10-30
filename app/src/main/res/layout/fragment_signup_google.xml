@@ -19,13 +19,13 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <com.dml.base.ui.ThemeTextView
+            <com.dml.base.view.custom.ThemeTextView
                 android:id="@+id/descTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/activity_signup_google_desc" />
 
-            <com.dml.base.ui.ThemeTextView
+            <com.dml.base.view.custom.ThemeTextView
                 style="@style/AppTheme.EditText.Title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -39,15 +39,15 @@
                 android:layout_height="wrap_content"
                 android:theme="@style/AppTheme.SignUp.InputLayout">
 
-                <com.dml.base.ui.ThemeEditText
-                    android:id="@+id/emailET"
+                <com.dml.base.view.custom.ThemeEditText
+                    android:id="@+id/emailEditText"
                     style="@style/AppTheme.SignUp.TextInputEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.dml.base.ui.ThemeTextView
+            <com.dml.base.view.custom.ThemeTextView
                 style="@style/AppTheme.EditText.Title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -63,8 +63,8 @@
                 app:passwordToggleEnabled="true"
                 app:passwordToggleTint="@color/edittext_title">
 
-                <com.dml.base.ui.ThemeEditText
-                    android:id="@+id/passwordET"
+                <com.dml.base.view.custom.ThemeEditText
+                    android:id="@+id/passwordEditText"
                     style="@style/AppTheme.SignUp.TextInputEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -77,8 +77,8 @@
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal">
 
-                <RadioButton
-                    android:id="@+id/agreeRadioBtn"
+                <CheckBox
+                    android:id="@+id/agreeCheckBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -88,7 +88,7 @@
                     android:layout_marginStart="16dp"
                     android:orientation="vertical">
 
-                    <com.dml.base.ui.ThemeTextView
+                    <com.dml.base.view.custom.ThemeTextView
                         android:id="@+id/agreeTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
                         android:textSize="14dp"
                         app:appFontStyle="barlow_medium" />
 
-                    <com.dml.base.ui.ThemeTextView
+                    <com.dml.base.view.custom.ThemeTextView
                         android:id="@+id/learnMoreTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -110,8 +110,8 @@
         </LinearLayout>
     </ScrollView>
 
-    <com.dml.base.ui.CustomThemeButton
-        android:id="@+id/signUpBtn"
+    <com.dml.base.view.custom.CustomThemeButton
+        android:id="@+id/signUpButton"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"

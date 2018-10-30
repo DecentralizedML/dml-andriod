@@ -27,7 +27,7 @@
         android:layout_marginTop="5dp">
 
         <ImageView
-            android:id="@+id/leftBtn"
+            android:id="@+id/leftButton"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_alignParentStart="true"
@@ -35,7 +35,7 @@
             android:layout_marginStart="6dp"
             android:padding="16dp" />
 
-        <com.dml.base.ui.ThemeTextView
+        <com.dml.base.view.custom.ThemeTextView
             android:id="@+id/titleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
             app:appFontStyle="barlow_semibold" />
 
         <ImageView
-            android:id="@+id/rightBtn"
+            android:id="@+id/rightButton"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_alignParentEnd="true"

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.dml.base.ui.LargeToolbar
+    <com.dml.base.view.custom.LargeToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -27,7 +27,7 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <com.dml.base.ui.ThemeTextView
+                <com.dml.base.view.custom.ThemeTextView
                     android:id="@+id/dateTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <com.dml.base.ui.ThemeTextView
+                <com.dml.base.view.custom.ThemeTextView
                     android:id="@+id/pendingTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <com.dml.base.ui.ThemeTextView
+                <com.dml.base.view.custom.ThemeTextView
                     android:id="@+id/tokenTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <com.dml.base.ui.ThemeTextView
+                <com.dml.base.view.custom.ThemeTextView
                     android:id="@+id/valueTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

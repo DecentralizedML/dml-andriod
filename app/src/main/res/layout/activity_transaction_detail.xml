@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.dml.base.ui.Toolbar
+    <com.dml.base.view.custom.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -26,14 +26,14 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <com.dml.base.ui.ThemeTextView
+                <com.dml.base.view.custom.ThemeTextView
                     style="@style/AppTheme.TextView.Title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/activity_transaction_detail_to"
                     app:appFontStyle="barlow_semibold" />
 
-                <com.dml.base.ui.ThemeTextView
+                <com.dml.base.view.custom.ThemeTextView
                     android:id="@+id/toAddressTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
                     android:text="{708923i4ugiuawe0f87jhkakuhg09as8doqi234oi}"
                     app:appFontStyle="barlow_medium" />
 
-                <com.dml.base.ui.ThemeTextView
+                <com.dml.base.view.custom.ThemeTextView
                     style="@style/AppTheme.TextView.Title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
                     android:text="@string/activity_transaction_detail_memo"
                     app:appFontStyle="barlow_semibold" />
 
-                <com.dml.base.ui.ThemeTextView
+                <com.dml.base.view.custom.ThemeTextView
                     android:id="@+id/memoTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
                     android:text="{DML Permissions Bonus}"
                     app:appFontStyle="barlow_medium" />
 
-                <com.dml.base.ui.ThemeTextView
+                <com.dml.base.view.custom.ThemeTextView
                     style="@style/AppTheme.TextView.Title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
                     android:text="@string/activity_transaction_detail_time"
                     app:appFontStyle="barlow_semibold" />
 
-                <com.dml.base.ui.ThemeTextView
+                <com.dml.base.view.custom.ThemeTextView
                     android:id="@+id/timeTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
                     android:text="{DML Permissions Bonus}"
                     app:appFontStyle="barlow_medium" />
 
-                <com.dml.base.ui.ThemeTextView
+                <com.dml.base.view.custom.ThemeTextView
                     style="@style/AppTheme.TextView.Title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
                     android:text="@string/activity_transaction_detail_network_fee"
                     app:appFontStyle="barlow_semibold" />
 
-                <com.dml.base.ui.ThemeTextView
+                <com.dml.base.view.custom.ThemeTextView
                     android:id="@+id/networkFeeTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
                     android:text="{DML Permissions Bonus}"
                     app:appFontStyle="barlow_medium" />
 
-                <com.dml.base.ui.ThemeTextView
+                <com.dml.base.view.custom.ThemeTextView
                     style="@style/AppTheme.TextView.Title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
                     android:text="@string/activity_transaction_detail_transaction_hash"
                     app:appFontStyle="barlow_semibold" />
 
-                <com.dml.base.ui.ThemeTextView
+                <com.dml.base.view.custom.ThemeTextView
                     android:id="@+id/transactionHashTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -114,8 +114,8 @@
             </LinearLayout>
         </ScrollView>
 
-        <com.dml.base.ui.CustomThemeButton
-            android:id="@+id/signUpBtn"
+        <com.dml.base.view.custom.CustomThemeButton
+            android:id="@+id/signUpButton"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_alignParentBottom="true"

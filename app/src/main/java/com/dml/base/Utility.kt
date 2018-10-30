@@ -5,13 +5,12 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.net.ConnectivityManager
 import android.util.DisplayMetrics
 import android.util.Patterns
 import android.widget.ScrollView
 import androidx.core.app.ActivityCompat.finishAffinity
-import com.dml.base.activity.WelcomeActivity
-
-
+import com.dml.base.view.activity.WelcomeActivity
 
 
 class Utility {
@@ -86,6 +85,12 @@ class Utility {
 
         fun convertPixelsToDp(context: Context, px: Float): Float {
             return px / (context.resources.displayMetrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)
+        }
+
+        fun isNetworkAvailable(context: Context): Boolean {
+            val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val activeNetworkInfo = connectivityManager.activeNetworkInfo
+            return activeNetworkInfo != null && activeNetworkInfo.isConnected
         }
 
         fun isLoggedIn(context: Context): Boolean {

@@ -17,7 +17,7 @@
             android:layout_height="64dp"
             android:src="@drawable/ic_dml_logo" />
 
-        <com.dml.base.ui.ThemeTextView
+        <com.dml.base.view.custom.ThemeTextView
             android:id="@+id/titleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

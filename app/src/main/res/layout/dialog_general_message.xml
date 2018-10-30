@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:padding="24dp">
 
-    <com.dml.base.ui.ThemeTextView
+    <com.dml.base.view.custom.ThemeTextView
         android:id="@+id/titleTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,15 +23,15 @@
         android:layout_marginTop="40dp"
         android:layout_marginBottom="40dp" />
 
-    <com.dml.base.ui.ThemeTextView
+    <com.dml.base.view.custom.ThemeTextView
         android:id="@+id/descTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textSize="18dp" />
 
-    <com.dml.base.ui.CustomThemeButton
-        android:id="@+id/confirmBtn"
+    <com.dml.base.view.custom.CustomThemeButton
+        android:id="@+id/confirmButton"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginTop="32dp"

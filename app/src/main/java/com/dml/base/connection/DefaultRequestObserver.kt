@@ -5,24 +5,24 @@ import android.content.Context
 import android.net.ConnectivityManager
 import com.dml.base.R
 import com.dml.base.Utility
-import com.dml.base.model.ErrorModel
+import com.dml.base.network.ErrorResponse
 import com.google.gson.Gson
-import io.reactivex.observers.DefaultObserver
+import io.reactivex.observers.DisposableObserver
 import retrofit2.HttpException
 
-abstract class DefaultRequestObserver<T>(var context: Context) : DefaultObserver<T>() {
+abstract class DefaultRequestObserver<T>(var context: Context) : DisposableObserver<T>() {
     override fun onError(throwable: Throwable) {
         if (throwable is HttpException) {
             try {
                 if (throwable.response().code() == 401) {
                     //                    Bus.send(CallBadge())
                     //                    Bus.INSTANCE.send(LogoutEvent.class);
-                    val error = Gson().fromJson(throwable.response().errorBody()!!.string(), ErrorModel::class.java)
+                    val error = Gson().fromJson(throwable.response().errorBody()!!.string(), ErrorResponse::class.java)
                     Utility.showDialog(context, error.errorMessage + " (err:" + error.errorCode + ")")
 //                    context?.let { Utility.showDialog(it, error.errorMessage + " (err:" + error.errorCode + ")", DialogInterface.OnClickListener { dialog, which -> Bus.INSTANCE.send(LogoutEvent()) }, false) }
                 } else {
                     val message = throwable.response().errorBody()!!.string()
-                    onError(Gson().fromJson(message, ErrorModel::class.java))
+                    onError(Gson().fromJson(message, ErrorResponse::class.java))
                 }
 
             } catch (e: Exception) {
@@ -43,8 +43,8 @@ abstract class DefaultRequestObserver<T>(var context: Context) : DefaultObserver
 
     override fun onComplete() {}
 
-    private fun onError(errorModel: ErrorModel) {
-        Utility.showDialog(context, errorModel.errorMessage + " (err:" + errorModel.errorCode + ")")
+    private fun onError(errorResponse: ErrorResponse) {
+        Utility.showDialog(context, errorResponse.errorMessage + " (err:" + errorResponse.errorCode + ")")
     }
 
     private fun isNetworkAvailable(): Boolean {

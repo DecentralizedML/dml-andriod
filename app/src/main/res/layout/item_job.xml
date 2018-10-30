@@ -26,19 +26,19 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <com.dml.base.ui.ThemeTextView
+                <com.dml.base.view.custom.ThemeTextView
                     android:id="@+id/titleTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="{Car model recognition}"
+                    android:text="{Car response recognition}"
                     android:textSize="18dp" />
 
-                <com.dml.base.ui.ThemeTextView
+                <com.dml.base.view.custom.ThemeTextView
                     android:id="@+id/descTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="{Identify make, model, body style and model year of any car}"
+                    android:text="{Identify make, response, body style and response year of any car}"
                     android:textSize="14dp" />
             </LinearLayout>
 

@@ -11,7 +11,7 @@ import io.reactivex.disposables.CompositeDisposable
 
 abstract class BaseFragment : Fragment() {
 
-    protected var mParentActivity: BaseFragmentActivity? = null
+    protected var mParentActivity: BaseActivity? = null
 
     protected var mView: View? = null
 
@@ -53,7 +53,7 @@ abstract class BaseFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        this.mParentActivity = context as BaseFragmentActivity
+        this.mParentActivity = context as BaseActivity
     }
 
     override fun onDestroy() {

@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:padding="24dp">
 
-    <com.dml.base.ui.ThemeTextView
+    <com.dml.base.view.custom.ThemeTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -14,7 +14,7 @@
         android:textSize="30dp"
         app:appFontStyle="barlow_semibold" />
 
-    <com.dml.base.ui.ThemeTextView
+    <com.dml.base.view.custom.ThemeTextView
         android:id="@+id/mnemonicTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,16 +32,16 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <com.dml.base.ui.ThemeButton
-        android:id="@+id/copyBtn"
+    <com.dml.base.view.custom.ThemeButton
+        android:id="@+id/copyButton"
         style="@style/AppTheme.Button.Blue"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="24dp"
         android:text="Copy to clipboard" />
 
-    <com.dml.base.ui.ThemeButton
-        android:id="@+id/nextBtn"
+    <com.dml.base.view.custom.ThemeButton
+        android:id="@+id/nextButton"
         style="@style/AppTheme.Button.Blue"
         android:layout_width="match_parent"
         android:layout_height="60dp"

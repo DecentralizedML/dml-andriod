@@ -1,9 +1,9 @@
 package com.dml.base.connection
 
-import android.content.Context
 import com.dml.base.Configure
 import com.dml.base.Preferences
 import com.dml.base.Utility
+import com.facebook.FacebookSdk.getApplicationContext
 import okhttp3.Interceptor
 import okhttp3.JavaNetCookieJar
 import okhttp3.OkHttpClient
@@ -27,7 +27,7 @@ class RetrofitClient {
         //                    .sslSocketFactory(SSLSocketFactoryManager.getInstance(), SSLSocketFactoryManager.getDefaultTrustManager())
 
         @Synchronized
-        fun getDefaultInstance(context: Context): Retrofit {
+        fun getDefaultInstance(): Retrofit {
             if (mRetrofit == null) {
                 val logger = HttpLoggingInterceptor()
                 logger.level = Configure.RETROFIT_LOG_LEVEL
@@ -35,7 +35,7 @@ class RetrofitClient {
                 val okHttpClientBuilder = OkHttpClient.Builder()
                         .cookieJar(JavaNetCookieJar(CookieManagerClient.getInstance()))
                         .hostnameVerifier(HostnameVerifierManager.getInstance())
-                        .addInterceptor(getDefaultHeaderInterceptor(context))
+                        .addInterceptor(getDefaultHeaderInterceptor())
                         .retryOnConnectionFailure(true)
                         .readTimeout(Configure.CONNECTION_TIMEOUT_IN_SECOND, TimeUnit.SECONDS)
                         .connectTimeout(Configure.CONNECTION_RECONNECTION_IN_SECOND, TimeUnit.SECONDS)
@@ -58,7 +58,7 @@ class RetrofitClient {
         }
 
         @Synchronized
-        fun getDefaultHeaderInterceptor(context: Context): Interceptor? {
+        fun getDefaultHeaderInterceptor(): Interceptor? {
             if (mHeaderInterceptor == null) {
                 mHeaderInterceptor = Interceptor { chain ->
                     val original = chain.request()
@@ -66,8 +66,8 @@ class RetrofitClient {
                     val builder = original.newBuilder()
                     builder.header("Content-Type", "application/x-www-form-urlencoded")
 
-                    if (Utility.isLoggedIn(context))
-                        builder.header("Authorization", Preferences.getJWT(context))
+                    if (Utility.isLoggedIn(getApplicationContext()))
+                        builder.header("Authorization", Preferences.getJWT(getApplicationContext()))
 
                     builder.build()
 

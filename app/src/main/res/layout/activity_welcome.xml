@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/signUpBtn"
+        android:layout_above="@+id/signUpButton"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -21,7 +21,7 @@
             android:layout_centerHorizontal="true"
             android:src="@drawable/ic_dml_logo" />
 
-        <com.dml.base.ui.ThemeTextView
+        <com.dml.base.view.custom.ThemeTextView
             android:id="@+id/titleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
             android:textSize="24dp"
             app:appFontStyle="barlow_medium" />
 
-        <com.dml.base.ui.ThemeTextView
+        <com.dml.base.view.custom.ThemeTextView
             android:id="@+id/descTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
     <!--<LinearLayout-->
     <!--android:layout_width="match_parent"-->
     <!--android:layout_height="match_parent"-->
-    <!--android:layout_above="@id/signUpBtn"-->
+    <!--android:layout_above="@id/signUpButton"-->
     <!--android:layout_below="@id/descTextView"-->
     <!--android:layout_marginTop="16dp"-->
     <!--android:gravity="center"-->
@@ -62,16 +62,16 @@
     <!--android:src="@drawable/img_welcome_logo" />-->
     <!--</LinearLayout>-->
 
-    <com.dml.base.ui.CustomThemeButton
-        android:id="@+id/signUpBtn"
+    <com.dml.base.view.custom.CustomThemeButton
+        android:id="@+id/signUpButton"
         android:layout_width="256dp"
         android:layout_height="48dp"
-        android:layout_above="@+id/loginBtn"
+        android:layout_above="@+id/loginButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp" />
 
-    <com.dml.base.ui.ThemeTextView
-        android:id="@+id/loginBtn"
+    <com.dml.base.view.custom.ThemeTextView
+        android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

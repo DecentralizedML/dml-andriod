@@ -7,7 +7,7 @@
     android:focusableInTouchMode="true"
     android:orientation="vertical">
 
-    <com.dml.base.ui.Toolbar
+    <com.dml.base.view.custom.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -25,7 +25,7 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <com.dml.base.ui.ThemeTextView
+            <com.dml.base.view.custom.ThemeTextView
                 style="@style/AppTheme.EditText.Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -39,8 +39,8 @@
                 android:layout_height="wrap_content"
                 android:theme="@style/AppTheme.SignUp.InputLayout">
 
-                <com.dml.base.ui.ThemeEditText
-                    android:id="@+id/fullNameET"
+                <com.dml.base.view.custom.ThemeEditText
+                    android:id="@+id/fullNameEditText"
                     style="@style/AppTheme.SignUp.TextInputEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
                     android:lines="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.dml.base.ui.ThemeTextView
+            <com.dml.base.view.custom.ThemeTextView
                 style="@style/AppTheme.EditText.Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,15 +62,15 @@
                 android:layout_height="wrap_content"
                 android:theme="@style/AppTheme.SignUp.InputLayout">
 
-                <com.dml.base.ui.ThemeEditText
-                    android:id="@+id/countryET"
+                <com.dml.base.view.custom.ThemeEditText
+                    android:id="@+id/countryEditText"
                     style="@style/AppTheme.SignUp.TextInputEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:focusable="false" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.dml.base.ui.ThemeTextView
+            <com.dml.base.view.custom.ThemeTextView
                 style="@style/AppTheme.EditText.Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -84,15 +84,15 @@
                 android:layout_height="wrap_content"
                 android:theme="@style/AppTheme.SignUp.InputLayout">
 
-                <com.dml.base.ui.ThemeEditText
-                    android:id="@+id/dateOfBirthET"
+                <com.dml.base.view.custom.ThemeEditText
+                    android:id="@+id/dateOfBirthEditText"
                     style="@style/AppTheme.SignUp.TextInputEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:focusable="false" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.dml.base.ui.ThemeTextView
+            <com.dml.base.view.custom.ThemeTextView
                 style="@style/AppTheme.EditText.Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -109,8 +109,8 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <com.dml.base.ui.ThemeTextView
-                    android:id="@+id/genderMaleBtn"
+                <com.dml.base.view.custom.ThemeTextView
+                    android:id="@+id/genderMaleButton"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -123,8 +123,8 @@
                     android:layout_height="match_parent"
                     android:background="@color/colorAccent" />
 
-                <com.dml.base.ui.ThemeTextView
-                    android:id="@+id/genderFemaleBtn"
+                <com.dml.base.view.custom.ThemeTextView
+                    android:id="@+id/genderFemaleButton"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -137,8 +137,8 @@
                     android:layout_height="match_parent"
                     android:background="@color/colorAccent" />
 
-                <com.dml.base.ui.ThemeTextView
-                    android:id="@+id/genderOtherBtn"
+                <com.dml.base.view.custom.ThemeTextView
+                    android:id="@+id/genderOtherButton"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -147,7 +147,7 @@
                     android:textAllCaps="false" />
             </LinearLayout>
 
-            <com.dml.base.ui.ThemeTextView
+            <com.dml.base.view.custom.ThemeTextView
                 style="@style/AppTheme.EditText.Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -162,8 +162,8 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="16dp" />
 
-            <com.dml.base.ui.CustomThemeButton
-                android:id="@+id/nextBtn"
+            <com.dml.base.view.custom.CustomThemeButton
+                android:id="@+id/nextButton"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="24dp"
