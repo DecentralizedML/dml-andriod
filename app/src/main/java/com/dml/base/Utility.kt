@@ -9,9 +9,11 @@ import android.content.res.Resources
 import android.net.ConnectivityManager
 import android.util.DisplayMetrics
 import android.util.Patterns
-import android.widget.ScrollView
 import androidx.core.app.ActivityCompat.finishAffinity
+import androidx.core.widget.NestedScrollView
 import com.dml.base.view.ui.WelcomeActivity
+
+
 
 
 class Utility {
@@ -112,7 +114,7 @@ class Utility {
             finishAffinity(context as Activity)
         }
 
-        fun canScroll(scrollView: ScrollView): Boolean {
+        fun canScroll(scrollView: NestedScrollView): Boolean {
             val child = scrollView.getChildAt(0)
             if (child != null) {
                 val childHeight = child.height

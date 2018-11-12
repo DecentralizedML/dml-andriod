@@ -64,6 +64,9 @@
     <string name="activity_transaction_detail_time">Time</string>
     <string name="activity_transaction_detail_network_fee">Network Fee</string>
     <string name="activity_transaction_detail_transaction_hash">Transaction Hash</string>
+    <string name="activity_transaction_detail_currency">Currency</string>
+
+    <string name="fragment_wallet_cash_out_button">Cash out</string>
 
     <string name="settings_jobs">Jobs</string>
     <string name="settings_profile">Profile</string>

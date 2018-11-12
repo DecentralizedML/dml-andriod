@@ -12,10 +12,15 @@
     <color name="background_dialog">#033D9A</color>
     <color name="text">#F7F9FC</color>
     <color name="text_title">#ffffff</color>
+    <color name="text_alpha_50">#80F7F9FC</color>
+    <color name="text_alpha_60">#99F7F9FC</color>
+    <color name="text_alpha_80">#CCF7F9FC</color>
     <color name="text_green">#46E546</color>
     <color name="text_light">#8194B2</color>
     <color name="text_dark">#ADBCD4</color>
     <color name="divider">#3D68B0</color>
+    <color name="text_gradient_start">#03DFB5</color>
+    <color name="text_gradient_end">#46E546</color>
 
     <color name="button_white">#ffffff</color>
     <color name="button_blue">#3c81ed</color>

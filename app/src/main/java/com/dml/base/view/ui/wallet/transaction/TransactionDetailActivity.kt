@@ -9,8 +9,8 @@ import kotlinx.android.synthetic.main.activity_transaction_detail.*
 
 
 class TransactionDetailActivity : BaseActivity() {
-    var oldScrollY = 0
-    var isHiding = false
+    private var oldScrollY = 0
+    private var isHiding = false
 
     override fun setLayoutId(): Int {
         return R.layout.activity_transaction_detail
@@ -54,6 +54,7 @@ class TransactionDetailActivity : BaseActivity() {
                 }
                 oldScrollY = scrollY
             }
+        }
 
 //            scrollY?.let {
 //                if (scrollY > 0
@@ -75,6 +76,5 @@ class TransactionDetailActivity : BaseActivity() {
 //                    oldScrollY = scrollY
 //                }
 //            }
-        }
     }
 }

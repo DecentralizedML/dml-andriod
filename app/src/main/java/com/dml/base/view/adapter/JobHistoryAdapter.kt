@@ -9,7 +9,9 @@ import com.dml.base.R
 import com.dml.base.network.model.JobHistoryResponse
 import kotlinx.android.synthetic.main.item_job_history.view.*
 
-class JobHistoryAdapter(var context: Context, jobHistoryList: ArrayList<JobHistoryResponse>, val listener: OnItemClickListener?) : RecyclerView.Adapter<JobHistoryAdapter.ViewHolder>() {
+class JobHistoryAdapter(var context: Context
+                        , jobHistoryList: ArrayList<JobHistoryResponse>
+                        , val listener: OnItemClickListener?) : RecyclerView.Adapter<JobHistoryAdapter.ViewHolder>() {
 
     val jobHistoryList = jobHistoryList
 

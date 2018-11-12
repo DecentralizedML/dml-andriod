@@ -1,12 +1,16 @@
 package com.dml.base.view.custom
 
 import android.content.Context
+import android.graphics.LinearGradient
+import android.graphics.Shader.TileMode
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.RelativeLayout
+import androidx.core.content.res.ResourcesCompat
 import com.dml.base.R
 import kotlinx.android.synthetic.main.layout_toolbar_large.view.*
+
 
 class LargeToolbar : RelativeLayout {
     constructor(context: Context) : super(context)
@@ -17,6 +21,14 @@ class LargeToolbar : RelativeLayout {
 
     init {
         LayoutInflater.from(context).inflate(R.layout.layout_toolbar_large, this, true)
+
+        amountTextView?.apply {
+            val shader = LinearGradient(0f, 0f, amountTextView.textSize, 0f,
+                    intArrayOf(ResourcesCompat.getColor(resources, R.color.text_gradient_start, null)
+                            , ResourcesCompat.getColor(resources, R.color.text_gradient_end, null)),
+                    floatArrayOf(0f, 1f), TileMode.CLAMP)
+            amountTextView.paint.shader = shader
+        }
     }
 
     fun setLeftButton(onClickListener: OnClickListener?) {

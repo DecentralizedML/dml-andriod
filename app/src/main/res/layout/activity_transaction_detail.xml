@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
             android:id="@+id/contentScrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -70,7 +70,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="{DML Permissions Bonus}"
+                    android:text="{Thu Sep 27 8:09PM}"
                     app:appFontStyle="barlow_medium" />
 
                 <com.dml.base.view.custom.ThemeTextView
@@ -86,7 +86,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="{DML Permissions Bonus}"
+                    android:text="{0 ETH  ($0)}"
+                    app:appFontStyle="barlow_medium" />
+
+                <com.dml.base.view.custom.ThemeTextView
+                    style="@style/AppTheme.TextView.Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:text="@string/activity_transaction_detail_currency"
+                    app:appFontStyle="barlow_semibold" />
+
+                <com.dml.base.view.custom.ThemeTextView
+                    android:id="@+id/currencyTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="{- 0.00054 BTC}"
                     app:appFontStyle="barlow_medium" />
 
                 <com.dml.base.view.custom.ThemeTextView
@@ -112,7 +128,7 @@
                     android:textColor="@color/colorAccent"
                     app:appFontStyle="barlow_semibold" />
             </LinearLayout>
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
 
         <com.dml.base.view.custom.CustomThemeButton
             android:id="@+id/signUpButton"

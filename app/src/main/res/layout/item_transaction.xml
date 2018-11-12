@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingStart="24dp"
-    android:paddingEnd="24dp">
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,6 +19,7 @@
             android:layout_weight="1.5"
             android:ellipsize="end"
             android:maxLines="1"
+            android:text="{Sent to 182uy3oiuhqohts...}"
             app:appFontStyle="barlow_medium" />
 
         <com.dml.base.view.custom.ThemeTextView
@@ -28,6 +29,7 @@
             android:layout_marginStart="8dp"
             android:layout_weight="1"
             android:gravity="end"
+            android:text="{- 100 DML}"
             android:textSize="18dp"
             app:appFontStyle="barlow_medium" />
     </LinearLayout>
@@ -43,6 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="end"
+            android:text="{Pending}"
             android:textColor="@color/text_dark"
             android:textSize="12dp" />
 
@@ -52,6 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_weight="1.5"
+            android:text="{10/19/18}"
             android:textColor="@color/text_dark"
             android:textSize="12dp" />
 
@@ -62,6 +66,7 @@
             android:layout_marginStart="8dp"
             android:layout_weight="1"
             android:gravity="end"
+            android:text="{$1.29 USD}"
             android:textColor="@color/text_dark"
             android:textSize="12dp" />
     </LinearLayout>

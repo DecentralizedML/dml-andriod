@@ -1,9 +1,8 @@
-package com.dml.base.view.ui.wallet
+package com.dml.base.view.ui.wallet.detail
 
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
-import android.view.Gravity
 import android.view.View
 import android.view.animation.LinearInterpolator
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,39 +11,39 @@ import com.dml.base.R
 import com.dml.base.Utility
 import com.dml.base.base.BaseFragment
 import com.dml.base.network.model.TransactionResponse
-import com.dml.base.network.model.WalletTypeResponse
 import com.dml.base.utils.MarginItemVecticalDecoration
 import com.dml.base.view.adapter.TransactionAdapter
-import com.dml.base.view.adapter.WalletTypeAdapter
-import com.dml.base.view.custom.CenterZoomLayoutManager
 import com.dml.base.view.ui.settings.SettingsActivity
-import com.dml.base.view.ui.wallet.detail.WalletDetailFragment
 import com.dml.base.view.ui.wallet.transaction.TransactionDetailActivity
-import com.github.rubensousa.gravitysnaphelper.GravitySnapHelper
-import kotlinx.android.synthetic.main.fragment_wallet.*
+import kotlinx.android.synthetic.main.fragment_wallet_detail.*
 
-class WalletFragment  : BaseFragment(), WalletContract.View {
+class WalletDetailFragment : BaseFragment(), WalletDetailContract.View {
+
     companion object {
         fun newInstance(bundle: Bundle?): BaseFragment {
-            val fragment = WalletFragment()
+            val fragment = WalletDetailFragment()
             if (bundle != null)
                 fragment.arguments = bundle
             return fragment
         }
     }
 
-    private lateinit var presenter: WalletContract.Presenter
+    private lateinit var presenter: WalletDetailContract.Presenter
 
     private var oldScrollY = 0
     private var isHiding = false
 
     override fun setLayoutId(): Int {
-        return R.layout.fragment_wallet
+        return R.layout.fragment_wallet_detail
     }
+
     override fun connectViews() {
         toolbar?.apply {
             setTitle(R.string.current_balance)
-            setLeftButton(R.drawable.ic_action_back, View.OnClickListener { mParentActivity?.finish() })
+            setLeftButton(R.drawable.ic_action_back, View.OnClickListener {
+//                mParentActivity?.finish()
+                finishFragment(this@WalletDetailFragment, false)
+            })
             setRightButton(R.drawable.ic_action_settings, View.OnClickListener {
                 startActivity(Intent(mParentActivity, SettingsActivity::class.java))
             })
@@ -94,29 +93,12 @@ class WalletFragment  : BaseFragment(), WalletContract.View {
             }
         }
 
-        setWalletTypeAdapter()
         setTransactionAdapter()
+//        setWalletTypeAdapter()
     }
 
-    override fun setPresenter(presenter: WalletContract.Presenter) {
+    override fun setPresenter(presenter: WalletDetailContract.Presenter) {
         this.presenter = presenter
-    }
-
-    private fun setWalletTypeAdapter() {
-        var walletTypeList = ArrayList<WalletTypeResponse>()
-        walletTypeList.add(WalletTypeResponse())
-        walletTypeList.add(WalletTypeResponse())
-
-        var adapter = WalletTypeAdapter(context, walletTypeList, object : WalletTypeAdapter.OnItemClickListener {
-            override fun onClick(title: String) {
-                startFragment(WalletDetailFragment.newInstance(null), false)
-            }
-        })
-        walletTypeRecyclerView?.adapter = adapter
-        var layoutManager = CenterZoomLayoutManager(context, RecyclerView.HORIZONTAL, false)
-        walletTypeRecyclerView?.layoutManager = layoutManager
-        walletTypeRecyclerView?.smoothScrollBy(1, 0)
-        GravitySnapHelper(Gravity.START).attachToRecyclerView(walletTypeRecyclerView)
     }
 
     private fun setTransactionAdapter() {
