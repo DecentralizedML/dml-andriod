@@ -60,7 +60,7 @@ class SecuredPreferences : SharedPreferences {
                 if (mErrorListener == null) {
                     mErrorListener = object : OnPreferencesErrorListener {
                         override fun onPreferenceError(e: Exception) {
-                            Log.e(TAG, e.toString())
+                            Utility.Error(TAG, e.toString())
                         }
                     }
                 }
@@ -124,7 +124,7 @@ class SecuredPreferences : SharedPreferences {
                         }
                     }
                 } catch (e: Exception) {
-                    Log.e(TAG, e.toString())
+                    Utility.Error(TAG, e.toString())
                     mErrorListener?.onPreferenceError(e)
                 }
 

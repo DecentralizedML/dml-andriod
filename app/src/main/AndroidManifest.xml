@@ -23,6 +23,7 @@
         <meta-data
             android:name="com.google.firebase.ml.vision.DEPENDENCIES"
             android:value="ocr" />
+
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
@@ -41,7 +42,8 @@
         </activity>
 
         <activity
-            android:name="com.dml.base.view.activity.SplashActivity"
+            android:name="com.dml.base.view.ui.SplashActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Welcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -49,13 +51,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.dml.base.view.activity.MainActivity" />
-        <activity android:name="com.dml.base.view.activity.SignUpActivity" />
-        <activity android:name="com.dml.base.view.activity.LoginActivity" />
-        <activity android:name="com.dml.base.view.activity.TransactionDetailActivity" />
-        <activity android:name="com.dml.base.view.activity.WalletActivity" />
-        <activity android:name="com.dml.base.view.activity.SettingsActivity" />
-        <activity android:name="com.dml.base.view.activity.WelcomeActivity" />
+        <activity
+            android:name="com.dml.base.view.ui.main.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dml.base.view.ui.signup.SignUpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dml.base.view.ui.login.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dml.base.view.ui.wallet.transaction.TransactionDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dml.base.view.ui.wallet.WalletActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dml.base.view.ui.settings.SettingsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dml.base.view.ui.WelcomeActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

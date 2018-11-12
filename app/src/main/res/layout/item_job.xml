@@ -6,7 +6,8 @@
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="312dp"
+        android:id="@+id/itemCardView"
+        android:layout_width="wrap_content"
         android:layout_height="152dp"
         app:cardBackgroundColor="#0442A4"
         app:cardCornerRadius="6dp"
@@ -24,7 +25,9 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:paddingStart="16dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp">
 
                 <com.dml.base.view.custom.ThemeTextView
                     android:id="@+id/titleTextView"

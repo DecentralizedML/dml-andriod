@@ -2,11 +2,11 @@ package com.dml.base.view.adapter
 
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.dml.base.view.ui.fragment.signup.*
-import com.dml.base.view.ui.fragment.signup.complete.SignUpCompleteFragment
-import com.dml.base.view.ui.fragment.signup.connect.SignUpConnectFragment
-import com.dml.base.view.ui.fragment.signup.information.SignUpInformationFragment
-import com.dml.base.view.ui.fragment.signup.signup.SignUpFragment
+import com.dml.base.view.ui.signup.complete.SignUpCompleteFragment
+import com.dml.base.view.ui.signup.connect.SignUpConnectFragment
+import com.dml.base.view.ui.signup.google.SignUpGoogleFragment
+import com.dml.base.view.ui.signup.information.SignUpInformationFragment
+import com.dml.base.view.ui.signup.signup.SignUpFragment
 
 
 class SignUpViewPagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {

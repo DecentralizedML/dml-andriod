@@ -7,11 +7,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dml.base.R
 import com.dml.base.network.model.JobResponse
+import kotlinx.android.synthetic.main.item_job.view.*
 
-
-class JobAdapter(var context: Context, jobList: ArrayList<JobResponse>, val listener: OnItemClickListener?) : RecyclerView.Adapter<JobAdapter.ViewHolder>() {
-
-    val jobList = jobList
+class JobAdapter(var context: Context
+                 , private val itemWidth: Int
+                 , private val jobList: ArrayList<JobResponse>
+                 , private val listener: OnItemClickListener?) : RecyclerView.Adapter<JobAdapter.ViewHolder>() {
 
     var selectedPosition = -1
 
@@ -21,6 +22,11 @@ class JobAdapter(var context: Context, jobList: ArrayList<JobResponse>, val list
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindData(context, jobList[position])
+
+        val layoutParam = holder.itemView.itemCardView.layoutParams
+        layoutParam.width = itemWidth
+        holder.itemView.itemCardView.layoutParams = layoutParam
+
 //        holder.itemView.setOnClickListener {
 //            listener?.onClick(jobList[position])
 //            selectedPosition = position
