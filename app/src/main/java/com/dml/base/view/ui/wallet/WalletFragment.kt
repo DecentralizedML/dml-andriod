@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.view.animation.LinearInterpolator
+import android.widget.FrameLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dml.base.R
@@ -18,12 +19,13 @@ import com.dml.base.view.adapter.TransactionAdapter
 import com.dml.base.view.adapter.WalletTypeAdapter
 import com.dml.base.view.custom.CenterZoomLayoutManager
 import com.dml.base.view.ui.settings.SettingsActivity
+import com.dml.base.view.ui.transaction.TransactionActivity
 import com.dml.base.view.ui.wallet.detail.WalletDetailFragment
-import com.dml.base.view.ui.wallet.transaction.TransactionDetailActivity
 import com.github.rubensousa.gravitysnaphelper.GravitySnapHelper
 import kotlinx.android.synthetic.main.fragment_wallet.*
 
-class WalletFragment  : BaseFragment(), WalletContract.View {
+class WalletFragment : BaseFragment(), WalletContract.View {
+
     companion object {
         fun newInstance(bundle: Bundle?): BaseFragment {
             val fragment = WalletFragment()
@@ -41,56 +43,72 @@ class WalletFragment  : BaseFragment(), WalletContract.View {
     override fun setLayoutId(): Int {
         return R.layout.fragment_wallet
     }
+
     override fun connectViews() {
         toolbar?.apply {
             setTitle(R.string.current_balance)
-            setLeftButton(R.drawable.ic_action_back, View.OnClickListener { mParentActivity?.finish() })
+            setLeftButton(R.drawable.ic_action_back, View.OnClickListener {
+                mParentActivity?.onBackPressed()
+            })
             setRightButton(R.drawable.ic_action_settings, View.OnClickListener {
                 startActivity(Intent(mParentActivity, SettingsActivity::class.java))
             })
         }
 
+        recentTransactionsButton?.setOnClickListener {
+            mParentActivity?.startActivity(Intent(mParentActivity, TransactionActivity::class.java))
+        }
+
         cashOutButton?.apply {
-            setText(R.string.fragment_wallet_cash_out_button)
+            setText(R.string.fragment_wallet_button_cash_out)
             setOnClickListener {
-                mParentActivity?.startActivity(Intent(mParentActivity, TransactionDetailActivity::class.java))
             }
         }
 
+        if (!Utility.canScroll(contentScrollView)) {
+            val layoutParam = cashOutButton.layoutParams
+            val marginBottom = layoutParam.height + Utility.convertDpToPixel(16f * 2)
+
+            val updateLayoutParam = contentLayout.layoutParams as FrameLayout.LayoutParams
+            updateLayoutParam.bottomMargin = marginBottom.toInt()
+        }
+
         contentScrollView?.viewTreeObserver?.addOnScrollChangedListener {
-            val scrollY = contentScrollView.scrollY
+            contentScrollView?.let {
+                val scrollY = contentScrollView.scrollY
 
-            if (Utility.canScroll(contentScrollView)) {
-                if (Math.abs(scrollY - oldScrollY) > 20) {
-                    if (scrollY > oldScrollY) {
-                        if (!isHiding) {
-                            val transAnimation = ObjectAnimator.ofFloat(0f, 300f)
-                            transAnimation.addUpdateListener {
-                                val value = it.animatedValue as Float
-                                cashOutButton.translationY = value
+                if (Utility.canScroll(contentScrollView)) {
+                    if (Math.abs(scrollY - oldScrollY) > 20) {
+                        if (scrollY > oldScrollY) {
+                            if (!isHiding) {
+                                val transAnimation = ObjectAnimator.ofFloat(0f, 300f)
+                                transAnimation.addUpdateListener {
+                                    val value = it.animatedValue as Float
+                                    cashOutButton.translationY = value
+                                }
+                                transAnimation.interpolator = LinearInterpolator()
+                                transAnimation.duration = 200
+                                transAnimation.start()
+
+                                isHiding = true
                             }
-                            transAnimation.interpolator = LinearInterpolator()
-                            transAnimation.duration = 200
-                            transAnimation.start()
+                        } else {
+                            if (isHiding) {
+                                val transAnimation = ObjectAnimator.ofFloat(300f, 0f)
+                                transAnimation.addUpdateListener {
+                                    val value = it.animatedValue as Float
+                                    cashOutButton.translationY = value
+                                }
+                                transAnimation.interpolator = LinearInterpolator()
+                                transAnimation.duration = 200
+                                transAnimation.start()
 
-                            isHiding = true
-                        }
-                    } else {
-                        if (isHiding) {
-                            val transAnimation = ObjectAnimator.ofFloat(300f, 0f)
-                            transAnimation.addUpdateListener {
-                                val value = it.animatedValue as Float
-                                cashOutButton.translationY = value
+                                isHiding = false
                             }
-                            transAnimation.interpolator = LinearInterpolator()
-                            transAnimation.duration = 200
-                            transAnimation.start()
-
-                            isHiding = false
                         }
                     }
+                    oldScrollY = scrollY
                 }
-                oldScrollY = scrollY
             }
         }
 
@@ -103,36 +121,32 @@ class WalletFragment  : BaseFragment(), WalletContract.View {
     }
 
     private fun setWalletTypeAdapter() {
-        var walletTypeList = ArrayList<WalletTypeResponse>()
+        val walletTypeList = ArrayList<WalletTypeResponse>()
         walletTypeList.add(WalletTypeResponse())
         walletTypeList.add(WalletTypeResponse())
 
-        var adapter = WalletTypeAdapter(context, walletTypeList, object : WalletTypeAdapter.OnItemClickListener {
-            override fun onClick(title: String) {
-                startFragment(WalletDetailFragment.newInstance(null), false)
+        val adapter = WalletTypeAdapter(context, walletTypeList, object : WalletTypeAdapter.OnItemClickListener {
+            override fun onClick(response: WalletTypeResponse) {
+                startFragment(WalletDetailFragment.newInstance(null), WalletDetailFragment::class.java.simpleName, true)
             }
         })
         walletTypeRecyclerView?.adapter = adapter
-        var layoutManager = CenterZoomLayoutManager(context, RecyclerView.HORIZONTAL, false)
+        val layoutManager = CenterZoomLayoutManager(context, RecyclerView.HORIZONTAL, false)
         walletTypeRecyclerView?.layoutManager = layoutManager
-        walletTypeRecyclerView?.smoothScrollBy(1, 0)
         GravitySnapHelper(Gravity.START).attachToRecyclerView(walletTypeRecyclerView)
     }
 
     private fun setTransactionAdapter() {
-        var transactionList = ArrayList<TransactionResponse>()
-        transactionList.add(TransactionResponse())
-        transactionList.add(TransactionResponse())
-        transactionList.add(TransactionResponse())
-        transactionList.add(TransactionResponse())
-        transactionList.add(TransactionResponse())
+        val transactionList = ArrayList<TransactionResponse>()
         transactionList.add(TransactionResponse())
         transactionList.add(TransactionResponse())
         transactionList.add(TransactionResponse())
 
-        var adapter = TransactionAdapter(context, transactionList, object : TransactionAdapter.OnItemClickListener {
-            override fun onClick(title: String) {
-//                Toast.makeText(context, "clicked item $title", Toast.LENGTH_SHORT).show()
+        val adapter = TransactionAdapter(context, transactionList, object : TransactionAdapter.OnItemClickListener {
+            override fun onClick(response: TransactionResponse) {
+                val intent = Intent(mParentActivity, TransactionActivity::class.java)
+                intent.putExtra("redirect", "TransactionDetailFragment")
+                mParentActivity?.startActivity(intent)
             }
         })
         transactionRecyclerView?.adapter = adapter

@@ -6,7 +6,7 @@ import com.dml.base.view.ui.login.LoginFragment
 
 class LoginActivity : BaseFragmentActivity() {
     override fun createBaseFragment() {
-        startFragment(LoginFragment.newInstance(null), false)
+        startFragment(LoginFragment.newInstance(null), LoginFragment::class.java.simpleName, false)
     }
 
     override fun setLayoutId(): Int {

@@ -33,7 +33,7 @@
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:layout_marginStart="6dp"
-            android:padding="16dp" />
+            android:padding="14dp" />
 
         <com.dml.base.view.custom.ThemeTextView
             android:id="@+id/titleTextView"
@@ -42,7 +42,6 @@
             android:layout_centerInParent="true"
             android:textAllCaps="true"
             android:textColor="@color/action_bar"
-            android:textSize="14dp"
             app:appFontStyle="barlow_semibold" />
 
         <ImageView
@@ -52,6 +51,6 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="6dp"
-            android:padding="16dp" />
+            android:padding="14dp" />
     </RelativeLayout>
 </RelativeLayout>

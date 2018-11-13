@@ -27,7 +27,9 @@ class SettingsFragment : BaseFragment() {
 
         toolbar?.apply {
             setTitle(R.string.settings)
-            setLeftButton(R.drawable.ic_action_back, View.OnClickListener { activity?.finish() })
+            setLeftButton(R.drawable.ic_action_back, View.OnClickListener {
+                mParentActivity?.onBackPressed()
+            })
         }
 
         profileButton?.setOnClickListener {

@@ -80,7 +80,6 @@ class MainActivity : BaseActivity() {
         jobRecyclerView?.adapter = adapter
         var layoutManager = CenterZoomLayoutManager(this, RecyclerView.HORIZONTAL, false)
         jobRecyclerView?.layoutManager = layoutManager
-        jobRecyclerView?.smoothScrollBy(1, 0)
         GravitySnapHelper(Gravity.START).attachToRecyclerView(jobRecyclerView)
     }
 }

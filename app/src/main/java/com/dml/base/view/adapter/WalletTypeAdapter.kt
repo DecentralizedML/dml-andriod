@@ -9,23 +9,23 @@ import com.dml.base.R
 import com.dml.base.network.model.WalletTypeResponse
 
 class WalletTypeAdapter(var context: Context
-                 , private val walletTypeList: ArrayList<WalletTypeResponse>
-                 , private val listener: OnItemClickListener?) : RecyclerView.Adapter<WalletTypeAdapter.ViewHolder>() {
+                        , private val walletTypeList: ArrayList<WalletTypeResponse>
+                        , private val listener: OnItemClickListener?) : RecyclerView.Adapter<WalletTypeAdapter.ViewHolder>() {
 
     var selectedPosition = -1
 
     interface OnItemClickListener {
-        fun onClick(title: String)
+        fun onClick(response: WalletTypeResponse)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindData(context, walletTypeList[position])
 
-//        holder.itemView.setOnClickListener {
-//            listener?.onClick(walletTypeList[position])
-//            selectedPosition = position
-//            notifyDataSetChanged()
-//        }
+        holder.itemView.setOnClickListener {
+            listener?.onClick(walletTypeList[position])
+            selectedPosition = position
+            notifyDataSetChanged()
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

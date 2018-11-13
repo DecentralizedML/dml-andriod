@@ -21,6 +21,7 @@
             android:overScrollMode="never">
 
             <LinearLayout
+                android:id="@+id/contentLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -30,7 +31,7 @@
                     style="@style/AppTheme.TextView.Title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/activity_transaction_detail_to"
+                    android:text="@string/fragment_transaction_detail_to"
                     app:appFontStyle="barlow_semibold" />
 
                 <com.dml.base.view.custom.ThemeTextView
@@ -46,7 +47,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
-                    android:text="@string/activity_transaction_detail_memo"
+                    android:text="@string/fragment_transaction_detail_memo"
                     app:appFontStyle="barlow_semibold" />
 
                 <com.dml.base.view.custom.ThemeTextView
@@ -62,7 +63,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
-                    android:text="@string/activity_transaction_detail_time"
+                    android:text="@string/fragment_transaction_detail_time"
                     app:appFontStyle="barlow_semibold" />
 
                 <com.dml.base.view.custom.ThemeTextView
@@ -78,7 +79,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
-                    android:text="@string/activity_transaction_detail_network_fee"
+                    android:text="@string/fragment_transaction_detail_network_fee"
                     app:appFontStyle="barlow_semibold" />
 
                 <com.dml.base.view.custom.ThemeTextView
@@ -94,7 +95,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
-                    android:text="@string/activity_transaction_detail_currency"
+                    android:text="@string/fragment_transaction_detail_currency"
                     app:appFontStyle="barlow_semibold" />
 
                 <com.dml.base.view.custom.ThemeTextView
@@ -110,7 +111,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
-                    android:text="@string/activity_transaction_detail_transaction_hash"
+                    android:text="@string/fragment_transaction_detail_transaction_hash"
                     app:appFontStyle="barlow_semibold" />
 
                 <com.dml.base.view.custom.ThemeTextView
@@ -131,7 +132,7 @@
         </androidx.core.widget.NestedScrollView>
 
         <com.dml.base.view.custom.CustomThemeButton
-            android:id="@+id/signUpButton"
+            android:id="@+id/cancelPendingButton"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_alignParentBottom="true"

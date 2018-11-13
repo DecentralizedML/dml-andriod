@@ -55,7 +55,7 @@ dependencies {
 
     implementation 'org.web3j:core:3.3.1-android'
 
-    implementation 'com.github.rubensousa:gravitysnaphelper:1.5'
+    implementation 'com.github.rubensousa:gravitysnaphelper:2.0'
 
     implementation 'com.google.firebase:firebase-ml-vision:18.0.1'
 }

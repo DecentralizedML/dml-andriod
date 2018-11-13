@@ -15,17 +15,17 @@ class TransactionAdapter(var context: Context
     var selectedPosition = -1
 
     interface OnItemClickListener {
-        fun onClick(title: String)
+        fun onClick(response: TransactionResponse)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindData(context, transactionList[position])
 
-//        holder.itemView.setOnClickListener {
-//            listener?.onClick(transactionList[position])
-//            selectedPosition = position
-//            notifyDataSetChanged()
-//        }
+        holder.itemView.setOnClickListener {
+            listener?.onClick(transactionList[position])
+            selectedPosition = position
+            notifyDataSetChanged()
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

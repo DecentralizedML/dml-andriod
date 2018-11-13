@@ -8,7 +8,7 @@ class WalletActivity : BaseFragmentActivity() {
     }
 
     override fun createBaseFragment() {
-        startFragment(WalletFragment.newInstance(null), false)
+        startFragment(WalletFragment.newInstance(null), WalletFragment::class.java.simpleName, false)
     }
 
     override fun setLayoutId(): Int {

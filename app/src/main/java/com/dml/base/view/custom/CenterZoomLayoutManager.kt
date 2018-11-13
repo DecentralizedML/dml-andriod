@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-
 class CenterZoomLayoutManager : LinearLayoutManager {
 
     private val mShrinkAmount = 0.1f
@@ -58,6 +57,11 @@ class CenterZoomLayoutManager : LinearLayoutManager {
         } else {
             return 0
         }
+    }
 
+    override fun onLayoutChildren(recycler: RecyclerView.Recycler?, state: RecyclerView.State?) {
+        super.onLayoutChildren(recycler, state)
+        scrollVerticallyBy(0, recycler, state)
+        scrollHorizontallyBy(0, recycler, state)
     }
 }

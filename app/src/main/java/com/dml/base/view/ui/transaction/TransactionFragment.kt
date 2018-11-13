@@ -1,7 +1,6 @@
-package com.dml.base.view.ui.wallet.detail
+package com.dml.base.view.ui.transaction
 
 import android.animation.ObjectAnimator
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.animation.LinearInterpolator
@@ -13,37 +12,33 @@ import com.dml.base.base.BaseFragment
 import com.dml.base.network.model.TransactionResponse
 import com.dml.base.utils.MarginItemVecticalDecoration
 import com.dml.base.view.adapter.TransactionAdapter
-import com.dml.base.view.ui.settings.SettingsActivity
-import kotlinx.android.synthetic.main.fragment_wallet_detail.*
+import com.dml.base.view.ui.transaction.detail.TransactionDetailFragment
+import kotlinx.android.synthetic.main.fragment_transaction.*
 
-class WalletDetailFragment : BaseFragment(), WalletDetailContract.View {
-
+class TransactionFragment : BaseFragment(), TransactionContract.View {
     companion object {
         fun newInstance(bundle: Bundle?): BaseFragment {
-            val fragment = WalletDetailFragment()
+            val fragment = TransactionFragment()
             if (bundle != null)
                 fragment.arguments = bundle
             return fragment
         }
     }
 
-    private lateinit var presenter: WalletDetailContract.Presenter
+    private lateinit var presenter: TransactionContract.Presenter
 
     private var oldScrollY = 0
     private var isHiding = false
 
     override fun setLayoutId(): Int {
-        return R.layout.fragment_wallet_detail
+        return R.layout.fragment_transaction
     }
 
     override fun connectViews() {
         toolbar?.apply {
-            setTitle(R.string.current_balance)
+            setTitle(R.string.fragment_transaction_toolbar_title)
             setLeftButton(R.drawable.ic_action_back, View.OnClickListener {
                 mParentActivity?.onBackPressed()
-            })
-            setRightButton(R.drawable.ic_action_settings, View.OnClickListener {
-                startActivity(Intent(mParentActivity, SettingsActivity::class.java))
             })
         }
 
@@ -93,10 +88,9 @@ class WalletDetailFragment : BaseFragment(), WalletDetailContract.View {
         }
 
         setTransactionAdapter()
-//        setWalletTypeAdapter()
     }
 
-    override fun setPresenter(presenter: WalletDetailContract.Presenter) {
+    override fun setPresenter(presenter: TransactionContract.Presenter) {
         this.presenter = presenter
     }
 
@@ -105,14 +99,20 @@ class WalletDetailFragment : BaseFragment(), WalletDetailContract.View {
         transactionList.add(TransactionResponse())
         transactionList.add(TransactionResponse())
         transactionList.add(TransactionResponse())
+        transactionList.add(TransactionResponse())
+        transactionList.add(TransactionResponse())
+        transactionList.add(TransactionResponse())
+        transactionList.add(TransactionResponse())
+        transactionList.add(TransactionResponse())
 
         var adapter = TransactionAdapter(context, transactionList, object : TransactionAdapter.OnItemClickListener {
             override fun onClick(response: TransactionResponse) {
-//                Toast.makeText(context, "clicked item $title", Toast.LENGTH_SHORT).show()
+                startFragment(TransactionDetailFragment.newInstance(null), TransactionDetailFragment::class.java.simpleName, true)
             }
         })
         transactionRecyclerView?.adapter = adapter
         transactionRecyclerView?.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         transactionRecyclerView?.addItemDecoration(MarginItemVecticalDecoration(resources.getDimension(R.dimen.margin_transaction).toInt()))
     }
+
 }

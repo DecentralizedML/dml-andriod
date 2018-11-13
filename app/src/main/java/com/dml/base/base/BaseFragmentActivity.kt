@@ -26,15 +26,16 @@ abstract class BaseFragmentActivity : BaseActivity() {
 //            return
 //        }
 
-        super.onBackPressed()
+//        super.onBackPressed()
 
-//        if (supportFragmentManager.backStackEntryCount > 0) {
-//            mFragmentTransaction = supportFragmentManager.beginTransaction()
-//            mFragmentTransaction?.setCustomAnimations(R.anim.exit, R.anim.enter)
-//            supportFragmentManager.popBackStack()
-//        } else {
+        if (supportFragmentManager.backStackEntryCount > 1) {
+            mFragmentTransaction = supportFragmentManager.beginTransaction()
+            mFragmentTransaction?.setCustomAnimations(R.anim.exit, R.anim.enter)
+            supportFragmentManager.popBackStack()
+        } else {
+            finish()
 //            super.onBackPressed()
-//        }
+        }
 
 //        var currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
 //        if (currentFragment is DashboardFragment) {

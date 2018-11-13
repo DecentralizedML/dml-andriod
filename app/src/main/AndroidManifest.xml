@@ -61,7 +61,7 @@
             android:name="com.dml.base.view.ui.login.LoginActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.dml.base.view.ui.wallet.transaction.TransactionDetailActivity"
+            android:name="com.dml.base.view.ui.transaction.TransactionActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.dml.base.view.ui.wallet.WalletActivity"

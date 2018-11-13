@@ -58,15 +58,18 @@
         <item>Doctorate or higher</item>
     </string-array>
 
-    <string name="activity_transaction_detail_toolbar_title">Transaction Detail</string>
-    <string name="activity_transaction_detail_to">To (Wallet Address)</string>
-    <string name="activity_transaction_detail_memo">Memo</string>
-    <string name="activity_transaction_detail_time">Time</string>
-    <string name="activity_transaction_detail_network_fee">Network Fee</string>
-    <string name="activity_transaction_detail_transaction_hash">Transaction Hash</string>
-    <string name="activity_transaction_detail_currency">Currency</string>
+    <string name="fragment_transaction_toolbar_title">Transactions</string>
 
-    <string name="fragment_wallet_cash_out_button">Cash out</string>
+    <string name="fragment_transaction_detail_toolbar_title">Transaction Detail</string>
+    <string name="fragment_transaction_detail_to">To (Wallet Address)</string>
+    <string name="fragment_transaction_detail_memo">Memo</string>
+    <string name="fragment_transaction_detail_time">Time</string>
+    <string name="fragment_transaction_detail_network_fee">Network Fee</string>
+    <string name="fragment_transaction_detail_transaction_hash">Transaction Hash</string>
+    <string name="fragment_transaction_detail_currency">Currency</string>
+    <string name="fragment_transaction_detail_button_cancel_pending_transaction">Cancel Pending Transaction</string>
+
+    <string name="fragment_wallet_button_cash_out">Cash out</string>
 
     <string name="settings_jobs">Jobs</string>
     <string name="settings_profile">Profile</string>

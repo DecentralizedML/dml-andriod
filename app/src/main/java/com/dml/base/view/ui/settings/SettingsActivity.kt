@@ -7,7 +7,7 @@ import com.dml.base.view.ui.settings.SettingsFragment
 class SettingsActivity : BaseFragmentActivity() {
 
     override fun createBaseFragment() {
-        startFragment(SettingsFragment.newInstance(null), false)
+        startFragment(SettingsFragment.newInstance(null), SettingsFragment::class.java.simpleName, false)
     }
 
     override fun setLayoutId(): Int {
