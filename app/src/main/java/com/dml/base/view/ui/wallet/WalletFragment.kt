@@ -18,6 +18,7 @@ import com.dml.base.utils.MarginItemVecticalDecoration
 import com.dml.base.view.adapter.TransactionAdapter
 import com.dml.base.view.adapter.WalletTypeAdapter
 import com.dml.base.view.custom.CenterZoomLayoutManager
+import com.dml.base.view.ui.cashout.CashOutActivity
 import com.dml.base.view.ui.settings.SettingsActivity
 import com.dml.base.view.ui.transaction.TransactionActivity
 import com.dml.base.view.ui.wallet.detail.WalletDetailFragment
@@ -62,6 +63,7 @@ class WalletFragment : BaseFragment(), WalletContract.View {
         cashOutButton?.apply {
             setText(R.string.fragment_wallet_button_cash_out)
             setOnClickListener {
+                mParentActivity?.startActivity(Intent(mParentActivity, CashOutActivity::class.java))
             }
         }
 

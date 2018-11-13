@@ -16,6 +16,7 @@ import com.dml.base.view.ui.transaction.detail.TransactionDetailFragment
 import kotlinx.android.synthetic.main.fragment_transaction.*
 
 class TransactionFragment : BaseFragment(), TransactionContract.View {
+
     companion object {
         fun newInstance(bundle: Bundle?): BaseFragment {
             val fragment = TransactionFragment()

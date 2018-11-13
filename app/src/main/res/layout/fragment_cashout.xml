@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.dml.base.view.custom.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/contentScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/contentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="80dp"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <com.dml.base.view.custom.ThemeTextView
+                style="@style/AppTheme.EditText.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="@string/fragment_cash_out_token"
+                app:appFontStyle="barlow_semibold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/walletTypeRecycleView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" />
+
+            <com.dml.base.view.custom.ThemeTextView
+                style="@style/AppTheme.EditText.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/fragment_cash_out_to"
+                app:appFontStyle="barlow_semibold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:theme="@style/AppTheme.SignUp.InputLayout">
+
+                    <com.dml.base.view.custom.ThemeEditText
+                        android:id="@+id/toAddressEditText"
+                        style="@style/AppTheme.SignUp.TextInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:lines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/qrCodeButton"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_qr_code" />
+            </LinearLayout>
+
+            <com.dml.base.view.custom.ThemeTextView
+                style="@style/AppTheme.EditText.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/fragment_cash_out_memo"
+                app:appFontStyle="barlow_semibold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/AppTheme.SignUp.InputLayout">
+
+                <com.dml.base.view.custom.ThemeEditText
+                    android:id="@+id/memoEditText"
+                    style="@style/AppTheme.SignUp.TextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:lines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.dml.base.view.custom.ThemeTextView
+                style="@style/AppTheme.EditText.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/fragment_cash_out_amount"
+                app:appFontStyle="barlow_semibold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/AppTheme.SignUp.InputLayout">
+
+                <com.dml.base.view.custom.ThemeEditText
+                    android:id="@+id/amountEditText"
+                    style="@style/AppTheme.SignUp.TextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:lines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.dml.base.view.custom.CustomThemeButton
+        android:id="@+id/cashOutButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        app:appFontStyle="barlow_semibold" />
+</LinearLayout>

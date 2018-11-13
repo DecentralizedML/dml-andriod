@@ -71,6 +71,16 @@
 
     <string name="fragment_wallet_button_cash_out">Cash out</string>
 
+    <string name="fragment_cash_out_toolbar_title">Send</string>
+    <string name="fragment_cash_out_token">Token</string>
+    <string name="fragment_cash_out_to">To (Wallet Address)</string>
+    <string name="fragment_cash_out_memo">Memo</string>
+    <string name="fragment_cash_out_amount">Amount</string>
+    <string name="fragment_cash_out_network_fee">Network Fee</string>
+    <string name="fragment_cash_out_button_confirm">Confirm</string>
+
+
+
     <string name="settings_jobs">Jobs</string>
     <string name="settings_profile">Profile</string>
     <string name="settings_data_sources">Data Sources</string>
