@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.hardware.camera" />
+    <uses-permission android:name="android.hardware.camera.autofocus" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
@@ -71,6 +73,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.dml.base.view.ui.WelcomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dml.base.view.ui.QRCodeScannerActivity"
             android:screenOrientation="portrait" />
     </application>
 

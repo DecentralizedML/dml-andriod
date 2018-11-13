@@ -14,6 +14,7 @@ import com.dml.base.network.model.TransactionResponse
 import com.dml.base.utils.MarginItemVecticalDecoration
 import com.dml.base.view.adapter.TransactionAdapter
 import com.dml.base.view.ui.settings.SettingsActivity
+import com.dml.base.view.ui.transaction.TransactionActivity
 import kotlinx.android.synthetic.main.fragment_wallet_detail.*
 
 class WalletDetailFragment : BaseFragment(), WalletDetailContract.View {
@@ -93,7 +94,6 @@ class WalletDetailFragment : BaseFragment(), WalletDetailContract.View {
         }
 
         setTransactionAdapter()
-//        setWalletTypeAdapter()
     }
 
     override fun setPresenter(presenter: WalletDetailContract.Presenter) {
@@ -101,14 +101,16 @@ class WalletDetailFragment : BaseFragment(), WalletDetailContract.View {
     }
 
     private fun setTransactionAdapter() {
-        var transactionList = ArrayList<TransactionResponse>()
+        val transactionList = ArrayList<TransactionResponse>()
         transactionList.add(TransactionResponse())
         transactionList.add(TransactionResponse())
         transactionList.add(TransactionResponse())
 
-        var adapter = TransactionAdapter(context, transactionList, object : TransactionAdapter.OnItemClickListener {
+        val adapter = TransactionAdapter(context, transactionList, object : TransactionAdapter.OnItemClickListener {
             override fun onClick(response: TransactionResponse) {
-//                Toast.makeText(context, "clicked item $title", Toast.LENGTH_SHORT).show()
+                val intent = Intent(mParentActivity, TransactionActivity::class.java)
+                intent.putExtra("redirect", "TransactionDetailFragment")
+                mParentActivity?.startActivity(intent)
             }
         })
         transactionRecyclerView?.adapter = adapter

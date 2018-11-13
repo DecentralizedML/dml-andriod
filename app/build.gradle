@@ -58,6 +58,9 @@ dependencies {
     implementation 'com.github.rubensousa:gravitysnaphelper:2.0'
 
     implementation 'com.google.firebase:firebase-ml-vision:18.0.1'
+
+    //QRcode scanner
+    implementation 'me.dm7.barcodescanner:zxing:1.9.8'
 }
 
 apply plugin: 'com.google.gms.google-services'

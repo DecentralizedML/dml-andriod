@@ -8,6 +8,7 @@ import com.dml.base.base.BaseFragment
 import com.dml.base.view.ui.settings.profile.SettingsProfileFragment
 import kotlinx.android.synthetic.main.fragment_settings.*
 
+
 class SettingsFragment : BaseFragment() {
 
     companion object {
