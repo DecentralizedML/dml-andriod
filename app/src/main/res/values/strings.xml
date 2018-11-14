@@ -79,11 +79,25 @@
     <string name="fragment_cash_out_network_fee">Network Fee</string>
     <string name="fragment_cash_out_button_confirm">Confirm</string>
 
-
-
     <string name="settings_jobs">Jobs</string>
     <string name="settings_profile">Profile</string>
     <string name="settings_data_sources">Data Sources</string>
     <string name="settings_currency">Currency</string>
     <string name="settings_logout">Logout</string>
+
+    <string name="settings_profile_login_info">Login Info</string>
+    <string name="settings_profile_personal_info">Personal Info</string>
+    <string name="settings_profile_email">Email</string>
+    <string name="settings_profile_button_update">Update my profile</string>
+
+    <string name="settings_job_desc">Please tell us when it’s okay to run jobs on your device</string>
+    <string name="settings_job_title_auto_run">Auto run incoming jobs</string>
+    <string name="settings_job_title_connect_to_wifi">When connected to Wifi</string>
+    <string name="settings_job_desc_connect_to_wifi">Use this option to save data</string>
+    <string name="settings_job_title_power_source">When using power source</string>
+    <string name="settings_job_desc_power_source">Use this option to save battery life</string>
+
+    <string name="settings_data_source_desc">For the best experience with DML, you need to connect some of your data sources. You’ll be able to revoke access at any time.</string>
+
+    <string name="settings_currency_desc">Please select which fiat currency you’d like to display by default.</string>
 </resources>

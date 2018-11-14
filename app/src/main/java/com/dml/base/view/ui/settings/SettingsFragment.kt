@@ -5,6 +5,9 @@ import android.view.View
 import com.dml.base.R
 import com.dml.base.Utility
 import com.dml.base.base.BaseFragment
+import com.dml.base.view.ui.settings.currency.SettingsCurrencyFragment
+import com.dml.base.view.ui.settings.datasource.SettingsDataSourceFragment
+import com.dml.base.view.ui.settings.job.SettingsJobFragment
 import com.dml.base.view.ui.settings.profile.SettingsProfileFragment
 import kotlinx.android.synthetic.main.fragment_settings.*
 
@@ -33,8 +36,20 @@ class SettingsFragment : BaseFragment() {
             })
         }
 
+        jobsButton?.setOnClickListener {
+            startFragment(SettingsJobFragment.newInstance(null), SettingsJobFragment::class.java.simpleName, true)
+        }
+
         profileButton?.setOnClickListener {
             startFragment(SettingsProfileFragment.newInstance(null), SettingsProfileFragment::class.java.simpleName, true)
+        }
+
+        dataSourcesButton?.setOnClickListener {
+            startFragment(SettingsDataSourceFragment.newInstance(null), SettingsDataSourceFragment::class.java.simpleName, true)
+        }
+
+        currencyButton?.setOnClickListener {
+            startFragment(SettingsCurrencyFragment.newInstance(null), SettingsCurrencyFragment::class.java.simpleName, true)
         }
 
         logoutButton?.setOnClickListener {

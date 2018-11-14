@@ -26,6 +26,43 @@
             android:padding="16dp">
 
             <com.dml.base.view.custom.ThemeTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="12dp"
+                android:text="@string/settings_profile_login_info"
+                android:textColor="@color/edittext_title"
+                android:textSize="18dp"
+                app:appFontStyle="barlow_medium" />
+
+            <com.dml.base.view.custom.ThemeTextView
+                style="@style/AppTheme.EditText.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/settings_profile_email"
+                app:appFontStyle="barlow_semibold" />
+
+            <com.dml.base.view.custom.ThemeTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="8dp"
+                android:text="dbirman@kyokan.io"
+                app:appFontStyle="barlow_semibold" />
+
+            <com.dml.base.view.custom.ThemeTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="36dp"
+                android:text="@string/settings_profile_personal_info"
+                android:textColor="@color/edittext_title"
+                android:textSize="18dp"
+                app:appFontStyle="barlow_medium" />
+
+            <com.dml.base.view.custom.ThemeTextView
                 style="@style/AppTheme.EditText.Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -163,7 +200,7 @@
                 android:layout_marginTop="16dp" />
 
             <com.dml.base.view.custom.CustomThemeButton
-                android:id="@+id/nextButton"
+                android:id="@+id/updateButton"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="24dp"

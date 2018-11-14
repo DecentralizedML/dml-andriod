@@ -37,7 +37,7 @@ abstract class BaseActivity : AppCompatActivity() {
         mFragmentTransaction = supportFragmentManager.beginTransaction()
 
         if (isAnimation) {
-            mFragmentTransaction?.setCustomAnimations(R.anim.enter, R.anim.exit)
+            mFragmentTransaction?.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right)
         }
         if (TextUtils.isEmpty(tag)) {
             mFragmentTransaction?.replace(R.id.fragment_container, fragment)
@@ -53,7 +53,7 @@ abstract class BaseActivity : AppCompatActivity() {
         mFragmentTransaction = supportFragmentManager.beginTransaction()
 
         if (isAnimation) {
-            mFragmentTransaction?.setCustomAnimations(R.anim.enter, R.anim.exit)
+            mFragmentTransaction?.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right)
         }
         if (TextUtils.isEmpty(tag)) {
             mFragmentTransaction?.add(R.id.fragment_container, fragment)
