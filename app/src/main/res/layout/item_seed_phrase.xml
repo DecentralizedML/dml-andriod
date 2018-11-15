@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="52dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/button_green_hollow"
+    android:gravity="center_vertical"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp">
+
+    <com.dml.base.view.custom.ThemeTextView
+        android:id="@+id/orderTextView"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerInParent="true"
+        android:background="@drawable/bg_circle_filled"
+        android:gravity="center"
+        app:appFontStyle="barlow_semibold" />
+
+    <com.dml.base.view.custom.ThemeTextView
+        android:id="@+id/phraseTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        app:appFontStyle="barlow_medium" />
+</RelativeLayout>

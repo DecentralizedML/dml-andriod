@@ -105,6 +105,10 @@ class TransactionFragment : BaseFragment(), TransactionContract.View {
         transactionList.add(TransactionResponse())
         transactionList.add(TransactionResponse())
         transactionList.add(TransactionResponse())
+        transactionList.add(TransactionResponse())
+        transactionList.add(TransactionResponse())
+        transactionList.add(TransactionResponse())
+        transactionList.add(TransactionResponse())
 
         var adapter = TransactionAdapter(context, transactionList, object : TransactionAdapter.OnItemClickListener {
             override fun onClick(response: TransactionResponse) {

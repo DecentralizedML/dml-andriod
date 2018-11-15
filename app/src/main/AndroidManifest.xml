@@ -80,6 +80,9 @@
         <activity
             android:name="com.dml.base.view.ui.cashout.CashOutActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dml.base.view.ui.backupseedphrase.BackupSeedPhraseActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

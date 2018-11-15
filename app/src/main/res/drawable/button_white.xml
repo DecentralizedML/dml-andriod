@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#c4c4c4">
+    <item android:id="@android:id/background">
         <shape android:shape="rectangle">
-            <stroke
-                android:width="2dp"
-                android:color="@color/colorAccent" />
-            <solid android:color="@android:color/transparent" />
+            <gradient
+                android:angle="180"
+                android:endColor="@android:color/white"
+                android:startColor="@android:color/white"
+                android:type="linear" />
             <corners android:radius="100dp" />
-
         </shape>
     </item>
-</layer-list>
+</ripple>

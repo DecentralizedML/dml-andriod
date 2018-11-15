@@ -61,8 +61,8 @@ class LargeToolbar : RelativeLayout {
         titleTextView?.visibility = View.VISIBLE
     }
 
-    fun setWalletButton(onClickListener: OnClickListener?) {
-        walletButton?.visibility = View.VISIBLE
-        walletButton?.setOnClickListener(onClickListener)
-    }
+//    fun setWalletButton(onClickListener: OnClickListener?) {
+//        walletButton?.visibility = View.VISIBLE
+//        walletButton?.setOnClickListener(onClickListener)
+//    }
 }

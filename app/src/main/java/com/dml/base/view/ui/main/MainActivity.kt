@@ -38,9 +38,14 @@ class MainActivity : BaseActivity() {
                 startActivity(Intent(this@MainActivity, SettingsActivity::class.java))
 
             })
-            setWalletButton(View.OnClickListener {
-                startActivity(Intent(this@MainActivity, WalletActivity::class.java))
-            })
+//            setWalletButton(View.OnClickListener {
+//                startActivity(Intent(this@MainActivity, WalletActivity::class.java))
+//            })
+        }
+
+        walletButton?.setOnClickListener{
+            startActivity(Intent(this@MainActivity, WalletActivity::class.java))
+//            startActivity(Intent(this@MainActivity, BackupSeedPhraseActivity::class.java))
         }
     }
 

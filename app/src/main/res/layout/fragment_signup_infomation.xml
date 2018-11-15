@@ -118,7 +118,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/button_white"
+                android:background="@drawable/button_green_hollow"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 

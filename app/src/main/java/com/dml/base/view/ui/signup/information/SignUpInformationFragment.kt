@@ -132,21 +132,21 @@ class SignUpInformationFragment : BaseFragment(), SignUpInformationContract.View
     }
 
     override fun tintMaleButton() {
-        genderMaleButton.setBackgroundResource(R.drawable.button_blue_border_left_filled)
+        genderMaleButton.setBackgroundResource(R.drawable.button_green_border_left_filled)
         genderFemaleButton.setBackgroundResource(0)
         genderOtherButton.setBackgroundResource(0)
     }
 
     override fun tintFemaleButton() {
         genderMaleButton.setBackgroundResource(0)
-        genderFemaleButton.setBackgroundResource(R.drawable.button_blue_border_center_filled)
+        genderFemaleButton.setBackgroundResource(R.drawable.button_green_border_center_filled)
         genderOtherButton.setBackgroundResource(0)
     }
 
     override fun tintOtherGenderButton() {
         genderMaleButton.setBackgroundResource(0)
         genderFemaleButton.setBackgroundResource(0)
-        genderOtherButton.setBackgroundResource(R.drawable.button_blue_border_right_filled)
+        genderOtherButton.setBackgroundResource(R.drawable.button_green_border_right_filled)
     }
 
     override fun showIncompleteInformationDialog() {

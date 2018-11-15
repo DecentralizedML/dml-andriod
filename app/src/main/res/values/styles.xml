@@ -28,7 +28,7 @@
     </style>
 
     <style name="AppTheme.Button.White" parent="Widget.AppCompat.Button.Colored">
-        <item name="android:background">@drawable/button_white</item>
+        <item name="android:background">@drawable/button_green_hollow</item>
         <item name="android:stateListAnimator">@null</item>
         <item name="android:textColor">@color/colorAccent</item>
         <item name="android:paddingLeft">16dp</item>
@@ -40,7 +40,7 @@
     <style name="AppTheme.Button.Blue" parent="Widget.AppCompat.Button.Colored">
         <item name="android:paddingLeft">16dp</item>
         <item name="android:paddingRight">16dp</item>
-        <item name="android:background">@drawable/button_blue</item>
+        <item name="android:background">@drawable/button_green</item>
         <item name="android:stateListAnimator">@null</item>
         <item name="android:textColor">@color/button_white</item>
         <item name="android:textAllCaps">false</item>

@@ -5,9 +5,10 @@
     android:layout_height="wrap_content">
 
     <ImageView
+        android:id="@+id/backgroundImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/button_blue" />
+        android:background="@drawable/button_green" />
 
     <LinearLayout
         android:layout_width="wrap_content"

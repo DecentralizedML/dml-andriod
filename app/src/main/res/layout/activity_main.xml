@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,38 +8,48 @@
     <com.dml.base.view.custom.LargeToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
 
-    <!--<androidx.core.widget.NestedScrollView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent">-->
-
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_below="@id/toolbar">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/jobRecyclerView"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <com.dml.base.view.custom.ThemeTextView
-            style="@style/AppTheme.TextView.Title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="16dp"
-            android:paddingTop="24dp"
-            android:paddingEnd="16dp"
-            android:paddingBottom="16dp"
-            android:text="Job History"
-            app:appFontStyle="barlow_semibold" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/jobRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/jobHistoryRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-    <!--</androidx.core.widget.NestedScrollView>-->
+            <com.dml.base.view.custom.ThemeTextView
+                style="@style/AppTheme.TextView.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="24dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="16dp"
+                android:text="Job History"
+                app:appFontStyle="barlow_semibold" />
 
-</LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/jobHistoryRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <ImageView
+        android:id="@+id/walletButton"
+        android:layout_width="@dimen/large_toolbar_wallet_icon_size"
+        android:layout_height="@dimen/large_toolbar_wallet_icon_size"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/large_toolbar_wallet_icon_margin_top"
+        android:src="@drawable/ic_wallet" />
+</RelativeLayout>

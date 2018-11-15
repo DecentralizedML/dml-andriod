@@ -100,4 +100,14 @@
     <string name="settings_data_source_desc">For the best experience with DML, you need to connect some of your data sources. You’ll be able to revoke access at any time.</string>
 
     <string name="settings_currency_desc">Please select which fiat currency you’d like to display by default.</string>
+
+
+    <string name="fragment_backup_toolbar_title">Backup Recovery Phrase</string>
+    <string name="fragment_backup_seed_phrase_desc">This is your recovery phrase. You use it to prove that this is your wallet. You only get to see it once! Copy and store it in a secure place. You will need it if you lose or reinstall your wallet.</string>
+    <string name="fragment_backup_seed_phrase_button_copy">Copy to clipboard</string>
+    <string name="fragment_backup_seed_phrase_button_copied">Copied! Next</string>
+
+    <string name="fragment_backup_confirm_toolbar_title">Confirm Recovery Phrase</string>
+    <string name="fragment_backup_seed_phrase_confirm_desc">In order to check if you have backed up your recovery phrase correctly, enter the correct words below</string>
+    <string name="fragment_backup_seed_phrase_button_submit">Submit</string>
 </resources>

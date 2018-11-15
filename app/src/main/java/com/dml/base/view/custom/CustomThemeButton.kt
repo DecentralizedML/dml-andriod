@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.RelativeLayout
+import androidx.core.content.ContextCompat
 import com.dml.base.R
 import kotlinx.android.synthetic.main.layout_button.view.*
 
@@ -27,6 +28,10 @@ class CustomThemeButton : RelativeLayout {
         btnTextView?.text = text
     }
 
+    fun setTextColor(resId: Int) {
+        btnTextView?.setTextColor(ContextCompat.getColor(context, resId))
+    }
+
     fun setTextString(text: String) {
         this.text = text
         btnTextView?.text = text
@@ -39,6 +44,10 @@ class CustomThemeButton : RelativeLayout {
             rightImageView?.visibility = View.VISIBLE
         else
             rightImageView?.visibility = View.GONE
+    }
+
+    fun setRightIconColor(resId: Int) {
+        rightImageView?.setColorFilter(ContextCompat.getColor(context, resId))
     }
 
     fun showProgressBar(show: Boolean) {
@@ -57,4 +66,7 @@ class CustomThemeButton : RelativeLayout {
         }
     }
 
+    fun setBackground(resId: Int) {
+        backgroundImageView.setBackgroundResource(resId)
+    }
 }

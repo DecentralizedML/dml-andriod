@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="@dimen/large_toolbar_height"
     android:orientation="vertical">
 
     <ImageView
@@ -72,12 +72,12 @@
         android:textColor="@color/action_bar"
         android:textSize="12dp" />
 
-    <ImageView
-        android:id="@+id/walletButton"
-        android:layout_width="88dp"
-        android:layout_height="88dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="98dp"
-        android:src="@drawable/ic_wallet"
-        android:visibility="gone" />
+    <!--<ImageView-->
+        <!--android:id="@+id/walletButton"-->
+        <!--android:layout_width="@dimen/large_toolbar_wallet_icon_size"-->
+        <!--android:layout_height="@dimen/large_toolbar_wallet_icon_size"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="98dp"-->
+        <!--android:src="@drawable/ic_wallet"-->
+        <!--android:visibility="gone" />-->
 </RelativeLayout>
