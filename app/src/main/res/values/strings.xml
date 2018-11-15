@@ -25,29 +25,35 @@
     <string name="activity_signup_or">OR</string>
     <string name="activity_signup_learn_more">Learn more</string>
 
-    <string name="activity_signup_google_desc">Thanks for connecting your Google account. In order to encrypt your private key (the thing that will protect your tokens), you need to also create a password. </string>
+    <string name="fragment_signup_google_desc">Thanks for connecting your Google account. In order to encrypt your private key (the thing that will protect your tokens), you need to also create a password. </string>
 
-    <string name="activity_signup_information_title">Tell us about yourself</string>
-    <string name="activity_signup_information_button_later">Remind me later</string>
-    <string name="activity_signup_information_full_name">Full name</string>
-    <string name="activity_signup_information_country">Country</string>
-    <string name="activity_signup_information_date_of_birth">Date of Birth</string>
-    <string name="activity_signup_information_gender">Gender</string>
-    <string name="activity_signup_information_male">Male</string>
-    <string name="activity_signup_information_female">Female</string>
-    <string name="activity_signup_information_other">N/A</string>
-    <string name="activity_signup_information_education_level">Education Level</string>
-    <string name="activity_signup_information_button_next">Next</string>
+    <string name="fragment_signup_security_question_title">Setup security questions</string>
+    <string name="fragment_signup_security_question_desc">Please choose your questions and answers that can be used to verify your identity in case you forget your password.</string>
+    <string name="fragment_signup_security_question_1">Question #1</string>
+    <string name="fragment_signup_security_question_2">Question #2</string>
+    <string name="fragment_signup_security_button_save">Save answers</string>
 
-    <string name="activity_signup_connect_title">Connect with us</string>
-    <string name="activity_signup_connect_desc">Please connect your data sources in order to start earning DML tokens. If you change you’re mind, you’ll be able to revoke access at any time.</string>
-    <string name="activity_signup_connect_sms">SMS</string>
-    <string name="activity_signup_connect_camera_roll">Camera Roll</string>
-    <string name="activity_signup_connect_address_book">Address Book</string>
+    <string name="fragment_signup_information_title">Tell us about yourself</string>
+    <string name="fragment_signup_information_button_later">Remind me later</string>
+    <string name="fragment_signup_information_full_name">Full name</string>
+    <string name="fragment_signup_information_country">Country</string>
+    <string name="fragment_signup_information_date_of_birth">Date of Birth</string>
+    <string name="fragment_signup_information_gender">Gender</string>
+    <string name="fragment_signup_information_male">Male</string>
+    <string name="fragment_signup_information_female">Female</string>
+    <string name="fragment_signup_information_other">N/A</string>
+    <string name="fragment_signup_information_education_level">Education Level</string>
+    <string name="fragment_signup_information_button_next">Next</string>
 
-    <string name="activity_signup_complete_title">Thank you!</string>
-    <string name="activity_signup_complete_desc">Because you connected all your data sources, you just earned 100 DML. Check out your DML wallet to learn more.</string>
-    <string name="activity_signup_complete_button_check_out">Check out your wallet</string>
+    <string name="fragment_signup_connect_title">Connect with us</string>
+    <string name="fragment_signup_connect_desc">Please connect your data sources in order to start earning DML tokens. If you change you’re mind, you’ll be able to revoke access at any time.</string>
+    <string name="fragment_signup_connect_sms">SMS</string>
+    <string name="fragment_signup_connect_camera_roll">Camera Roll</string>
+    <string name="fragment_signup_connect_address_book">Address Book</string>
+
+    <string name="fragment_signup_complete_title">Thank you!</string>
+    <string name="fragment_signup_complete_desc">Because you connected all your data sources, you just earned 100 DML. Check out your DML wallet to learn more.</string>
+    <string name="fragment_signup_complete_button_check_out">Check out your wallet</string>
 
     <string-array name="array_education_level">
         <item>Primary</item>
@@ -66,12 +72,12 @@
     <string name="fragment_transaction_detail_time">Time</string>
     <string name="fragment_transaction_detail_network_fee">Network Fee</string>
     <string name="fragment_transaction_detail_transaction_hash">Transaction Hash</string>
-    <string name="fragment_transaction_detail_currency">Currency</string>
+    <string name="fragment_transaction_detail_amount">Amount</string>
     <string name="fragment_transaction_detail_button_cancel_pending_transaction">Cancel Pending Transaction</string>
 
     <string name="fragment_wallet_button_cash_out">Cash out</string>
 
-    <string name="fragment_cash_out_toolbar_title">Send</string>
+    <string name="fragment_cash_out_toolbar_title">Cash out</string>
     <string name="fragment_cash_out_token">Token</string>
     <string name="fragment_cash_out_to">To (Wallet Address)</string>
     <string name="fragment_cash_out_memo">Memo</string>

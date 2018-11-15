@@ -17,13 +17,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp">
 
             <com.dml.base.view.custom.ThemeTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/activity_signup_connect_title"
+                android:text="@string/fragment_signup_connect_title"
                 android:textSize="24dp"
                 app:appFontStyle="barlow_medium" />
 
@@ -32,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
-                android:text="@string/activity_signup_connect_desc" />
+                android:text="@string/fragment_signup_connect_desc" />
 
             <TableLayout
                 android:layout_width="match_parent"
@@ -70,7 +72,7 @@
                             <com.dml.base.view.custom.ThemeTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/activity_signup_connect_sms"
+                                android:text="@string/fragment_signup_connect_sms"
                                 android:textColor="@android:color/white"
                                 app:appFontStyle="barlow_semibold" />
                         </LinearLayout>
@@ -105,7 +107,7 @@
                             <com.dml.base.view.custom.ThemeTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/activity_signup_connect_camera_roll"
+                                android:text="@string/fragment_signup_connect_camera_roll"
                                 android:textColor="@android:color/white"
                                 app:appFontStyle="barlow_semibold" />
                         </LinearLayout>
@@ -143,7 +145,7 @@
                             <com.dml.base.view.custom.ThemeTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/activity_signup_connect_address_book"
+                                android:text="@string/fragment_signup_connect_address_book"
                                 android:textColor="@android:color/white"
                                 app:appFontStyle="barlow_semibold" />
                         </LinearLayout>

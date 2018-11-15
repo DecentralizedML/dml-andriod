@@ -18,13 +18,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp">
 
             <com.dml.base.view.custom.ThemeTextView
                 android:id="@+id/descTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/activity_signup_google_desc" />
+                android:text="@string/fragment_signup_google_desc" />
 
             <com.dml.base.view.custom.ThemeTextView
                 style="@style/AppTheme.EditText.Title"

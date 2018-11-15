@@ -46,5 +46,5 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="24dp"
-        android:text="@string/activity_signup_information_button_next" />
+        android:text="@string/fragment_signup_information_button_next" />
 </LinearLayout>

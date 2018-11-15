@@ -37,7 +37,7 @@ class SignUpConnectFragment : BaseFragment(), SignUpConnectContract.View {
         cameraButton?.setOnClickListener { presenter.onCameraButtonClicked() }
         addressBookButton?.setOnClickListener { presenter.onAddressBookButtonClicked() }
         nextButton?.apply {
-            setText(R.string.activity_signup_information_button_next)
+            setText(R.string.fragment_signup_information_button_next)
             showRightIcon(true)
             setOnClickListener { presenter.onNextButtonClicked() }
         }

@@ -13,9 +13,9 @@ import com.dml.base.connection.DefaultRequestObserver
 import com.dml.base.network.model.UserSignUpRequest
 import com.dml.base.network.model.UserSignUpResponse
 import com.dml.base.utils.MarginItemHorizontalDecoration
-import com.dml.base.view.ui.signup.SignUpActivity
 import com.dml.base.view.adapter.EducationLevelAdapter
 import com.dml.base.view.adapter.EducationLevelAdapter.OnItemClickListener
+import com.dml.base.view.ui.signup.SignUpActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_signup_infomation.*
@@ -61,7 +61,7 @@ class SignUpInformationFragment : BaseFragment(), SignUpInformationContract.View
         genderFemaleButton?.setOnClickListener { presenter.onFemaleButtonClicked(Gender.Female) }
         genderOtherButton?.setOnClickListener { presenter.onOtherGenderButtonClicked(Gender.Other) }
         nextButton?.apply {
-            setText(R.string.activity_signup_information_button_next)
+            setText(R.string.fragment_signup_information_button_next)
             showRightIcon(true)
             setOnClickListener {
                 presenter.onNextButtonClicked(

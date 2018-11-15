@@ -30,7 +30,7 @@ class SignUpCompleteFragment : BaseFragment(), SignUpCompleteContract.View {
 
     override fun connectViews() {
         checkOutButton?.apply {
-            setText(R.string.activity_signup_complete_button_check_out)
+            setText(R.string.fragment_signup_complete_button_check_out)
             showRightIcon(true)
             setOnClickListener { checkOut() }
         }

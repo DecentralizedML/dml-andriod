@@ -18,13 +18,15 @@
             android:layout_height="match_parent"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp">
 
             <com.dml.base.view.custom.ThemeTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/activity_signup_information_title"
+                android:text="@string/fragment_signup_information_title"
                 android:textColor="@color/text_title"
                 android:textSize="24dp"
                 app:appFontStyle="barlow_medium" />
@@ -35,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
                 android:layout_marginTop="24dp"
-                android:text="@string/activity_signup_information_button_later"
+                android:text="@string/fragment_signup_information_button_later"
                 app:appFontStyle="barlow_semibold" />
 
             <com.dml.base.view.custom.ThemeTextView
@@ -44,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="24dp"
-                android:text="@string/activity_signup_information_full_name"
+                android:text="@string/fragment_signup_information_full_name"
                 app:appFontStyle="barlow_semibold" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -67,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="24dp"
-                android:text="@string/activity_signup_information_country"
+                android:text="@string/fragment_signup_information_country"
                 app:appFontStyle="barlow_semibold" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -89,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="24dp"
-                android:text="@string/activity_signup_information_date_of_birth"
+                android:text="@string/fragment_signup_information_date_of_birth"
                 app:appFontStyle="barlow_semibold" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -111,7 +113,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="24dp"
-                android:text="@string/activity_signup_information_gender"
+                android:text="@string/fragment_signup_information_gender"
                 app:appFontStyle="barlow_semibold" />
 
             <LinearLayout
@@ -128,7 +130,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="@string/activity_signup_information_male"
+                    android:text="@string/fragment_signup_information_male"
                     android:textAllCaps="false" />
 
                 <View
@@ -142,7 +144,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="@string/activity_signup_information_female"
+                    android:text="@string/fragment_signup_information_female"
                     android:textAllCaps="false" />
 
                 <View
@@ -156,7 +158,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="@string/activity_signup_information_other"
+                    android:text="@string/fragment_signup_information_other"
                     android:textAllCaps="false" />
             </LinearLayout>
 
@@ -166,7 +168,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="24dp"
-                android:text="@string/activity_signup_information_education_level"
+                android:text="@string/fragment_signup_information_education_level"
                 app:appFontStyle="barlow_semibold" />
 
             <androidx.recyclerview.widget.RecyclerView
