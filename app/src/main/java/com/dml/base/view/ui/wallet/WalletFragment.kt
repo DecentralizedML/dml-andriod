@@ -124,8 +124,12 @@ class WalletFragment : BaseFragment(), WalletContract.View {
 
     private fun setWalletTypeAdapter() {
         val walletTypeList = ArrayList<WalletTypeResponse>()
+
+        val eth = WalletTypeResponse()
+        eth.name = "Ethereum"
+        eth.type = "eth"
         walletTypeList.add(WalletTypeResponse())
-        walletTypeList.add(WalletTypeResponse())
+        walletTypeList.add(eth)
 
         val adapter = WalletTypeAdapter(context, walletTypeList, object : WalletTypeAdapter.OnItemClickListener {
             override fun onClick(response: WalletTypeResponse) {

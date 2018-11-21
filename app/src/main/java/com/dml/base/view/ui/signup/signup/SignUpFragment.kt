@@ -82,7 +82,7 @@ class SignUpFragment : BaseFragment(), SignUpContract.View {
         fbSignUpButton?.setOnClickListener { signUpByFacebook() }
         googleSignUpButton?.setOnClickListener { signUpByGoogle() }
         signUpButton?.apply {
-            setText(R.string.activity_signup_button_sign_up)
+            setText(R.string.fragment_signup_button_sign_up)
             setOnClickListener { signUpByEmail() }
         }
     }

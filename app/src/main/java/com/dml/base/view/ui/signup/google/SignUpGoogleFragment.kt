@@ -33,7 +33,7 @@ class SignUpGoogleFragment : BaseFragment(), SignUpGoogleContract.View {
         emailEditText?.setText((mParentActivity as SignUpActivity).getUserSignUpRequestModel()?.user?.email)
 
         signUpButton?.apply {
-            setText(R.string.activity_signup_button_sign_up)
+            setText(R.string.fragment_signup_button_sign_up)
             setOnClickListener {
                 presenter.onSignUpButtonClicked(emailEditText.text.toString()
                         , passwordEditText.text.toString()

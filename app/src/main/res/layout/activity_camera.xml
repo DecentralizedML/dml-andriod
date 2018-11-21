@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#003B98"
+    android:orientation="vertical">
+
+    <com.dml.base.view.custom.AutoFitTextureView
+        android:id="@+id/texture"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"/>
+
+    <!--<com.dml.base.view.custom.AutoFitTextureView-->
+        <!--android:id="@+id/texture"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_above="@id/bottomBackground"-->
+        <!--android:layout_below="@id/topBackground"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:layout_toStartOf="@+id/rightBackground"-->
+        <!--android:layout_toEndOf="@+id/leftBackground" />-->
+
+    <View
+        android:id="@+id/topBackground"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:layout_alignParentTop="true"
+        android:background="#003B98" />
+
+    <View
+        android:id="@+id/bottomBackground"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:layout_alignParentBottom="true"
+        android:background="#003B98" />
+
+    <View
+        android:id="@+id/leftBackground"
+        android:layout_width="48dp"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomBackground"
+        android:layout_below="@+id/topBackground"
+        android:layout_alignParentStart="true"
+        android:background="#003B98" />
+
+    <View
+        android:id="@+id/rightBackground"
+        android:layout_width="48dp"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomBackground"
+        android:layout_below="@+id/topBackground"
+        android:layout_alignParentEnd="true"
+        android:background="#003B98" />
+
+    <com.dml.base.view.custom.ThemeTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="48dp"
+        android:gravity="center"
+        android:text="@string/activity_camera_title"
+        android:textSize="24dp"
+        app:appFontStyle="barlow_medium" />
+
+    <ImageView
+        android:id="@+id/takePictureButton"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/bg_circle_filled"
+        android:padding="8dp"
+        android:src="@drawable/bg_circle_filled_white" />
+</RelativeLayout>

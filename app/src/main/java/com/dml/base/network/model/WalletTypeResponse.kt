@@ -4,6 +4,7 @@ import java.io.Serializable
 
 class WalletTypeResponse : Serializable {
     var id = ""
+    var type = "dml"
     var name = "Decentralized Machine Learning"
     //    @SerializedName("reward")
     var amount = "500.00"

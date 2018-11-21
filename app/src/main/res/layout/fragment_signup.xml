@@ -59,7 +59,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
                     android:background="@android:color/transparent"
-                    android:text="@string/activity_signup_or"
+                    android:text="@string/fragment_signup_or"
                     android:textColor="@color/divider"
                     android:textSize="12dp" />
 
@@ -76,7 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:text="@string/activity_signup_email"
+                android:text="@string/fragment_signup_email"
                 app:appFontStyle="barlow_semibold" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -98,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="24dp"
-                android:text="@string/activity_signup_password"
+                android:text="@string/fragment_signup_password"
                 app:appFontStyle="barlow_semibold" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -114,6 +114,30 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.dml.base.view.custom.ThemeTextView
+                style="@style/AppTheme.EditText.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/fragment_signup_referral_code"
+                app:appFontStyle="barlow_semibold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/AppTheme.SignUp.InputLayout"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/edittext_title">
+
+                <com.dml.base.view.custom.ThemeEditText
+                    android:id="@+id/referralCodeEditText"
+                    style="@style/AppTheme.SignUp.TextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
@@ -146,7 +170,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="@string/activity_signup_learn_more"
+                        android:text="@string/fragment_signup_learn_more"
                         android:textColor="@color/text_green"
                         android:textSize="14dp"
                         app:appFontStyle="barlow_medium" />

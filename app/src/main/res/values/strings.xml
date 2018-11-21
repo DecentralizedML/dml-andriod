@@ -19,11 +19,12 @@
     <string name="welcome_button_sign_up">Sign up</string>
     <string name="welcome_button_login">Log in</string>
 
-    <string name="activity_signup_email">Email</string>
-    <string name="activity_signup_password">Password</string>
-    <string name="activity_signup_button_sign_up">Sign up</string>
-    <string name="activity_signup_or">OR</string>
-    <string name="activity_signup_learn_more">Learn more</string>
+    <string name="fragment_signup_email">Email</string>
+    <string name="fragment_signup_password">Password</string>
+    <string name="fragment_signup_referral_code">Referral code (if any)</string>
+    <string name="fragment_signup_button_sign_up">Sign up</string>
+    <string name="fragment_signup_or">OR</string>
+    <string name="fragment_signup_learn_more">Learn more</string>
 
     <string name="fragment_signup_google_desc">Thanks for connecting your Google account. In order to encrypt your private key (the thing that will protect your tokens), you need to also create a password. </string>
 
@@ -116,4 +117,6 @@
     <string name="fragment_backup_confirm_toolbar_title">Confirm Recovery Phrase</string>
     <string name="fragment_backup_seed_phrase_confirm_desc">In order to check if you have backed up your recovery phrase correctly, enter the correct words below</string>
     <string name="fragment_backup_seed_phrase_button_submit">Submit</string>
+
+    <string name="activity_camera_title">Center receipt in frame and take photo</string>
 </resources>

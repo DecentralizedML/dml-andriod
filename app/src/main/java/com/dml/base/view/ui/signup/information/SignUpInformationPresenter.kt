@@ -27,21 +27,21 @@ class SignUpInformationPresenter(var view: SignUpInformationContract.View) : Sig
     }
 
     override fun onMaleButtonClicked(gender: Gender) {
-        if (selectedGender == null || selectedGender != null && selectedGender == gender) {
+        if (selectedGender == null || selectedGender != null && selectedGender != gender) {
             selectedGender = Gender.Male
             view.tintMaleButton()
         }
     }
 
     override fun onFemaleButtonClicked(gender: Gender) {
-        if (selectedGender == null || selectedGender != null && selectedGender == gender) {
+        if (selectedGender == null || selectedGender != null && selectedGender != gender) {
             selectedGender = Gender.Female
             view.tintFemaleButton()
         }
     }
 
     override fun onOtherGenderButtonClicked(gender: Gender) {
-        if (selectedGender == null || selectedGender != null && selectedGender == gender) {
+        if (selectedGender == null || selectedGender != null && selectedGender != gender) {
             selectedGender = Gender.Other
             view.tintOtherGenderButton()
         }

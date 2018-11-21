@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dml.base.R
 import com.dml.base.network.model.WalletTypeResponse
+import kotlinx.android.synthetic.main.item_wallet_type.view.*
 
 class WalletTypeAdapter(var context: Context
                         , private val walletTypeList: ArrayList<WalletTypeResponse>
@@ -36,8 +37,14 @@ class WalletTypeAdapter(var context: Context
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bindData(context: Context, response: WalletTypeResponse) {
-//            itemView.titleTextView.text = response.name
+            itemView.titleTextView.text = response.name
 //            itemView.descTextView.text = response.date
+
+            when (response.type) {
+                "dml" -> itemView.iconImageView.setImageResource(R.drawable.ic_dml)
+                "eth" -> itemView.iconImageView.setImageResource(R.drawable.ic_eth)
+            }
+
         }
     }
 }
