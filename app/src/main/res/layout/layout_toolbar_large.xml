@@ -8,16 +8,24 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="128dp"
+        android:layout_alignParentBottom="true"
         android:background="@drawable/bg_action_bar_shadow" />
 
     <ImageView
+        android:id="@+id/background"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
         android:src="@drawable/bg_action_bar_large" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_action_bar" />
 
     <RelativeLayout
         android:id="@+id/layout_action_bar"
@@ -56,7 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="48dp"
         android:text="{$21.13}"
         android:textAllCaps="true"
         android:textColor="@color/colorAccent"
@@ -73,11 +81,11 @@
         android:textSize="12dp" />
 
     <!--<ImageView-->
-        <!--android:id="@+id/walletButton"-->
-        <!--android:layout_width="@dimen/large_toolbar_wallet_icon_size"-->
-        <!--android:layout_height="@dimen/large_toolbar_wallet_icon_size"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_marginTop="98dp"-->
-        <!--android:src="@drawable/ic_wallet"-->
-        <!--android:visibility="gone" />-->
+    <!--android:id="@+id/walletButton"-->
+    <!--android:layout_width="@dimen/large_toolbar_wallet_icon_size"-->
+    <!--android:layout_height="@dimen/large_toolbar_wallet_icon_size"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_marginTop="98dp"-->
+    <!--android:src="@drawable/ic_wallet"-->
+    <!--android:visibility="gone" />-->
 </RelativeLayout>

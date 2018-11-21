@@ -3,6 +3,6 @@
     <dimen name="margin_education_level">8dp</dimen>
     <dimen name="margin_transaction">8dp</dimen>
     <dimen name="large_toolbar_height">148dp</dimen>
-    <dimen name="large_toolbar_wallet_icon_margin_top">96dp</dimen>
-    <dimen name="large_toolbar_wallet_icon_size">88dp</dimen>
+    <dimen name="large_toolbar_wallet_icon_margin_top">116dp</dimen>
+    <dimen name="large_toolbar_wallet_icon_size">48dp</dimen>
 </resources>
