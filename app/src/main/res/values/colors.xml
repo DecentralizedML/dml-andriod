@@ -32,6 +32,7 @@
     <color name="signup_line_finish">#F7F9FC</color>
     <color name="signup_edittext_border">#ADBCD4</color>
     <color name="signup_edittext_text">#8194B2</color>
+    <color name="signup_desc_text">#ADBCD4</color>
 
     <color name="edittext_title">#67A1FF</color>
     <color name="textview_title">#67A1FF</color>

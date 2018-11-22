@@ -24,7 +24,8 @@
         android:layout_below="@+id/titleTextView"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:text="@string/fragment_signup_complete_desc" />
+        android:text="@string/fragment_signup_complete_desc"
+        android:textColor="@color/signup_desc_text" />
 
     <ImageView
         android:layout_width="wrap_content"

@@ -56,6 +56,9 @@
     <string name="fragment_signup_complete_desc">Because you connected all your data sources, you just earned 100 DML. Check out your DML wallet to learn more.</string>
     <string name="fragment_signup_complete_button_check_out">Check out your wallet</string>
 
+    <string name="fragment_signup_create_wallet_title">Your wallet</string>
+    <string name="fragment_signup_create_wallet_desc">These 12 words are the only way to restore your wallet. Save them somewhere safe and secret.</string>
+
     <string-array name="array_education_level">
         <item>Primary</item>
         <item>Secondary</item>

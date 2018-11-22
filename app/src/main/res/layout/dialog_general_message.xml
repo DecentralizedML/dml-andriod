@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/bg_dialog"
     android:gravity="center_horizontal"
@@ -30,11 +30,34 @@
         android:gravity="center"
         android:textSize="18dp" />
 
-    <com.dml.base.view.custom.CustomThemeButton
-        android:id="@+id/confirmButton"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="32dp"
-        android:minWidth="256dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.dml.base.view.custom.CustomThemeButton
+            android:id="@+id/cancelButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="32dp"
+            android:layout_weight="1"
+            android:minWidth="256dp"
+            android:visibility="gone" />
+
+        <Space
+            android:id="@+id/buttonSpace"
+            android:layout_width="24dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <com.dml.base.view.custom.CustomThemeButton
+            android:id="@+id/confirmButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="32dp"
+            android:layout_weight="1"
+            android:minWidth="256dp" />
+
+    </LinearLayout>
 
 </LinearLayout>

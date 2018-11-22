@@ -14,7 +14,7 @@ import com.dml.base.network.model.JobResponse
 import com.dml.base.view.adapter.JobAdapter
 import com.dml.base.view.adapter.JobHistoryAdapter
 import com.dml.base.view.custom.CenterZoomLayoutManager
-import com.dml.base.view.ui.CameraActivity
+import com.dml.base.view.ui.job.ocr.OCRActivity
 import com.dml.base.view.ui.wallet.WalletActivity
 import com.github.rubensousa.gravitysnaphelper.GravitySnapHelper
 import kotlinx.android.synthetic.main.activity_main.*
@@ -36,7 +36,7 @@ class MainActivity : BaseActivity() {
             setTitle(R.string.current_balance)
             setRightButton(R.drawable.ic_action_settings, View.OnClickListener {
 //                startActivity(Intent(this@MainActivity, SettingsActivity::class.java))
-                startActivity(Intent(this@MainActivity, CameraActivity::class.java))
+                startActivity(Intent(this@MainActivity, OCRActivity::class.java))
 
             })
 //            setWalletButton(View.OnClickListener {

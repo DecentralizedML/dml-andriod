@@ -4,47 +4,58 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:padding="16dp">
 
     <com.dml.base.view.custom.ThemeTextView
+        android:id="@+id/titleTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:gravity="center"
-        android:text="Mnemonic"
-        android:textSize="30dp"
-        app:appFontStyle="barlow_semibold" />
+        android:text="@string/fragment_signup_create_wallet_title"
+        android:textSize="24dp"
+        app:appFontStyle="barlow_medium" />
+
 
     <com.dml.base.view.custom.ThemeTextView
-        android:id="@+id/mnemonicTextView"
+        android:id="@+id/descTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/titleTextView"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:textSize="16dp" />
+        android:text="@string/fragment_signup_create_wallet_desc"
+        android:textColor="@color/signup_desc_text" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="match_parent"
-        android:layout_height="40dp" />
-
-    <View
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1">
 
-    <com.dml.base.view.custom.ThemeButton
+        <com.dml.base.view.custom.ThemeTextView
+            android:id="@+id/mnemonicTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+    <com.dml.base.view.custom.CustomThemeButton
         android:id="@+id/copyButton"
-        style="@style/AppTheme.Button.Blue"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="24dp"
-        android:text="Copy to clipboard" />
+        android:layout_height="48dp"
+        app:appFontStyle="barlow_semibold" />
 
-    <com.dml.base.view.custom.ThemeButton
+    <com.dml.base.view.custom.CustomThemeButton
         android:id="@+id/nextButton"
-        style="@style/AppTheme.Button.Blue"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/fragment_signup_information_button_next" />
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        app:appFontStyle="barlow_semibold" />
 </LinearLayout>

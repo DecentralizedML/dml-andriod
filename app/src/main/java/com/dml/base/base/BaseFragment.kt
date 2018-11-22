@@ -13,6 +13,8 @@ abstract class BaseFragment : Fragment() {
 
     protected var mParentActivity: BaseActivity? = null
 
+    protected lateinit var mContext: Context
+
     protected var mView: View? = null
 
     protected var layoutId: Int = 0
@@ -48,12 +50,13 @@ abstract class BaseFragment : Fragment() {
     }
 
     override fun getContext(): Context {
-        return activity as Context
+        return mContext
     }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        this.mParentActivity = context as BaseActivity
+        mContext = context
+        mParentActivity = context as BaseActivity
     }
 
     override fun onDestroy() {

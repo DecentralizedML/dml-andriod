@@ -87,7 +87,7 @@
             android:name="com.dml.base.view.ui.backupseedphrase.BackupSeedPhraseActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.dml.base.view.ui.CameraActivity"
+            android:name="com.dml.base.view.ui.job.ocr.OCRActivity"
             android:screenOrientation="portrait" />
     </application>
 

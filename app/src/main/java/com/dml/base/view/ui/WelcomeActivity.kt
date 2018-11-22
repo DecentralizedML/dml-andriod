@@ -15,8 +15,8 @@ class WelcomeActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
 
 //        GeneralMessageDialog().builder()
-//                .btnText("test title")
-//                .btnListener(DialogInterface.OnClickListener { dialogInterface: DialogInterface, i: Int ->
+//                .rightButtonText("test title")
+//                .rightButtonListener(DialogInterface.OnClickListener { dialogInterface: DialogInterface, i: Int ->
 //                    Toast.makeText(this@WelcomeActivity, " clicked", Toast.LENGTH_SHORT).show()
 //                })
 //                .build()

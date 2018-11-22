@@ -34,7 +34,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
-                android:text="@string/fragment_signup_connect_desc" />
+                android:text="@string/fragment_signup_connect_desc"
+                android:textColor="@color/signup_desc_text" />
 
             <TableLayout
                 android:layout_width="match_parent"

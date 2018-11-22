@@ -26,7 +26,8 @@
                 android:id="@+id/descTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/fragment_signup_google_desc" />
+                android:text="@string/fragment_signup_google_desc"
+                android:textColor="@color/signup_desc_text" />
 
             <com.dml.base.view.custom.ThemeTextView
                 style="@style/AppTheme.EditText.Title"
