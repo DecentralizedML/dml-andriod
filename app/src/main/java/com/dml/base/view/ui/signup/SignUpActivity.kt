@@ -3,9 +3,9 @@ package com.dml.base.view.ui.signup
 import android.os.Bundle
 import androidx.fragment.app.FragmentPagerAdapter
 import com.dml.base.R
-import com.dml.base.view.adapter.SignUpViewPagerAdapter
 import com.dml.base.base.BaseActivity
 import com.dml.base.network.model.UserSignUpRequest
+import com.dml.base.view.adapter.SignUpViewPagerAdapter
 import kotlinx.android.synthetic.main.activity_signup.*
 
 
@@ -14,6 +14,7 @@ class SignUpActivity : BaseActivity() {
     sealed class SignUpState {
         object SignUp : SignUpState()
         object Google : SignUpState()
+        object SecurityQuestion : SignUpState()
         object Information : SignUpState()
         object Connect : SignUpState()
         object Complete : SignUpState()
@@ -43,44 +44,64 @@ class SignUpActivity : BaseActivity() {
         when (state) {
             SignUpState.SignUp -> {
                 pager?.setCurrentItem(SignUpViewPagerAdapter.PAGE_SIGNUP, true)
-                firstProgressBar.setImageResource(R.color.signup_line_not_finish)
-                secondProgressBar.setImageResource(R.color.signup_line_not_finish)
                 stageFirstImageView?.setImageResource(R.drawable.ic_welcome_ongoing)
-                stageSecondImageView?.setImageResource(0)
-                stageThirdImageView?.setImageResource(0)
+                firstProgressBar.setImageResource(R.color.signup_line_not_finish)
+                stageSecondImageView?.setImageResource(R.drawable.ic_welcome_empty)
+                secondProgressBar.setImageResource(R.color.signup_line_not_finish)
+                stageThirdImageView?.setImageResource(R.drawable.ic_welcome_empty)
+                thirdProgressBar.setImageResource(R.color.signup_line_not_finish)
+                stageFourthImageView?.setImageResource(R.drawable.ic_welcome_empty)
             }
             SignUpState.Google -> {
                 pager?.setCurrentItem(SignUpViewPagerAdapter.PAGE_GOOGLE, true)
-                firstProgressBar.setImageResource(R.color.signup_line_not_finish)
-                secondProgressBar.setImageResource(R.color.signup_line_not_finish)
                 stageFirstImageView?.setImageResource(R.drawable.ic_welcome_ongoing)
-                stageSecondImageView?.setImageResource(0)
-                stageThirdImageView?.setImageResource(0)
+                firstProgressBar.setImageResource(R.color.signup_line_not_finish)
+                stageSecondImageView?.setImageResource(R.drawable.ic_welcome_empty)
+                secondProgressBar.setImageResource(R.color.signup_line_not_finish)
+                stageThirdImageView?.setImageResource(R.drawable.ic_welcome_empty)
+                thirdProgressBar.setImageResource(R.color.signup_line_not_finish)
+                stageFourthImageView?.setImageResource(R.drawable.ic_welcome_empty)
+            }
+            SignUpState.SecurityQuestion -> {
+                pager?.setCurrentItem(SignUpViewPagerAdapter.PAGE_SECURITY_QUESTION, true)
+                stageFirstImageView?.setImageResource(R.drawable.ic_welcome_done)
+                firstProgressBar.setImageResource(R.color.signup_line_finish)
+                stageSecondImageView?.setImageResource(R.drawable.ic_welcome_ongoing)
+                secondProgressBar.setImageResource(R.color.signup_line_not_finish)
+                stageThirdImageView?.setImageResource(R.drawable.ic_welcome_empty)
+                thirdProgressBar.setImageResource(R.color.signup_line_not_finish)
+                stageFourthImageView?.setImageResource(R.drawable.ic_welcome_empty)
             }
             SignUpState.Information -> {
                 pager?.setCurrentItem(SignUpViewPagerAdapter.PAGE_INFORMATION, true)
-                firstProgressBar.setImageResource(R.color.signup_line_not_finish)
-                secondProgressBar.setImageResource(R.color.signup_line_not_finish)
                 stageFirstImageView?.setImageResource(R.drawable.ic_welcome_done)
-                stageSecondImageView?.setImageResource(R.drawable.ic_welcome_ongoing)
-                stageThirdImageView?.setImageResource(0)
+                firstProgressBar.setImageResource(R.color.signup_line_finish)
+                stageSecondImageView?.setImageResource(R.drawable.ic_welcome_done)
+                secondProgressBar.setImageResource(R.color.signup_line_finish)
+                stageThirdImageView?.setImageResource(R.drawable.ic_welcome_ongoing)
+                thirdProgressBar.setImageResource(R.color.signup_line_not_finish)
+                stageFourthImageView?.setImageResource(R.drawable.ic_welcome_empty)
             }
             SignUpState.Connect -> {
                 pager?.setCurrentItem(SignUpViewPagerAdapter.PAGE_CONNECT, true)
-                firstProgressBar.setImageResource(R.color.signup_line_finish)
-                secondProgressBar.setImageResource(R.color.signup_line_finish)
                 stageFirstImageView?.setImageResource(R.drawable.ic_welcome_done)
+                firstProgressBar.setImageResource(R.color.signup_line_finish)
                 stageSecondImageView?.setImageResource(R.drawable.ic_welcome_done)
-                stageThirdImageView?.setImageResource(R.drawable.ic_welcome_ongoing)
+                secondProgressBar.setImageResource(R.color.signup_line_finish)
+                stageThirdImageView?.setImageResource(R.drawable.ic_welcome_done)
+                thirdProgressBar.setImageResource(R.color.signup_line_finish)
+                stageFourthImageView?.setImageResource(R.drawable.ic_welcome_ongoing)
 
             }
             SignUpState.Complete -> {
                 pager?.setCurrentItem(SignUpViewPagerAdapter.PAGE_COMPLETE, true)
-                firstProgressBar.setImageResource(R.color.signup_line_finish)
-                secondProgressBar.setImageResource(R.color.signup_line_finish)
                 stageFirstImageView?.setImageResource(R.drawable.ic_welcome_done)
+                firstProgressBar.setImageResource(R.color.signup_line_finish)
                 stageSecondImageView?.setImageResource(R.drawable.ic_welcome_done)
+                secondProgressBar.setImageResource(R.color.signup_line_finish)
                 stageThirdImageView?.setImageResource(R.drawable.ic_welcome_done)
+                thirdProgressBar.setImageResource(R.color.signup_line_finish)
+                stageFourthImageView?.setImageResource(R.drawable.ic_welcome_done)
             }
         }
     }

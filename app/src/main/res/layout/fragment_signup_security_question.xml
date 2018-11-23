@@ -17,9 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:paddingBottom="16dp">
+            android:padding="16dp">
 
             <com.dml.base.view.custom.ThemeTextView
                 android:layout_width="match_parent"
@@ -34,7 +32,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
-                android:text="@string/fragment_signup_security_question_desc" />
+                android:text="@string/fragment_signup_security_question_desc"
+                android:textColor="@color/signup_desc_text" />
 
             <com.dml.base.view.custom.ThemeTextView
                 style="@style/AppTheme.EditText.Title"

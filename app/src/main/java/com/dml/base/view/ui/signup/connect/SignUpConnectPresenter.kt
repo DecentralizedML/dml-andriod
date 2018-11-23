@@ -22,7 +22,7 @@ class SignUpConnectPresenter(var view: SignUpConnectContract.View) : SignUpConne
             view.setSmsButtonFilled(false)
         } else {
             permissionArray.add(Manifest.permission.READ_SMS)
-            view.setAddressBookButtonFilled(true)
+            view.setSmsButtonFilled(true)
         }
     }
 

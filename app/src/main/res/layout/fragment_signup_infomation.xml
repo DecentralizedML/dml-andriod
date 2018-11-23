@@ -18,9 +18,7 @@
             android:layout_height="match_parent"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:paddingBottom="16dp">
+            android:padding="16dp">
 
             <com.dml.base.view.custom.ThemeTextView
                 android:layout_width="match_parent"
