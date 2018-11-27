@@ -42,18 +42,8 @@ class SignUpActivity : BaseActivity() {
 
     fun setState(state: SignUpState) {
         when (state) {
-            SignUpState.SignUp -> {
+            SignUpState.SignUp, SignUpState.Google -> {
                 pager?.setCurrentItem(SignUpViewPagerAdapter.PAGE_SIGNUP, true)
-                stageFirstImageView?.setImageResource(R.drawable.ic_welcome_ongoing)
-                firstProgressBar.setImageResource(R.color.signup_line_not_finish)
-                stageSecondImageView?.setImageResource(R.drawable.ic_welcome_empty)
-                secondProgressBar.setImageResource(R.color.signup_line_not_finish)
-                stageThirdImageView?.setImageResource(R.drawable.ic_welcome_empty)
-                thirdProgressBar.setImageResource(R.color.signup_line_not_finish)
-                stageFourthImageView?.setImageResource(R.drawable.ic_welcome_empty)
-            }
-            SignUpState.Google -> {
-                pager?.setCurrentItem(SignUpViewPagerAdapter.PAGE_GOOGLE, true)
                 stageFirstImageView?.setImageResource(R.drawable.ic_welcome_ongoing)
                 firstProgressBar.setImageResource(R.color.signup_line_not_finish)
                 stageSecondImageView?.setImageResource(R.drawable.ic_welcome_empty)

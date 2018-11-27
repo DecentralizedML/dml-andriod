@@ -22,6 +22,11 @@ class SettingsProfileFragment : BaseFragment(), SettingsProfileContract.View {
 
     private lateinit var presenter: SettingsProfileContract.Presenter
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        presenter = SettingsProfilePresenter(this)
+    }
+
     override fun setLayoutId(): Int {
         return R.layout.fragment_settings_profile
     }
@@ -30,7 +35,7 @@ class SettingsProfileFragment : BaseFragment(), SettingsProfileContract.View {
         toolbar?.apply {
             setTitle(R.string.settings_profile)
             setLeftButton(R.drawable.ic_action_back, View.OnClickListener {
-                mParentActivity?.onBackPressed()
+                mParentActivity.onBackPressed()
             })
         }
 

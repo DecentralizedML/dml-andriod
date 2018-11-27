@@ -7,11 +7,13 @@
     <color name="action_bar">#67A1FF</color>
 
     <color name="background">#ffffff</color>
+    <color name="transparent">#00ffffff</color>
     <color name="background_start">#003B98</color>
     <color name="background_end">#001434</color>
     <color name="background_dialog">#033D9A</color>
     <color name="text">#F7F9FC</color>
     <color name="text_title">#ffffff</color>
+    <color name="text_title_blue">#67A1FF</color>
     <color name="text_alpha_50">#80F7F9FC</color>
     <color name="text_alpha_60">#99F7F9FC</color>
     <color name="text_alpha_80">#CCF7F9FC</color>

@@ -25,6 +25,11 @@ class SignUpSecurityQuestionFragment : BaseFragment(), SignUpSecurityQuestionCon
 
     private lateinit var presenter: SignUpSecurityQuestionContract.Presenter
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        presenter = SignUpSecurityQuestionPresenter(this)
+    }
+
     override fun setLayoutId(): Int {
         return R.layout.fragment_signup_security_question
     }
@@ -52,7 +57,7 @@ class SignUpSecurityQuestionFragment : BaseFragment(), SignUpSecurityQuestionCon
 
     private fun showQuestionBottomSheetDialog(questionId: Int) {
         val mBottomSheetDialog = BottomSheetDialog(context)
-        val sheetView = mParentActivity?.layoutInflater?.inflate(R.layout.fragment_security_question_bottom_sheet, null)
+        val sheetView = mParentActivity.layoutInflater?.inflate(R.layout.fragment_security_question_bottom_sheet, null)
 
         questionList = ArrayList()
         questionList.add("What is your favourite sea animal?")

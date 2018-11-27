@@ -18,6 +18,11 @@ class SettingsCurrencyFragment : BaseFragment(), SettingsCurrencyContract.View {
 
     private lateinit var presenter: SettingsCurrencyContract.Presenter
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        presenter = SettingsCurrencyPresenter(this)
+    }
+
     override fun setLayoutId(): Int {
         return R.layout.fragment_settings_currency
     }
@@ -26,7 +31,7 @@ class SettingsCurrencyFragment : BaseFragment(), SettingsCurrencyContract.View {
         toolbar?.apply {
             setTitle(R.string.settings_currency)
             setLeftButton(R.drawable.ic_action_back, View.OnClickListener {
-                mParentActivity?.onBackPressed()
+                mParentActivity.onBackPressed()
             })
         }
     }

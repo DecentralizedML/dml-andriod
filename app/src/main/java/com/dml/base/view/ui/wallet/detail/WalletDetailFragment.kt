@@ -33,6 +33,11 @@ class WalletDetailFragment : BaseFragment(), WalletDetailContract.View {
     private var oldScrollY = 0
     private var isHiding = false
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        presenter = WalletDetailPresenter(this)
+    }
+
     override fun setLayoutId(): Int {
         return R.layout.fragment_wallet_detail
     }
@@ -41,7 +46,7 @@ class WalletDetailFragment : BaseFragment(), WalletDetailContract.View {
         toolbar?.apply {
             setTitle(R.string.current_balance)
             setLeftButton(R.drawable.ic_action_back, View.OnClickListener {
-                mParentActivity?.onBackPressed()
+                mParentActivity.onBackPressed()
             })
             setRightButton(R.drawable.ic_action_settings, View.OnClickListener {
                 startActivity(Intent(mParentActivity, SettingsActivity::class.java))
@@ -110,7 +115,7 @@ class WalletDetailFragment : BaseFragment(), WalletDetailContract.View {
             override fun onClick(response: TransactionResponse) {
                 val intent = Intent(mParentActivity, TransactionActivity::class.java)
                 intent.putExtra("redirect", "TransactionDetailFragment")
-                mParentActivity?.startActivity(intent)
+                mParentActivity.startActivity(intent)
             }
         })
         transactionRecyclerView?.adapter = adapter

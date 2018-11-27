@@ -48,6 +48,7 @@
                         app:appFontStyle="barlow_semibold" />
 
                     <View
+                        android:id="@+id/dateUnderlineView"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginTop="2dp"
@@ -80,6 +81,7 @@
                         app:appFontStyle="barlow_semibold" />
 
                     <View
+                        android:id="@+id/pendingUnderlineView"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginTop="2dp"
@@ -112,6 +114,7 @@
                         app:appFontStyle="barlow_semibold" />
 
                     <View
+                        android:id="@+id/tokenUnderlineView"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginTop="2dp"
@@ -120,7 +123,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/fiat"
+                android:id="@+id/fiatValueButton"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -134,7 +137,7 @@
                     android:orientation="vertical">
 
                     <com.dml.base.view.custom.ThemeTextView
-                        android:id="@+id/valueTextView"
+                        android:id="@+id/fiatValueTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="fiat value"
@@ -144,6 +147,7 @@
                         app:appFontStyle="barlow_semibold" />
 
                     <View
+                        android:id="@+id/fiatValueUnderlineView"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginTop="2dp"

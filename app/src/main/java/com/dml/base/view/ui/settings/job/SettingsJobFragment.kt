@@ -18,6 +18,11 @@ class SettingsJobFragment : BaseFragment(), SettingsJobContract.View {
 
     private lateinit var presenter: SettingsJobContract.Presenter
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        presenter = SettingsJobPresenter(this)
+    }
+
     override fun setLayoutId(): Int {
         return R.layout.fragment_settings_job
     }
@@ -26,7 +31,7 @@ class SettingsJobFragment : BaseFragment(), SettingsJobContract.View {
         toolbar?.apply {
             setTitle(R.string.settings_jobs)
             setLeftButton(R.drawable.ic_action_back, View.OnClickListener {
-                mParentActivity?.onBackPressed()
+                mParentActivity.onBackPressed()
             })
         }
     }

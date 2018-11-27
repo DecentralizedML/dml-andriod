@@ -26,6 +26,11 @@ class BackupSeedPhraseFragment : BaseFragment(), BackupSeedPhraseContract.View {
     private lateinit var seedPhrase: String
     private var isCopied = false
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        presenter = BackupSeedPhrasePresenter(this)
+    }
+
     override fun setLayoutId(): Int {
         return R.layout.fragment_backup_seed_phrase
     }
@@ -34,7 +39,7 @@ class BackupSeedPhraseFragment : BaseFragment(), BackupSeedPhraseContract.View {
         toolbar?.apply {
             setTitle(R.string.fragment_backup_toolbar_title)
             setLeftButton(R.drawable.ic_action_back, View.OnClickListener {
-                mParentActivity?.onBackPressed()
+                mParentActivity.onBackPressed()
             })
         }
 

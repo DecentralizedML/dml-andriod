@@ -30,7 +30,7 @@ class TransactionDetailFragment : BaseFragment(), TransactionDetailContract.View
         toolbar?.apply {
             setTitle(R.string.fragment_transaction_detail_toolbar_title)
             setLeftButton(R.drawable.ic_action_back, View.OnClickListener {
-                mParentActivity?.onBackPressed()
+                mParentActivity.onBackPressed()
             })
         }
 //

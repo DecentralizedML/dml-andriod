@@ -4,6 +4,7 @@ import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.View
 import android.view.animation.LinearInterpolator
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dml.base.R
@@ -31,6 +32,11 @@ class TransactionFragment : BaseFragment(), TransactionContract.View {
     private var oldScrollY = 0
     private var isHiding = false
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        presenter = TransactionPresenter(this)
+    }
+
     override fun setLayoutId(): Int {
         return R.layout.fragment_transaction
     }
@@ -39,7 +45,7 @@ class TransactionFragment : BaseFragment(), TransactionContract.View {
         toolbar?.apply {
             setTitle(R.string.fragment_transaction_toolbar_title)
             setLeftButton(R.drawable.ic_action_back, View.OnClickListener {
-                mParentActivity?.onBackPressed()
+                mParentActivity.onBackPressed()
             })
         }
 
@@ -87,6 +93,10 @@ class TransactionFragment : BaseFragment(), TransactionContract.View {
             setOnClickListener {
             }
         }
+        dateButton?.setOnClickListener { presenter.onDateButtonClicked() }
+        pendingButton?.setOnClickListener { presenter.onPendingButtonClicked() }
+        tokenButton?.setOnClickListener { presenter.onTokenButtonClicked() }
+        fiatValueButton?.setOnClickListener { presenter.onFiatValueButtonClicked() }
 
         setTransactionAdapter()
     }
@@ -118,6 +128,46 @@ class TransactionFragment : BaseFragment(), TransactionContract.View {
         transactionRecyclerView?.adapter = adapter
         transactionRecyclerView?.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         transactionRecyclerView?.addItemDecoration(MarginItemVecticalDecoration(resources.getDimension(R.dimen.margin_transaction).toInt()))
+    }
+
+    override fun turnOnDateButton() {
+        dateTextView?.setTextColor(ContextCompat.getColor(context, R.color.text))
+        dateUnderlineView?.setBackgroundResource(R.color.colorAccent)
+    }
+
+    override fun turnOnPendingButton() {
+        pendingTextView?.setTextColor(ContextCompat.getColor(context, R.color.text))
+        pendingUnderlineView?.setBackgroundResource(R.color.colorAccent)
+    }
+
+    override fun turnOnTokenButton() {
+        tokenTextView?.setTextColor(ContextCompat.getColor(context, R.color.text))
+        tokenUnderlineView?.setBackgroundResource(R.color.colorAccent)
+    }
+
+    override fun turnOnFiatValueButton() {
+        fiatValueTextView?.setTextColor(ContextCompat.getColor(context, R.color.text))
+        fiatValueUnderlineView?.setBackgroundResource(R.color.colorAccent)
+    }
+
+    override fun turnOffDateButton() {
+        dateTextView?.setTextColor(ContextCompat.getColor(context, R.color.text_title_blue))
+        dateUnderlineView?.setBackgroundResource(R.color.transparent)
+    }
+
+    override fun turnOffPendingButton() {
+        pendingTextView?.setTextColor(ContextCompat.getColor(context, R.color.text_title_blue))
+        pendingUnderlineView?.setBackgroundResource(R.color.transparent)
+    }
+
+    override fun turnOffTokenButton() {
+        tokenTextView?.setTextColor(ContextCompat.getColor(context, R.color.text_title_blue))
+        tokenUnderlineView?.setBackgroundResource(R.color.transparent)
+    }
+
+    override fun turnOffFiatValueButton() {
+        fiatValueTextView?.setTextColor(ContextCompat.getColor(context, R.color.text_title_blue))
+        fiatValueUnderlineView?.setBackgroundResource(R.color.transparent)
     }
 
 }

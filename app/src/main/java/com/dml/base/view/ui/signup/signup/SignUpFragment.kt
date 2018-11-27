@@ -2,7 +2,6 @@ package com.dml.base.view.ui.signup.signup
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import com.dml.base.Preferences
 import com.dml.base.R
 import com.dml.base.Utility
@@ -19,7 +18,6 @@ import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -41,10 +39,10 @@ class SignUpFragment : BaseFragment(), SignUpContract.View {
         }
     }
 
-    private lateinit var presenter : SignUpContract.Presenter
+    private lateinit var presenter: SignUpContract.Presenter
 
-    var facebookCallbackManager: CallbackManager? = null
-    var mGoogleSignInClient: GoogleSignInClient? = null
+    private var facebookCallbackManager: CallbackManager? = null
+    private var mGoogleSignInClient: GoogleSignInClient? = null
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -65,11 +63,7 @@ class SignUpFragment : BaseFragment(), SignUpContract.View {
                             }
                         })
 
-
-        val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build()
-        mGoogleSignInClient = GoogleSignIn.getClient(context, googleSignInOptions)
+        mGoogleSignInClient = Utility.getGoogleSignInClient(context)
 //        val account = GoogleSignIn.getLastSignedInAccount(context)
 
     }
@@ -83,7 +77,11 @@ class SignUpFragment : BaseFragment(), SignUpContract.View {
         googleSignUpButton?.setOnClickListener { signUpByGoogle() }
         signUpButton?.apply {
             setText(R.string.fragment_signup_button_sign_up)
-            setOnClickListener { signUpByEmail() }
+            setOnClickListener {
+                presenter.onSignUpButtonClicked(emailEditText.text.toString()
+                        , passwordEditText.text.toString()
+                        , agreeCheckBox.isChecked)
+            }
         }
     }
 
@@ -97,27 +95,10 @@ class SignUpFragment : BaseFragment(), SignUpContract.View {
 
     private fun signUpByGoogle() {
         val signInIntent = mGoogleSignInClient?.signInIntent
-        activity?.startActivityForResult(signInIntent, REQUEST_CODE_GOOGLE_SIGN_UP)
+        mParentActivity.startActivityForResult(signInIntent, REQUEST_CODE_GOOGLE_SIGN_UP)
     }
 
-    private fun signUpByEmail() {
-        if (!Utility.isValidEmail(emailEditText?.text.toString())) {
-            Toast.makeText(activity, "email invalid", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        if (passwordEditText?.text.isNullOrBlank()) {
-            Toast.makeText(activity, "password invalid", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        if (!agreeCheckBox.isChecked)
-            return
-
-        postSignUpRequest()
-    }
-
-    private fun postSignUpRequest() {
+    override fun postSignUpRequest() {
         val signUpRequestModel = UserSignUpRequest()
         signUpRequestModel.apply {
             user.apply {
@@ -129,7 +110,7 @@ class SignUpFragment : BaseFragment(), SignUpContract.View {
             }
         }
 
-        mParentActivity?.mService?.postUserSignUpRequest(signUpRequestModel)
+        mParentActivity.mService.postUserSignUpRequest(signUpRequestModel)
                 ?.subscribeOn(Schedulers.io())
                 ?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribeWith(object : DefaultRequestObserver<UserSignUpResponse>(context) {
@@ -150,6 +131,24 @@ class SignUpFragment : BaseFragment(), SignUpContract.View {
                         signUpButton?.isEnabled = false
                     }
                 })?.let { mCompositeDisposable.add(it) }
+    }
+
+    override fun showEmailError() {
+        emailTextInputLayout?.isErrorEnabled = true
+        emailTextInputLayout?.error = getString(R.string.error_email_format)
+    }
+
+    override fun showEmailNoError() {
+        emailTextInputLayout?.isErrorEnabled = false
+    }
+
+    override fun showPasswordError() {
+        passwordTextInputLayout?.isErrorEnabled = true
+        passwordTextInputLayout?.error = getString(R.string.error_password_format)
+    }
+
+    override fun showPasswordNoError() {
+        passwordTextInputLayout?.isErrorEnabled = false
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

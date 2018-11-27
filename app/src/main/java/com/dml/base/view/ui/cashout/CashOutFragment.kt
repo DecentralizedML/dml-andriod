@@ -24,6 +24,11 @@ class CashOutFragment : BaseFragment(), CashOutContract.View {
 
     private lateinit var presenter: CashOutContract.Presenter
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        presenter = CashOutPresenter(this)
+    }
+
     override fun setLayoutId(): Int {
         return R.layout.fragment_cashout
     }
@@ -32,12 +37,12 @@ class CashOutFragment : BaseFragment(), CashOutContract.View {
         toolbar?.apply {
             setTitle(R.string.fragment_cash_out_toolbar_title)
             setLeftButton(R.drawable.ic_action_back, View.OnClickListener {
-                mParentActivity?.onBackPressed()
+                mParentActivity.onBackPressed()
             })
         }
 
         qrCodeButton?.setOnClickListener {
-            mParentActivity?.startActivityForResult(Intent(mParentActivity, QRCodeScannerActivity::class.java), REQUEST_QR_CODE)
+            mParentActivity.startActivityForResult(Intent(mParentActivity, QRCodeScannerActivity::class.java), REQUEST_QR_CODE)
         }
     }
 

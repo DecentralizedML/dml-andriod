@@ -21,7 +21,6 @@ class SignUpGoogleFragment : BaseFragment(), SignUpGoogleContract.View {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
         presenter = SignUpGooglePresenter(this)
     }
 

@@ -117,16 +117,20 @@ class OCRCameraFragment : BaseFragment(), OCRCameraContract.View {
 
     private lateinit var presenter: OCRCameraContract.Presenter
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        presenter = OCRCameraPresenter(this)
+    }
+
     override fun setLayoutId(): Int {
         return R.layout.fragment_ocr_camera
     }
 
     override fun connectViews() {
-        file = File(mParentActivity?.getExternalFilesDir(null), "${System.currentTimeMillis()}.jpg")
+        file = File(mParentActivity.getExternalFilesDir(null), "${System.currentTimeMillis()}.jpg")
         textureView = view!!.findViewById(R.id.texture)
         takePictureButton?.setOnClickListener { lockFocus() }
     }
-
 
     override fun setPresenter(presenter: OCRCameraContract.Presenter) {
         this.presenter = presenter
@@ -171,7 +175,7 @@ class OCRCameraFragment : BaseFragment(), OCRCameraContract.View {
 
         override fun onError(cameraDevice: CameraDevice, error: Int) {
             onDisconnected(cameraDevice)
-            mParentActivity?.finish()
+            mParentActivity.finish()
         }
     }
 
@@ -289,12 +293,11 @@ class OCRCameraFragment : BaseFragment(), OCRCameraContract.View {
     }
 
     private fun setUpCameraOutputs(width: Int, height: Int) {
-        val manager = mParentActivity?.getSystemService(Context.CAMERA_SERVICE) as CameraManager
+        val manager = mParentActivity.getSystemService(Context.CAMERA_SERVICE) as CameraManager
         try {
             for (cameraId in manager.cameraIdList) {
                 val characteristics = manager.getCameraCharacteristics(cameraId)
 
-                // We don't use a front facing camera in this sample.
                 val cameraDirection = characteristics.get(CameraCharacteristics.LENS_FACING)
                 if (cameraDirection != null &&
                         cameraDirection == CameraCharacteristics.LENS_FACING_FRONT) {
@@ -315,13 +318,13 @@ class OCRCameraFragment : BaseFragment(), OCRCameraContract.View {
 
                 // Find out if we need to swap dimension to get the preview size relative to sensor
                 // coordinate.
-                val displayRotation = mParentActivity?.windowManager?.defaultDisplay?.rotation
+                val displayRotation = mParentActivity.windowManager?.defaultDisplay?.rotation
 
                 sensorOrientation = characteristics.get(CameraCharacteristics.SENSOR_ORIENTATION)
                 val swappedDimensions = areDimensionsSwapped(displayRotation!!)
 
                 val displaySize = Point()
-                mParentActivity?.windowManager?.defaultDisplay?.getSize(displaySize)
+                mParentActivity.windowManager?.defaultDisplay?.getSize(displaySize)
                 val rotatedPreviewWidth = if (swappedDimensions) height else width
                 val rotatedPreviewHeight = if (swappedDimensions) width else height
                 var maxPreviewWidth = if (swappedDimensions) displaySize.y else displaySize.x
@@ -404,7 +407,7 @@ class OCRCameraFragment : BaseFragment(), OCRCameraContract.View {
         }
         setUpCameraOutputs(width, height)
         configureTransform(width, height)
-        val manager = mParentActivity?.getSystemService(Context.CAMERA_SERVICE) as CameraManager
+        val manager = mParentActivity.getSystemService(Context.CAMERA_SERVICE) as CameraManager
         try {
             // Wait for camera to open - 2.5 seconds is sufficient
             if (!cameraOpenCloseLock.tryAcquire(2500, TimeUnit.MILLISECONDS)) {
@@ -505,7 +508,7 @@ class OCRCameraFragment : BaseFragment(), OCRCameraContract.View {
     }
 
     private fun configureTransform(viewWidth: Int, viewHeight: Int) {
-        val rotation = mParentActivity?.windowManager?.defaultDisplay?.rotation
+        val rotation = mParentActivity.windowManager?.defaultDisplay?.rotation
         val matrix = Matrix()
         val viewRect = RectF(0f, 0f, viewWidth.toFloat(), viewHeight.toFloat())
         val bufferRect = RectF(0f, 0f, previewSize.height.toFloat(), previewSize.width.toFloat())
@@ -561,7 +564,7 @@ class OCRCameraFragment : BaseFragment(), OCRCameraContract.View {
     private fun captureStillPicture() {
         try {
             if (cameraDevice == null) return
-            val rotation = mParentActivity?.windowManager?.defaultDisplay?.rotation
+            val rotation = mParentActivity.windowManager?.defaultDisplay?.rotation
 
             // This is the CaptureRequest.Builder that we use to take a picture.
             val captureBuilder = cameraDevice?.createCaptureRequest(

@@ -24,7 +24,6 @@ class SignUpConnectFragment : BaseFragment(), SignUpConnectContract.View {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
         presenter = SignUpConnectPresenter(this)
     }
 

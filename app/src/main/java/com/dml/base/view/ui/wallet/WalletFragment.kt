@@ -41,6 +41,11 @@ class WalletFragment : BaseFragment(), WalletContract.View {
     private var oldScrollY = 0
     private var isHiding = false
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        presenter = WalletPresenter(this)
+    }
+
     override fun setLayoutId(): Int {
         return R.layout.fragment_wallet
     }
@@ -49,7 +54,7 @@ class WalletFragment : BaseFragment(), WalletContract.View {
         toolbar?.apply {
             setTitle(R.string.current_balance)
             setLeftButton(R.drawable.ic_action_back, View.OnClickListener {
-                mParentActivity?.onBackPressed()
+                mParentActivity.onBackPressed()
             })
             setRightButton(R.drawable.ic_action_settings, View.OnClickListener {
                 startActivity(Intent(mParentActivity, SettingsActivity::class.java))
@@ -57,13 +62,13 @@ class WalletFragment : BaseFragment(), WalletContract.View {
         }
 
         recentTransactionsButton?.setOnClickListener {
-            mParentActivity?.startActivity(Intent(mParentActivity, TransactionActivity::class.java))
+            mParentActivity.startActivity(Intent(mParentActivity, TransactionActivity::class.java))
         }
 
         cashOutButton?.apply {
             setText(R.string.fragment_wallet_button_cash_out)
             setOnClickListener {
-                mParentActivity?.startActivity(Intent(mParentActivity, CashOutActivity::class.java))
+                mParentActivity.startActivity(Intent(mParentActivity, CashOutActivity::class.java))
             }
         }
 
@@ -152,7 +157,7 @@ class WalletFragment : BaseFragment(), WalletContract.View {
             override fun onClick(response: TransactionResponse) {
                 val intent = Intent(mParentActivity, TransactionActivity::class.java)
                 intent.putExtra("redirect", "TransactionDetailFragment")
-                mParentActivity?.startActivity(intent)
+                mParentActivity.startActivity(intent)
             }
         })
         transactionRecyclerView?.adapter = adapter

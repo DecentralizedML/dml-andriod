@@ -2,6 +2,7 @@ package com.dml.base.view.adapter
 
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import com.dml.base.base.BaseFragment
 import com.dml.base.view.ui.signup.complete.SignUpCompleteFragment
 import com.dml.base.view.ui.signup.connect.SignUpConnectFragment
 import com.dml.base.view.ui.signup.google.SignUpGoogleFragment
@@ -28,7 +29,7 @@ class SignUpViewPagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAd
         return NUM_ITEMS
     }
 
-    override fun getItem(position: Int): androidx.fragment.app.Fragment? {
+    override fun getItem(position: Int): BaseFragment? {
         return when (position) {
             PAGE_SIGNUP -> SignUpFragment.newInstance(null)
             PAGE_GOOGLE -> SignUpGoogleFragment.newInstance(null)

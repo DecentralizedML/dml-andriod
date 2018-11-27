@@ -19,6 +19,11 @@ class SettingsDataSourceFragment : BaseFragment(), SettingsDataSourceContract.Vi
 
     private lateinit var presenter: SettingsDataSourceContract.Presenter
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        presenter = SettingsDataSourcePresenter(this)
+    }
+
     override fun setLayoutId(): Int {
         return R.layout.fragment_settings_data_source
     }
@@ -27,7 +32,7 @@ class SettingsDataSourceFragment : BaseFragment(), SettingsDataSourceContract.Vi
         toolbar?.apply {
             setTitle(R.string.settings_data_sources)
             setLeftButton(R.drawable.ic_action_back, View.OnClickListener {
-                mParentActivity?.onBackPressed()
+                mParentActivity.onBackPressed()
             })
         }
     }

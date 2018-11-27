@@ -1,12 +1,18 @@
 package com.dml.base.view.ui.job.ocr.result
 
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Matrix
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
+import androidx.exifinterface.media.ExifInterface
 import com.dml.base.R
 import com.dml.base.base.BaseFragment
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.common.FirebaseVisionImage
+import com.google.firebase.ml.vision.text.FirebaseVisionCloudTextRecognizerOptions
 import kotlinx.android.synthetic.main.fragment_ocr_result.*
 import java.io.File
 
@@ -37,33 +43,56 @@ class OCRResultFragment : BaseFragment(), OCRResultContract.View {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        presenter = OCRResultPresenter(this)
 
         val imageFile = File(arguments?.getString("image_path"))
         if (imageFile.exists()) {
-            val bitmap = BitmapFactory.decodeFile(imageFile.absolutePath)
-            val image = FirebaseVisionImage.fromBitmap(bitmap)
-//            val metadata = FirebaseVisionImageMetadata.Builder()
-//                    .setWidth(480)   // 480x360 is typically sufficient for
-//                    .setHeight(360)  // image recognition
-//                    .setFormat(FirebaseVisionImageMetadata.IMAGE_FORMAT_NV21)
-//                    .setRotation(rotation)
-//                    .build()
+            var bitmap = BitmapFactory.decodeFile(imageFile.absolutePath)
+            bitmap = rotateImageIfRequired(bitmap, Uri.fromFile(imageFile))
 
+            val image = FirebaseVisionImage.fromBitmap(bitmap)
+
+            //local
+//            val textRecognizer = FirebaseVision.getInstance()
+//                    .onDeviceTextRecognizer
+
+            //cloud
+            val options = FirebaseVisionCloudTextRecognizerOptions.Builder()
+                    .build()
             val textRecognizer = FirebaseVision.getInstance()
-                    .onDeviceTextRecognizer
+                    .getCloudTextRecognizer(options)
 
             textRecognizer.processImage(image)
                     .addOnSuccessListener {
-                        // Task completed successfully
-                        // ...
                         resultTextView?.text = it.text
                         Toast.makeText(context, "success", Toast.LENGTH_SHORT).show()
                     }
                     .addOnFailureListener {
-                        // Task failed with an exception
-                        // ...
+                        Log.e("textRecognizer", it.toString())
                         Toast.makeText(context, "fail ${it.toString()}", Toast.LENGTH_SHORT).show()
                     }
+
+            resultImageView?.setImageBitmap(bitmap)
         }
+    }
+
+    private fun rotateImageIfRequired(bitmap: Bitmap, uri: Uri): Bitmap {
+        val exifInterface = ExifInterface(uri.path!!)
+        val orientation = exifInterface.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL)
+
+        return when (orientation) {
+            ExifInterface.ORIENTATION_ROTATE_90 -> rotateImage(bitmap, 90)
+            ExifInterface.ORIENTATION_ROTATE_180 -> rotateImage(bitmap, 180)
+            ExifInterface.ORIENTATION_ROTATE_270 -> rotateImage(bitmap, 270)
+            else -> bitmap
+        }
+    }
+
+    private fun rotateImage(bitmap: Bitmap, degree: Int): Bitmap {
+        val matrix = Matrix()
+        matrix.postRotate(degree.toFloat())
+        val rotatedBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
+        bitmap.recycle()
+        return rotatedBitmap
     }
 }

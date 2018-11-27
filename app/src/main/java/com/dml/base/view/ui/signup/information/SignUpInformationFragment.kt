@@ -165,7 +165,7 @@ class SignUpInformationFragment : BaseFragment(), SignUpInformationContract.View
             }
         }
 
-        mParentActivity?.mService?.updateUserRequest(signUpRequestModel)
+        mParentActivity.mService?.updateUserRequest(signUpRequestModel)
                 ?.subscribeOn(Schedulers.io())
                 ?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribeWith(object : DefaultRequestObserver<UserSignUpResponse>(context) {

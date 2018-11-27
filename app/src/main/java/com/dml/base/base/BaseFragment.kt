@@ -6,12 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.dml.base.R
 import io.reactivex.disposables.CompositeDisposable
 
 
 abstract class BaseFragment : Fragment() {
 
-    protected var mParentActivity: BaseActivity? = null
+    protected lateinit var mParentActivity: BaseActivity
 
     protected lateinit var mContext: Context
 
@@ -67,18 +68,18 @@ abstract class BaseFragment : Fragment() {
     }
 
     fun startFragment(fragment: BaseFragment, isAnimation: Boolean) {
-        mParentActivity?.startFragment(fragment, isAnimation)
+        mParentActivity.startFragment(fragment, isAnimation)
     }
 
     fun startFragment(fragment: BaseFragment, tag: String, isAnimation: Boolean) {
-        mParentActivity?.startFragment(fragment, tag, isAnimation)
+        mParentActivity.startFragment(fragment, tag, isAnimation)
     }
 
     fun addFragment(fragment: BaseFragment, tag: String, isAnimation: Boolean) {
-        mParentActivity?.addFragment(fragment, tag, isAnimation)
+        mParentActivity.addFragment(fragment, tag, isAnimation)
     }
 
     fun finishFragment(fragment: BaseFragment, isAnimation: Boolean) {
-        mParentActivity?.finishFragment(fragment, isAnimation)
+        mParentActivity.finishFragment(fragment, isAnimation)
     }
 }

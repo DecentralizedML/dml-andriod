@@ -59,7 +59,7 @@ class SignUpWalletFragment : BaseFragment() {
     }
 
     private fun createWallet() {
-        val path = mParentActivity?.filesDir
+        val path = mParentActivity.filesDir
         val bip39Wallet = WalletUtils.generateBip39Wallet(password, File(path.toString()))
         val fileName = bip39Wallet.filename
         mnemonic = bip39Wallet.mnemonic

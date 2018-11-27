@@ -101,7 +101,7 @@ class LoginFragment : BaseFragment(), LoginContract.View {
             password = passwordEditText?.text.toString()
         }
 
-        mParentActivity?.mService?.postUserLoginRequest(loginRequestModel)
+        mParentActivity.mService?.postUserLoginRequest(loginRequestModel)
                 ?.subscribeOn(Schedulers.io())
                 ?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribeWith(object : DefaultRequestObserver<UserLoginResponse>(context) {
@@ -109,9 +109,9 @@ class LoginFragment : BaseFragment(), LoginContract.View {
                         Preferences.setJWT(context, modelUser.jwt)
                         val intent = Intent(context, MainActivity::class.java)
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                        mParentActivity?.startActivity(intent)
-                        mParentActivity?.finishAffinity()
-                        mParentActivity?.finish()
+                        mParentActivity.startActivity(intent)
+                        mParentActivity.finishAffinity()
+                        mParentActivity.finish()
                     }
 
                     override fun onComplete() {

@@ -24,6 +24,11 @@ class BackupSeedPhraseConfirmFragment : BaseFragment(), BackupSeedPhraseConfirmC
     private lateinit var phraseList: Array<String>
     private lateinit var questionList: ArrayList<Int>
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        presenter = BackupSeedPhraseConfirmPresenter(this)
+    }
+
     override fun setLayoutId(): Int {
         return R.layout.fragment_backup_seed_phrase_confirm
     }
@@ -32,7 +37,7 @@ class BackupSeedPhraseConfirmFragment : BaseFragment(), BackupSeedPhraseConfirmC
         toolbar?.apply {
             setTitle(R.string.fragment_backup_confirm_toolbar_title)
             setLeftButton(R.drawable.ic_action_back, View.OnClickListener {
-                mParentActivity?.onBackPressed()
+                mParentActivity.onBackPressed()
             })
         }
 

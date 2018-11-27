@@ -12,8 +12,9 @@ import android.util.Patterns
 import androidx.core.app.ActivityCompat.finishAffinity
 import androidx.core.widget.NestedScrollView
 import com.dml.base.view.ui.WelcomeActivity
-
-
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 
 
 class Utility {
@@ -106,8 +107,23 @@ class Utility {
             return Preferences.getJWT(context).isNotBlank()
         }
 
+        fun getGoogleSignInClient(context: Context): GoogleSignInClient {
+
+            val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    .requestEmail()
+                    .requestProfile()
+                    .build()
+            return GoogleSignIn.getClient(context, googleSignInOptions)
+        }
+
         fun logout(context: Context) {
             Preferences.setJWT(context, "")
+
+            val googleSignInAccount = GoogleSignIn.getLastSignedInAccount(context)
+            if (googleSignInAccount != null) {
+                getGoogleSignInClient(context).signOut()
+            }
+
             val intent = Intent(context, WelcomeActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
             context.startActivity(intent)
