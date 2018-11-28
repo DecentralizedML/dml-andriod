@@ -12,7 +12,6 @@ import com.dml.base.R
 import com.dml.base.base.BaseFragment
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.common.FirebaseVisionImage
-import com.google.firebase.ml.vision.text.FirebaseVisionCloudTextRecognizerOptions
 import kotlinx.android.synthetic.main.fragment_ocr_result.*
 import java.io.File
 
@@ -57,10 +56,8 @@ class OCRResultFragment : BaseFragment(), OCRResultContract.View {
 //                    .onDeviceTextRecognizer
 
             //cloud
-            val options = FirebaseVisionCloudTextRecognizerOptions.Builder()
-                    .build()
             val textRecognizer = FirebaseVision.getInstance()
-                    .getCloudTextRecognizer(options)
+                    .cloudTextRecognizer
 
             textRecognizer.processImage(image)
                     .addOnSuccessListener {

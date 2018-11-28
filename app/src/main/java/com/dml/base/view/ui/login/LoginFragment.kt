@@ -106,7 +106,7 @@ class LoginFragment : BaseFragment(), LoginContract.View {
                 ?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribeWith(object : DefaultRequestObserver<UserLoginResponse>(context) {
                     override fun onNext(modelUser: UserLoginResponse) {
-                        Preferences.setJWT(context, modelUser.jwt)
+                        Preferences.setJWT(context, modelUser.meta.jwt)
                         val intent = Intent(context, MainActivity::class.java)
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
                         mParentActivity.startActivity(intent)

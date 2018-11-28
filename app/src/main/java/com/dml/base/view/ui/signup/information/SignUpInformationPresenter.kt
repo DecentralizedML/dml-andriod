@@ -1,10 +1,12 @@
 package com.dml.base.view.ui.signup.information
 
+import com.dml.base.network.model.UserSignUpRequest
 import com.dml.base.view.ui.signup.information.SignUpInformationFragment.Gender
 
 class SignUpInformationPresenter(var view: SignUpInformationContract.View) : SignUpInformationContract.Presenter {
 
     private var selectedGender: SignUpInformationFragment.Gender? = null
+    private val signUpRequestModel = UserSignUpRequest()
 
     init {
         view.setPresenter(this)

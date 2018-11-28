@@ -18,7 +18,7 @@ abstract class DefaultRequestObserver<T>(var context: Context) : DisposableObser
                     //                    Bus.send(CallBadge())
                     //                    Bus.INSTANCE.send(LogoutEvent.class);
                     val error = Gson().fromJson(throwable.response().errorBody()!!.string(), ErrorResponse::class.java)
-                    Utility.showDialog(context, error.errorMessage + " (err:" + error.errorCode + ")")
+                    Utility.showDialog(context, error.errors)
 //                    context?.let { Utility.showDialog(it, error.errorMessage + " (err:" + error.errorCode + ")", DialogInterface.OnClickListener { dialog, which -> Bus.INSTANCE.send(LogoutEvent()) }, false) }
                 } else {
                     val message = throwable.response().errorBody()!!.string()
@@ -44,7 +44,7 @@ abstract class DefaultRequestObserver<T>(var context: Context) : DisposableObser
     override fun onComplete() {}
 
     private fun onError(errorResponse: ErrorResponse) {
-        Utility.showDialog(context, errorResponse.errorMessage + " (err:" + errorResponse.errorCode + ")")
+        Utility.showDialog(context, errorResponse.errors)
     }
 
     private fun isNetworkAvailable(): Boolean {

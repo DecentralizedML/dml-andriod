@@ -1,6 +1,8 @@
 package com.dml.base.network
 
+import com.google.gson.annotations.SerializedName
+
 class ErrorResponse {
-    var errorCode = ""
-    var errorMessage = ""
+    @SerializedName("errors")
+    var errors = ""
 }
