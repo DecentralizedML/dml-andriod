@@ -1,11 +1,10 @@
 package com.dml.base.view.ui.signup.google
 
-import com.dml.base.base.BasePresenter
-import com.dml.base.base.BaseView
+import com.dml.base.base.BaseContract
 
 class SignUpGoogleContract {
 
-    interface View : BaseView<Presenter> {
+    interface View : BaseContract.View<Presenter> {
         fun postSignUpRequest()
         fun showEmailError()
         fun showEmailNoError()
@@ -14,7 +13,7 @@ class SignUpGoogleContract {
         fun redirectToSignUpInformation()
     }
 
-    interface Presenter : BasePresenter {
+    interface Presenter : BaseContract.Presenter {
         fun onSignUpButtonClicked(email: String?, password: String?, isChecked: Boolean)
     }
 }

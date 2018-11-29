@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import com.dml.base.R
 import com.dml.base.base.BaseFragment
+import com.dml.base.network.ErrorResponse
 import kotlinx.android.synthetic.main.fragment_settings_data_source.*
 
 class SettingsDataSourceFragment : BaseFragment(), SettingsDataSourceContract.View {
@@ -39,5 +40,14 @@ class SettingsDataSourceFragment : BaseFragment(), SettingsDataSourceContract.Vi
 
     override fun setPresenter(presenter: SettingsDataSourceContract.Presenter) {
         this.presenter = presenter
+    }
+
+    override fun showProgressBar() {
+    }
+
+    override fun dismissProgressBar() {
+    }
+
+    override fun showErrorResponse(errorResponse: ErrorResponse) {
     }
 }

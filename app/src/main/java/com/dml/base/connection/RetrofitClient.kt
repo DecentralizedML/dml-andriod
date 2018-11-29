@@ -39,6 +39,7 @@ class RetrofitClient {
                         .retryOnConnectionFailure(true)
                         .readTimeout(Configure.CONNECTION_TIMEOUT_IN_SECOND, TimeUnit.SECONDS)
                         .connectTimeout(Configure.CONNECTION_RECONNECTION_IN_SECOND, TimeUnit.SECONDS)
+//                        .sslSocketFactory(SSLSocketFactoryManager.getInstance(), SSLSocketFactoryManager.getDefaultTrustManager())
 
 //                if (!BuildSettings.DEV) {
 //                    val certificatePinner = CertificatePinner.Builder().add("{package_name}", BuildSettings.SHA_KEY).build()

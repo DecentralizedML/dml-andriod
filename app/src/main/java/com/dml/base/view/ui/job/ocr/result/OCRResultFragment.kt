@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.exifinterface.media.ExifInterface
 import com.dml.base.R
 import com.dml.base.base.BaseFragment
+import com.dml.base.network.ErrorResponse
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.common.FirebaseVisionImage
 import kotlinx.android.synthetic.main.fragment_ocr_result.*
@@ -91,5 +92,14 @@ class OCRResultFragment : BaseFragment(), OCRResultContract.View {
         val rotatedBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
         bitmap.recycle()
         return rotatedBitmap
+    }
+
+    override fun showProgressBar() {
+    }
+
+    override fun dismissProgressBar() {
+    }
+
+    override fun showErrorResponse(errorResponse: ErrorResponse) {
     }
 }

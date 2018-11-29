@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.Toast
 import com.dml.base.R
 import com.dml.base.base.BaseFragment
+import com.dml.base.network.ErrorResponse
 import kotlinx.android.synthetic.main.fragment_backup_seed_phrase_confirm.*
 import java.util.*
 
@@ -80,5 +81,14 @@ class BackupSeedPhraseConfirmFragment : BaseFragment(), BackupSeedPhraseConfirmC
         return (phrase1EditText.text.toString() == phraseList[questionList[0]]
                 && phrase2EditText.text.toString() == phraseList[questionList[1]]
                 && phrase3EditText.text.toString() == phraseList[questionList[2]])
+    }
+
+    override fun showProgressBar() {
+    }
+
+    override fun dismissProgressBar() {
+    }
+
+    override fun showErrorResponse(errorResponse: ErrorResponse) {
     }
 }

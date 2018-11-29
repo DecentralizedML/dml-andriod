@@ -68,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="24dp"
-                android:text="@string/fragment_signup_information_full_name"
+                android:text="@string/fragment_signup_information_first_name"
                 app:appFontStyle="barlow_semibold" />
 
             <com.google.android.material.textfield.TextInputLayout

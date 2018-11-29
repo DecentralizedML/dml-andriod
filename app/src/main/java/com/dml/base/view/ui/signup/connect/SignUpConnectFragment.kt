@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.dml.base.R
 import com.dml.base.base.BaseFragment
+import com.dml.base.network.ErrorResponse
 import com.dml.base.view.ui.signup.SignUpActivity
 import kotlinx.android.synthetic.main.fragment_signup_connect.*
 
@@ -81,5 +82,14 @@ class SignUpConnectFragment : BaseFragment(), SignUpConnectContract.View {
 
     override fun showPermissionDeniedDialog() {
         Toast.makeText(context, "{Permission denied}", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun showProgressBar() {
+    }
+
+    override fun dismissProgressBar() {
+    }
+
+    override fun showErrorResponse(errorResponse: ErrorResponse) {
     }
 }

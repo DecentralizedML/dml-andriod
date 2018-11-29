@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dml.base.R
 import com.dml.base.Utility
 import com.dml.base.base.BaseFragment
+import com.dml.base.network.ErrorResponse
 import com.dml.base.view.adapter.SeedPhraseAdapter
 import com.dml.base.view.ui.backupseedphrase.confirm.BackupSeedPhraseConfirmFragment
 import kotlinx.android.synthetic.main.fragment_backup_seed_phrase.*
@@ -79,5 +80,14 @@ class BackupSeedPhraseFragment : BaseFragment(), BackupSeedPhraseContract.View {
         })
         seedPhraseRecyclerView?.adapter = adapter
         seedPhraseRecyclerView?.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+    }
+
+    override fun showProgressBar() {
+    }
+
+    override fun dismissProgressBar() {
+    }
+
+    override fun showErrorResponse(errorResponse: ErrorResponse) {
     }
 }

@@ -3,6 +3,7 @@ package com.dml.base.view.ui.signup.google
 import android.os.Bundle
 import com.dml.base.R
 import com.dml.base.base.BaseFragment
+import com.dml.base.network.ErrorResponse
 import com.dml.base.view.ui.signup.SignUpActivity
 import kotlinx.android.synthetic.main.fragment_signup_google.*
 
@@ -70,5 +71,14 @@ class SignUpGoogleFragment : BaseFragment(), SignUpGoogleContract.View {
 
     override fun redirectToSignUpInformation() {
         (mParentActivity as SignUpActivity).setState(SignUpActivity.SignUpState.Information)
+    }
+
+    override fun showProgressBar() {
+    }
+
+    override fun dismissProgressBar() {
+    }
+
+    override fun showErrorResponse(errorResponse: ErrorResponse) {
     }
 }

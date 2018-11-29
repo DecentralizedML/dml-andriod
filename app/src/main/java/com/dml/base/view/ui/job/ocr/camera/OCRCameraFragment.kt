@@ -20,6 +20,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.dml.base.R
 import com.dml.base.base.BaseFragment
+import com.dml.base.network.ErrorResponse
 import com.dml.base.utils.camera2.CompareSizesByArea
 import com.dml.base.utils.camera2.ImageSaver
 import com.dml.base.view.custom.AutoFitTextureView
@@ -635,5 +636,14 @@ class OCRCameraFragment : BaseFragment(), OCRCameraContract.View {
         var bundle = Bundle()
         bundle.putString("image_path", file.toString())
         startFragment(OCRResultFragment.newInstance(bundle), OCRResultFragment::class.java.simpleName, true)
+    }
+
+    override fun showProgressBar() {
+    }
+
+    override fun dismissProgressBar() {
+    }
+
+    override fun showErrorResponse(errorResponse: ErrorResponse) {
     }
 }

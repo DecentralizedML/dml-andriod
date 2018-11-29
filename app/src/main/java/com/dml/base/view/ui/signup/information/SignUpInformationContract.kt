@@ -1,10 +1,10 @@
 package com.dml.base.view.ui.signup.information
 
-import com.dml.base.base.BasePresenter
-import com.dml.base.base.BaseView
+import com.dml.base.base.BaseContract
+import com.dml.base.network.model.UserSignUpRequest
 
 class SignUpInformationContract {
-    interface View : BaseView<Presenter> {
+    interface View : BaseContract.View<Presenter> {
         fun showDatePicker()
         fun showCountryDialog()
         fun tintMaleButton()
@@ -12,20 +12,24 @@ class SignUpInformationContract {
         fun tintOtherGenderButton()
         fun showIncompleteInformationDialog()
 
-        fun updateUserRequest()
-        fun redirectToSignUpConnect()
+        fun saveJWT(jwt: String)
+        fun redirectToConnectPage()
     }
 
-    interface Presenter : BasePresenter {
+    interface Presenter : BaseContract.Presenter {
         fun onSkipButtonClicked()
         fun onDateOfBirthButtonClicked()
         fun onCountryButtonClicked()
         fun onMaleButtonClicked(gender: SignUpInformationFragment.Gender)
         fun onFemaleButtonClicked(gender: SignUpInformationFragment.Gender)
         fun onOtherGenderButtonClicked(gender: SignUpInformationFragment.Gender)
-        fun onNextButtonClicked(name: String?
-                                , country: String?
-                                , dateOfBirth: String?
-                                , educationLevel: String?)
+        fun onNextButtonClicked(firstName: String
+                                , lastName: String
+                                , country: String
+                                , dateOfBirth: String
+                                , gender: String
+                                , educationLevel: String)
+
+        fun updateUserRequest(userUpdateRequest: UserSignUpRequest)
     }
 }

@@ -9,16 +9,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dml.base.Preferences
 import com.dml.base.R
 import com.dml.base.base.BaseFragment
-import com.dml.base.connection.DefaultRequestObserver
-import com.dml.base.network.model.UserSignUpRequest
-import com.dml.base.network.model.UserSignUpResponse
+import com.dml.base.network.ErrorResponse
 import com.dml.base.utils.MarginItemHorizontalDecoration
 import com.dml.base.view.adapter.EducationLevelAdapter
 import com.dml.base.view.adapter.EducationLevelAdapter.OnItemClickListener
 import com.dml.base.view.ui.signup.SignUpActivity
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_signup_infomation.*
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -34,8 +31,13 @@ class SignUpInformationFragment : BaseFragment(), SignUpInformationContract.View
 
     private var countryDialog: AlertDialog? = null
     private var datePickerDialog: DatePickerDialog? = null
+    private var selectedGender: String = ""
 
     companion object {
+        private const val GENDER_MALE = "male"
+        private const val GENDER_FEMALE = "female"
+        private const val GENDER_OTHER = "other"
+
         fun newInstance(bundle: Bundle?): BaseFragment {
             val fragment = SignUpInformationFragment()
             if (bundle != null)
@@ -46,7 +48,7 @@ class SignUpInformationFragment : BaseFragment(), SignUpInformationContract.View
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        presenter = SignUpInformationPresenter(this)
+        presenter = SignUpInformationPresenter(this, mParentActivity.mService, mCompositeDisposable)
     }
 
     override fun setLayoutId(): Int {
@@ -65,8 +67,10 @@ class SignUpInformationFragment : BaseFragment(), SignUpInformationContract.View
             showRightIcon(true)
             setOnClickListener {
                 presenter.onNextButtonClicked(
-                        fullNameEditText.text.toString()
+                        firstNameEditText.text.toString()
+                        , lastNameEditText.text.toString()
                         , countryEditText.text.toString()
+                        , selectedGender
                         , dateOfBirthEditText.text.toString()
                         , "educationLevelTemp"
                 )
@@ -91,7 +95,11 @@ class SignUpInformationFragment : BaseFragment(), SignUpInformationContract.View
         educationLevelRecycleView?.addItemDecoration(MarginItemHorizontalDecoration(resources.getDimension(R.dimen.margin_education_level).toInt()))
     }
 
-    override fun redirectToSignUpConnect() {
+    override fun saveJWT(jwt: String) {
+        Preferences.setJWT(context, jwt)
+    }
+
+    override fun redirectToConnectPage() {
         (mParentActivity as SignUpActivity).setState(SignUpActivity.SignUpState.Connect)
     }
 
@@ -118,14 +126,17 @@ class SignUpInformationFragment : BaseFragment(), SignUpInformationContract.View
     override fun showDatePicker() {
         if (datePickerDialog == null) {
             val calendar = Calendar.getInstance()
-            val day = calendar.get(Calendar.DAY_OF_MONTH)
-            val month = calendar.get(Calendar.MONTH)
-            val year = calendar.get(Calendar.YEAR)
+            val currentDay = calendar.get(Calendar.DAY_OF_MONTH)
+            val currentMonth = calendar.get(Calendar.MONTH)
+            val currentYear = calendar.get(Calendar.YEAR)
 
             datePickerDialog = DatePickerDialog(context,
                     DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-                        dateOfBirthEditText?.setText(dayOfMonth.toString() + "/" + (monthOfYear + 1) + "/" + year)
-                    }, year, month, day)
+                        val gregorianCalendar = GregorianCalendar(year, monthOfYear, dayOfMonth)
+                        val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
+                        val date = simpleDateFormat.format(gregorianCalendar.time)
+                        dateOfBirthEditText?.setText(date)
+                    }, currentYear, currentMonth, currentDay)
             datePickerDialog?.datePicker?.maxDate = System.currentTimeMillis()
         }
         datePickerDialog?.show()
@@ -135,56 +146,37 @@ class SignUpInformationFragment : BaseFragment(), SignUpInformationContract.View
         genderMaleButton.setBackgroundResource(R.drawable.button_green_border_left_filled)
         genderFemaleButton.setBackgroundResource(0)
         genderOtherButton.setBackgroundResource(0)
+        selectedGender = GENDER_MALE
     }
 
     override fun tintFemaleButton() {
         genderMaleButton.setBackgroundResource(0)
         genderFemaleButton.setBackgroundResource(R.drawable.button_green_border_center_filled)
         genderOtherButton.setBackgroundResource(0)
+        selectedGender = GENDER_FEMALE
     }
 
     override fun tintOtherGenderButton() {
         genderMaleButton.setBackgroundResource(0)
         genderFemaleButton.setBackgroundResource(0)
         genderOtherButton.setBackgroundResource(R.drawable.button_green_border_right_filled)
+        selectedGender = GENDER_OTHER
     }
 
     override fun showIncompleteInformationDialog() {
         Toast.makeText(context, "{incomplete information}", Toast.LENGTH_SHORT).show()
     }
 
-    override fun updateUserRequest() {
-        val signUpRequestModel = UserSignUpRequest()
-        signUpRequestModel.apply {
-            user.apply {
-                //                email = emailEditText?.text.toString()
-//                password = passwordEditText?.text.toString()
-//                passwordConfirmation = passwordEditText?.text.toString()
-                firstName = fullNameEditText?.text.toString()
-                lastName = fullNameEditText?.text.toString()
-            }
-        }
+    override fun showProgressBar() {
+        nextButton?.showProgressBar(true)
+        nextButton?.isEnabled = false
+    }
 
-        mParentActivity.mService?.updateUserRequest(signUpRequestModel)
-                ?.subscribeOn(Schedulers.io())
-                ?.observeOn(AndroidSchedulers.mainThread())
-                ?.subscribeWith(object : DefaultRequestObserver<UserSignUpResponse>(context) {
-                    override fun onNext(modelUser: UserSignUpResponse) {
-                        Preferences.setJWT(context, modelUser.jwt)
-                        (mParentActivity as SignUpActivity).setState(SignUpActivity.SignUpState.Connect)
-                    }
+    override fun dismissProgressBar() {
+        nextButton?.showProgressBar(false)
+        nextButton?.isEnabled = true
+    }
 
-                    override fun onComplete() {
-                        super.onComplete()
-                        nextButton?.showProgressBar(false)
-                        nextButton?.isEnabled = true
-                    }
-
-                    override fun onStart() {
-                        super.onStart()
-                        nextButton?.showProgressBar(true)
-                        nextButton?.isEnabled = false
-                    }
-                })?.let { mCompositeDisposable.add(it) }
+    override fun showErrorResponse(errorResponse: ErrorResponse) {
     }
 }

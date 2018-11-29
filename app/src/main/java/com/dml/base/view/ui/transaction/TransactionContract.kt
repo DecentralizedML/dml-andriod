@@ -1,10 +1,9 @@
 package com.dml.base.view.ui.transaction
 
-import com.dml.base.base.BasePresenter
-import com.dml.base.base.BaseView
+import com.dml.base.base.BaseContract
 
 class TransactionContract {
-    interface View : BaseView<Presenter> {
+    interface View : BaseContract.View<Presenter> {
         fun turnOnDateButton()
         fun turnOnPendingButton()
         fun turnOnTokenButton()
@@ -15,7 +14,7 @@ class TransactionContract {
         fun turnOffFiatValueButton()
     }
 
-    interface Presenter : BasePresenter {
+    interface Presenter : BaseContract.Presenter {
         fun onDateButtonClicked()
         fun onPendingButtonClicked()
         fun onTokenButtonClicked()

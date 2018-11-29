@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dml.base.R
 import com.dml.base.Utility
 import com.dml.base.base.BaseFragment
+import com.dml.base.network.ErrorResponse
 import com.dml.base.network.model.TransactionResponse
 import com.dml.base.network.model.WalletTypeResponse
 import com.dml.base.utils.MarginItemVecticalDecoration
@@ -163,5 +164,14 @@ class WalletFragment : BaseFragment(), WalletContract.View {
         transactionRecyclerView?.adapter = adapter
         transactionRecyclerView?.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         transactionRecyclerView?.addItemDecoration(MarginItemVecticalDecoration(resources.getDimension(R.dimen.margin_transaction).toInt()))
+    }
+
+    override fun showProgressBar() {
+    }
+
+    override fun dismissProgressBar() {
+    }
+
+    override fun showErrorResponse(errorResponse: ErrorResponse) {
     }
 }

@@ -7,6 +7,7 @@ import com.dml.base.R
 import com.dml.base.Utility
 import com.dml.base.base.BaseFragment
 import com.dml.base.connection.DefaultRequestObserver
+import com.dml.base.network.ErrorResponse
 import com.dml.base.network.model.UserLoginRequest
 import com.dml.base.network.model.UserLoginResponse
 import com.dml.base.view.ui.main.MainActivity
@@ -38,9 +39,8 @@ class LoginFragment : BaseFragment(), LoginContract.View {
     }
 
     private lateinit var presenter: LoginContract.Presenter
-
-    var facebookCallbackManager: CallbackManager? = null
-    var mGoogleSignInClient: GoogleSignInClient? = null
+    private lateinit var facebookCallbackManager: CallbackManager
+    private lateinit var mGoogleSignInClient: GoogleSignInClient
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -77,7 +77,10 @@ class LoginFragment : BaseFragment(), LoginContract.View {
         googleSignUpButton?.setOnClickListener { signUpByGoogle() }
         loginButton?.apply {
             setText(R.string.login)
-            setOnClickListener { presenter.onLoginButtonClicked(emailEditText?.text.toString(), passwordEditText?.text.toString()) }
+            setOnClickListener {
+                presenter.onLoginButtonClicked(emailEditText?.text.toString()
+                        , passwordEditText?.text.toString())
+            }
         }
     }
 
@@ -86,8 +89,8 @@ class LoginFragment : BaseFragment(), LoginContract.View {
     }
 
     private fun signUpByGoogle() {
-        val signInIntent = mGoogleSignInClient?.signInIntent
-        activity?.startActivityForResult(signInIntent, SignUpFragment.REQUEST_CODE_GOOGLE_SIGN_UP)
+        val signInIntent = mGoogleSignInClient.signInIntent
+        mParentActivity.startActivityForResult(signInIntent, SignUpFragment.REQUEST_CODE_GOOGLE_SIGN_UP)
     }
 
     override fun setPresenter(presenter: LoginContract.Presenter) {
@@ -101,10 +104,17 @@ class LoginFragment : BaseFragment(), LoginContract.View {
             password = passwordEditText?.text.toString()
         }
 
-        mParentActivity.mService?.postUserLoginRequest(loginRequestModel)
+        mParentActivity.mService.postUserLoginRequest(loginRequestModel)
                 ?.subscribeOn(Schedulers.io())
                 ?.observeOn(AndroidSchedulers.mainThread())
-                ?.subscribeWith(object : DefaultRequestObserver<UserLoginResponse>(context) {
+                ?.subscribeWith(object : DefaultRequestObserver<UserLoginResponse>() {
+                    override fun onErrorResponse(errorResponse: ErrorResponse) {
+
+                    }
+
+                    override fun onErrorUnknown() {
+                    }
+
                     override fun onNext(modelUser: UserLoginResponse) {
                         Preferences.setJWT(context, modelUser.meta.jwt)
                         val intent = Intent(context, MainActivity::class.java)
@@ -147,7 +157,7 @@ class LoginFragment : BaseFragment(), LoginContract.View {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        facebookCallbackManager?.onActivityResult(requestCode, resultCode, data)
+        facebookCallbackManager.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == SignUpFragment.REQUEST_CODE_GOOGLE_SIGN_UP) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
@@ -163,5 +173,14 @@ class LoginFragment : BaseFragment(), LoginContract.View {
         } catch (e: ApiException) {
             Utility.Error(SignUpFragment.TAG, "fail: ${e.statusCode}")
         }
+    }
+
+    override fun showProgressBar() {
+    }
+
+    override fun dismissProgressBar() {
+    }
+
+    override fun showErrorResponse(errorResponse: ErrorResponse) {
     }
 }

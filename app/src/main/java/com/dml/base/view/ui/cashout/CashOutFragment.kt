@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import com.dml.base.R
 import com.dml.base.base.BaseFragment
+import com.dml.base.network.ErrorResponse
 import com.dml.base.view.ui.QRCodeScannerActivity
 import kotlinx.android.synthetic.main.fragment_cashout.*
 
@@ -57,5 +58,14 @@ class CashOutFragment : BaseFragment(), CashOutContract.View {
                 toAddressEditText.setText(data?.getStringExtra("result"))
             }
         }
+    }
+
+    override fun showProgressBar() {
+    }
+
+    override fun dismissProgressBar() {
+    }
+
+    override fun showErrorResponse(errorResponse: ErrorResponse) {
     }
 }

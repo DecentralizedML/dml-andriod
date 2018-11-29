@@ -1,10 +1,9 @@
 package com.dml.base.view.ui.login
 
-import com.dml.base.base.BasePresenter
-import com.dml.base.base.BaseView
+import com.dml.base.base.BaseContract
 
 class LoginContract {
-    interface View : BaseView<Presenter> {
+    interface View : BaseContract.View<Presenter> {
         fun postLoginRequest()
         fun showEmailError()
         fun showEmailNoError()
@@ -12,7 +11,7 @@ class LoginContract {
         fun showPasswordNoError()
     }
 
-    interface Presenter : BasePresenter {
+    interface Presenter : BaseContract.Presenter {
         fun onLoginButtonClicked(email: String?, password: String?)
     }
 }

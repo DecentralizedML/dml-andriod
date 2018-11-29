@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dml.base.R
 import com.dml.base.base.BaseFragment
+import com.dml.base.network.ErrorResponse
 import com.dml.base.view.adapter.SecurityQuestionAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.fragment_signup_security_question.*
@@ -88,5 +89,14 @@ class SignUpSecurityQuestionFragment : BaseFragment(), SignUpSecurityQuestionCon
 
         mBottomSheetDialog.setContentView(sheetView)
         mBottomSheetDialog.show()
+    }
+
+    override fun showProgressBar() {
+    }
+
+    override fun dismissProgressBar() {
+    }
+
+    override fun showErrorResponse(errorResponse: ErrorResponse) {
     }
 }

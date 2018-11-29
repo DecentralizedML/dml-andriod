@@ -6,9 +6,8 @@ import com.dml.base.Preferences
 import com.dml.base.R
 import com.dml.base.Utility
 import com.dml.base.base.BaseFragment
-import com.dml.base.connection.DefaultRequestObserver
+import com.dml.base.network.ErrorResponse
 import com.dml.base.network.model.UserSignUpRequest
-import com.dml.base.network.model.UserSignUpResponse
 import com.dml.base.view.ui.signup.SignUpActivity
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
@@ -20,8 +19,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_signup.*
 
 class SignUpFragment : BaseFragment(), SignUpContract.View {
@@ -47,7 +44,7 @@ class SignUpFragment : BaseFragment(), SignUpContract.View {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        presenter = SignUpPresenter(this)
+        presenter = SignUpPresenter(this, mParentActivity.mService, mCompositeDisposable)
 
         facebookCallbackManager = CallbackManager.Factory.create()
         LoginManager.getInstance()
@@ -64,8 +61,6 @@ class SignUpFragment : BaseFragment(), SignUpContract.View {
                         })
 
         mGoogleSignInClient = Utility.getGoogleSignInClient(context)
-//        val account = GoogleSignIn.getLastSignedInAccount(context)
-
     }
 
     override fun setLayoutId(): Int {
@@ -96,41 +91,6 @@ class SignUpFragment : BaseFragment(), SignUpContract.View {
     private fun signUpByGoogle() {
         val signInIntent = mGoogleSignInClient?.signInIntent
         mParentActivity.startActivityForResult(signInIntent, REQUEST_CODE_GOOGLE_SIGN_UP)
-    }
-
-    override fun postSignUpRequest() {
-        val signUpRequestModel = UserSignUpRequest()
-        signUpRequestModel.apply {
-            user.apply {
-                email = emailEditText?.text.toString()
-                password = passwordEditText?.text.toString()
-                passwordConfirmation = passwordEditText?.text.toString()
-                firstName = ""
-                lastName = ""
-            }
-        }
-
-        mParentActivity.mService.postUserSignUpRequest(signUpRequestModel)
-                ?.subscribeOn(Schedulers.io())
-                ?.observeOn(AndroidSchedulers.mainThread())
-                ?.subscribeWith(object : DefaultRequestObserver<UserSignUpResponse>(context) {
-                    override fun onNext(modelUser: UserSignUpResponse) {
-                        Preferences.setJWT(context, modelUser.jwt)
-                        (mParentActivity as SignUpActivity).setState(SignUpActivity.SignUpState.Information)
-                    }
-
-                    override fun onComplete() {
-                        super.onComplete()
-                        signUpButton?.showProgressBar(false)
-                        signUpButton?.isEnabled = true
-                    }
-
-                    override fun onStart() {
-                        super.onStart()
-                        signUpButton?.showProgressBar(true)
-                        signUpButton?.isEnabled = false
-                    }
-                })?.let { mCompositeDisposable.add(it) }
     }
 
     override fun showEmailError() {
@@ -169,10 +129,37 @@ class SignUpFragment : BaseFragment(), SignUpContract.View {
             }
 
             (mParentActivity as SignUpActivity).updateUserSignUpRequestModel(userSignUpRequestModel)
-            (mParentActivity as SignUpActivity).setState(SignUpActivity.SignUpState.Google)
+            redirectToGooglePage()
 
         } catch (e: ApiException) {
             Utility.Error(TAG, "fail: ${e.statusCode}")
         }
     }
+
+    override fun saveJWT(jwt: String) {
+        Preferences.setJWT(context, jwt)
+    }
+
+    override fun redirectToInformationPage() {
+        (mParentActivity as SignUpActivity).setState(SignUpActivity.SignUpState.Information)
+    }
+
+    override fun redirectToGooglePage() {
+        (mParentActivity as SignUpActivity).setState(SignUpActivity.SignUpState.Google)
+    }
+
+    override fun showProgressBar() {
+        signUpButton?.showProgressBar(true)
+        signUpButton?.isEnabled = false
+    }
+
+    override fun dismissProgressBar() {
+        signUpButton?.showProgressBar(false)
+        signUpButton?.isEnabled = true
+    }
+
+    override fun showErrorResponse(errorResponse: ErrorResponse) {
+        Utility.showDialog(context, errorResponse.toString())
+    }
+
 }

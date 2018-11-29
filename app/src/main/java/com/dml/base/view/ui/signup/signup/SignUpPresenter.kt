@@ -1,53 +1,93 @@
 package com.dml.base.view.ui.signup.signup
 
 import com.dml.base.Utility
+import com.dml.base.connection.DefaultRequestObserver
+import com.dml.base.network.ErrorResponse
+import com.dml.base.network.api.service.APIService
+import com.dml.base.network.model.UserSignUpRequest
+import com.dml.base.network.model.UserSignUpResponse
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
 
-class SignUpPresenter(var view: SignUpContract.View) : SignUpContract.Presenter {
+class SignUpPresenter(var view: SignUpContract.View
+                      , var service: APIService
+                      , var compositeDisposable: CompositeDisposable) : SignUpContract.Presenter {
 
     init {
         view.setPresenter(this)
     }
 
-    override fun start() {
+    override fun start() {}
 
+    override fun onSignUpButtonClicked(email: String, password: String, isChecked: Boolean) {
+        var isValid = true
+
+        if (email.isEmpty() or email.isBlank()) {
+            view.showEmailError()
+            isValid = false
+        } else if (!Utility.isValidEmail(email)) {
+            view.showEmailError()
+            isValid = false
+        } else {
+            view.showEmailNoError()
+        }
+
+        if (password.isEmpty() or password.isBlank()) {
+            view.showPasswordError()
+            isValid = false
+        } else if (password.length < 8) {
+            view.showPasswordError()
+            isValid = false
+        } else {
+            view.showPasswordNoError()
+        }
+
+        if (!isChecked) {
+            isValid = false
+        }
+
+        if (isValid) {
+            val signUpRequestModel = UserSignUpRequest()
+            signUpRequestModel.apply {
+                user.apply {
+                    this.email = email
+                    this.password = password
+                    this.passwordConfirmation = password
+                }
+            }
+
+            postSignUpRequest(signUpRequestModel)
+        }
     }
 
-    override fun onSignUpButtonClicked(email: String?, password: String?, isChecked: Boolean) {
-        var valid = true
+    override fun postSignUpRequest(signUpRequestModel: UserSignUpRequest) {
+        service.postUserSignUpRequest(signUpRequestModel)
+                ?.subscribeOn(Schedulers.io())
+                ?.observeOn(AndroidSchedulers.mainThread())
+                ?.subscribeWith(object : DefaultRequestObserver<UserSignUpResponse>() {
+                    override fun onErrorResponse(errorResponse: ErrorResponse) {
+                        view.showErrorResponse(errorResponse)
+                    }
 
-        if (email.isNullOrEmpty() or email.isNullOrBlank()) {
-            view.showEmailError()
-            valid = false
-        } else {
-            email?.let {
-                if (!Utility.isValidEmail(email)) {
-                    view.showEmailError()
-                    valid = false
-                } else {
-                    view.showEmailNoError()
-                }
-            }
-        }
+                    override fun onErrorUnknown() {
+                    }
 
-        if (password.isNullOrEmpty() or password.isNullOrBlank()) {
-            view.showPasswordError()
-            valid = false
-        } else {
-            password?.let {
-                if (password.length < 8) {
-                    view.showPasswordError()
-                    valid = false
-                } else {
-                    view.showPasswordNoError()
-                }
-            }
-        }
+                    override fun onNext(modelUser: UserSignUpResponse) {
+                        view.saveJWT(modelUser.meta.jwt)
+                        view.redirectToInformationPage()
+                    }
 
-        if (!isChecked)
-            valid = false
-        //Add not check reminder?
+                    override fun onComplete() {
+                        super.onComplete()
+                        view.dismissProgressBar()
+                    }
 
-        if (valid)
-            view.postSignUpRequest()
+                    override fun onStart() {
+                        super.onStart()
+                        view.showProgressBar()
+                    }
+                })
+                ?.let { compositeDisposable.add(it) }
     }
 }

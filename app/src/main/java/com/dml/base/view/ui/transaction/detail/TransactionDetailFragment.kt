@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import com.dml.base.R
 import com.dml.base.base.BaseFragment
+import com.dml.base.network.ErrorResponse
 import kotlinx.android.synthetic.main.fragment_transaction_detail.*
 
 class TransactionDetailFragment : BaseFragment(), TransactionDetailContract.View {
@@ -94,5 +95,12 @@ class TransactionDetailFragment : BaseFragment(), TransactionDetailContract.View
         this.presenter = presenter
     }
 
+    override fun showProgressBar() {
+    }
 
+    override fun dismissProgressBar() {
+    }
+
+    override fun showErrorResponse(errorResponse: ErrorResponse) {
+    }
 }

@@ -6,6 +6,7 @@ import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dml.base.R
 import com.dml.base.base.BaseFragment
+import com.dml.base.network.ErrorResponse
 import com.dml.base.utils.MarginItemHorizontalDecoration
 import com.dml.base.view.adapter.EducationLevelAdapter
 import kotlinx.android.synthetic.main.fragment_settings_profile.*
@@ -59,5 +60,14 @@ class SettingsProfileFragment : BaseFragment(), SettingsProfileContract.View {
         educationLevelRecycleView?.adapter = adapter
         educationLevelRecycleView?.layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)
         educationLevelRecycleView?.addItemDecoration(MarginItemHorizontalDecoration(resources.getDimension(R.dimen.margin_education_level).toInt()))
+    }
+
+    override fun showProgressBar() {
+    }
+
+    override fun dismissProgressBar() {
+    }
+
+    override fun showErrorResponse(errorResponse: ErrorResponse) {
     }
 }

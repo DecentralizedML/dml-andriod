@@ -1,12 +1,11 @@
 package com.dml.base.view.ui.settings.datasource
 
-import com.dml.base.base.BasePresenter
-import com.dml.base.base.BaseView
+import com.dml.base.base.BaseContract
 
 class SettingsDataSourceContract {
-    interface View : BaseView<Presenter> {
+    interface View : BaseContract.View<Presenter> {
     }
 
-    interface Presenter : BasePresenter {
+    interface Presenter : BaseContract.Presenter {
     }
 }

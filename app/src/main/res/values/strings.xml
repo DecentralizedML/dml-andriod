@@ -36,7 +36,8 @@
 
     <string name="fragment_signup_information_title">Tell us about yourself</string>
     <string name="fragment_signup_information_button_later">Remind me later</string>
-    <string name="fragment_signup_information_full_name">Full name</string>
+    <string name="fragment_signup_information_first_name">First name</string>
+    <string name="fragment_signup_information_last_name">Last name</string>
     <string name="fragment_signup_information_country">Country</string>
     <string name="fragment_signup_information_date_of_birth">Date of Birth</string>
     <string name="fragment_signup_information_gender">Gender</string>
@@ -60,12 +61,12 @@
     <string name="fragment_signup_create_wallet_desc">These 12 words are the only way to restore your wallet. Save them somewhere safe and secret.</string>
 
     <string-array name="array_education_level">
-        <item>Primary</item>
-        <item>Secondary</item>
-        <item>Associate\'s</item>
-        <item>Bachelor\'s</item>
-        <item>Master\'s</item>
-        <item>Doctorate or higher</item>
+        <item name="primary">Primary</item>
+        <item name="secondary">Secondary</item>
+        <item name="associates">Associate\'s</item>
+        <item name="bachelors">Bachelor\'s</item>
+        <item name="masters">Master\'s</item>
+        <item name="doctorate">Doctorate or higher</item>
     </string-array>
 
     <string name="fragment_transaction_toolbar_title">Transactions</string>

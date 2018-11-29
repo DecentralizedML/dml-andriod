@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dml.base.R
 import com.dml.base.Utility
 import com.dml.base.base.BaseFragment
+import com.dml.base.network.ErrorResponse
 import com.dml.base.network.model.TransactionResponse
 import com.dml.base.utils.MarginItemVecticalDecoration
 import com.dml.base.view.adapter.TransactionAdapter
@@ -170,4 +171,12 @@ class TransactionFragment : BaseFragment(), TransactionContract.View {
         fiatValueUnderlineView?.setBackgroundResource(R.color.transparent)
     }
 
+    override fun showProgressBar() {
+    }
+
+    override fun dismissProgressBar() {
+    }
+
+    override fun showErrorResponse(errorResponse: ErrorResponse) {
+    }
 }
