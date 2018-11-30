@@ -6,8 +6,10 @@ import android.os.Bundle
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.dml.base.Configure
 import com.dml.base.Preferences
 import com.dml.base.R
+import com.dml.base.Utility
 import com.dml.base.base.BaseFragment
 import com.dml.base.network.ErrorResponse
 import com.dml.base.utils.MarginItemHorizontalDecoration
@@ -21,23 +23,14 @@ import java.util.*
 
 class SignUpInformationFragment : BaseFragment(), SignUpInformationContract.View {
 
-    sealed class Gender {
-        object Male : Gender()
-        object Female : Gender()
-        object Other : Gender()
-    }
-
     private lateinit var presenter: SignUpInformationContract.Presenter
 
     private var countryDialog: AlertDialog? = null
     private var datePickerDialog: DatePickerDialog? = null
     private var selectedGender: String = ""
+    private lateinit var educationLevelAdapter: EducationLevelAdapter
 
     companion object {
-        private const val GENDER_MALE = "male"
-        private const val GENDER_FEMALE = "female"
-        private const val GENDER_OTHER = "other"
-
         fun newInstance(bundle: Bundle?): BaseFragment {
             val fragment = SignUpInformationFragment()
             if (bundle != null)
@@ -59,9 +52,9 @@ class SignUpInformationFragment : BaseFragment(), SignUpInformationContract.View
         skipButton?.setOnClickListener { presenter.onSkipButtonClicked() }
         dateOfBirthEditText?.setOnClickListener { presenter.onDateOfBirthButtonClicked() }
         countryEditText?.setOnClickListener { presenter.onCountryButtonClicked() }
-        genderMaleButton?.setOnClickListener { presenter.onMaleButtonClicked(Gender.Male) }
-        genderFemaleButton?.setOnClickListener { presenter.onFemaleButtonClicked(Gender.Female) }
-        genderOtherButton?.setOnClickListener { presenter.onOtherGenderButtonClicked(Gender.Other) }
+        genderMaleButton?.setOnClickListener { presenter.onMaleButtonClicked(Configure.GENDER_MALE) }
+        genderFemaleButton?.setOnClickListener { presenter.onFemaleButtonClicked(Configure.GENDER_FEMALE) }
+        genderOtherButton?.setOnClickListener { presenter.onOtherGenderButtonClicked(Configure.GENDER_OTHER) }
         nextButton?.apply {
             setText(R.string.fragment_signup_information_button_next)
             showRightIcon(true)
@@ -72,7 +65,7 @@ class SignUpInformationFragment : BaseFragment(), SignUpInformationContract.View
                         , countryEditText.text.toString()
                         , selectedGender
                         , dateOfBirthEditText.text.toString()
-                        , "educationLevelTemp"
+                        , Utility.getEducationLevelValue(context, educationLevelAdapter.getSelectedPosition())
                 )
             }
         }
@@ -85,18 +78,13 @@ class SignUpInformationFragment : BaseFragment(), SignUpInformationContract.View
     }
 
     private fun setEducationLevelAdapter() {
-        val adapter = EducationLevelAdapter(context, object : OnItemClickListener {
+        val educationLevelAdapter = EducationLevelAdapter(context, object : OnItemClickListener {
             override fun onClick(title: String) {
-//                Toast.makeText(context, "clicked item $title", Toast.LENGTH_SHORT).show()
             }
         })
-        educationLevelRecycleView?.adapter = adapter
+        educationLevelRecycleView?.adapter = educationLevelAdapter
         educationLevelRecycleView?.layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)
         educationLevelRecycleView?.addItemDecoration(MarginItemHorizontalDecoration(resources.getDimension(R.dimen.margin_education_level).toInt()))
-    }
-
-    override fun saveJWT(jwt: String) {
-        Preferences.setJWT(context, jwt)
     }
 
     override fun redirectToConnectPage() {
@@ -146,21 +134,21 @@ class SignUpInformationFragment : BaseFragment(), SignUpInformationContract.View
         genderMaleButton.setBackgroundResource(R.drawable.button_green_border_left_filled)
         genderFemaleButton.setBackgroundResource(0)
         genderOtherButton.setBackgroundResource(0)
-        selectedGender = GENDER_MALE
+        selectedGender = Configure.GENDER_MALE
     }
 
     override fun tintFemaleButton() {
         genderMaleButton.setBackgroundResource(0)
         genderFemaleButton.setBackgroundResource(R.drawable.button_green_border_center_filled)
         genderOtherButton.setBackgroundResource(0)
-        selectedGender = GENDER_FEMALE
+        selectedGender = Configure.GENDER_FEMALE
     }
 
     override fun tintOtherGenderButton() {
         genderMaleButton.setBackgroundResource(0)
         genderFemaleButton.setBackgroundResource(0)
         genderOtherButton.setBackgroundResource(R.drawable.button_green_border_right_filled)
-        selectedGender = GENDER_OTHER
+        selectedGender = Configure.GENDER_OTHER
     }
 
     override fun showIncompleteInformationDialog() {

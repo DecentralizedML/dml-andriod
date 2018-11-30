@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.item_education_level.view.*
 
 class EducationLevelAdapter(var context: Context, val listener: OnItemClickListener?) : RecyclerView.Adapter<EducationLevelAdapter.ViewHolder>() {
 
-    private val levelList: Array<String> = context.resources.getStringArray(R.array.array_education_level)
+    private val levelList = context.resources.getStringArray(R.array.array_education_level)
     private var selectedPosition = -1
 
     interface OnItemClickListener {
@@ -42,5 +42,9 @@ class EducationLevelAdapter(var context: Context, val listener: OnItemClickListe
         fun bindData(context: Context, title: String) {
             itemView.titleTextView.text = title
         }
+    }
+
+    fun getSelectedPosition(): Int {
+        return selectedPosition
     }
 }

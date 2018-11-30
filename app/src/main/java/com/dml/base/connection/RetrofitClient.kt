@@ -68,7 +68,7 @@ class RetrofitClient {
                     builder.header("Content-Type", "application/x-www-form-urlencoded")
 
                     if (Utility.isLoggedIn(getApplicationContext()))
-                        builder.header("Authorization", Preferences.getJWT(getApplicationContext()))
+                        builder.header("Authorization", "Bearer " + Preferences.getJWT(getApplicationContext()))
 
                     builder.build()
 

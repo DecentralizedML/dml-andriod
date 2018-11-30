@@ -1,7 +1,7 @@
 package com.dml.base.view.ui.signup.information
 
 import com.dml.base.base.BaseContract
-import com.dml.base.network.model.UserSignUpRequest
+import com.dml.base.network.model.UserUpdateRequest
 
 class SignUpInformationContract {
     interface View : BaseContract.View<Presenter> {
@@ -12,7 +12,6 @@ class SignUpInformationContract {
         fun tintOtherGenderButton()
         fun showIncompleteInformationDialog()
 
-        fun saveJWT(jwt: String)
         fun redirectToConnectPage()
     }
 
@@ -20,9 +19,9 @@ class SignUpInformationContract {
         fun onSkipButtonClicked()
         fun onDateOfBirthButtonClicked()
         fun onCountryButtonClicked()
-        fun onMaleButtonClicked(gender: SignUpInformationFragment.Gender)
-        fun onFemaleButtonClicked(gender: SignUpInformationFragment.Gender)
-        fun onOtherGenderButtonClicked(gender: SignUpInformationFragment.Gender)
+        fun onMaleButtonClicked(gender: String)
+        fun onFemaleButtonClicked(gender: String)
+        fun onOtherGenderButtonClicked(gender: String)
         fun onNextButtonClicked(firstName: String
                                 , lastName: String
                                 , country: String
@@ -30,6 +29,6 @@ class SignUpInformationContract {
                                 , gender: String
                                 , educationLevel: String)
 
-        fun updateUserRequest(userUpdateRequest: UserSignUpRequest)
+        fun updateUserRequest(userUpdateRequest: UserUpdateRequest)
     }
 }

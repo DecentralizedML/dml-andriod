@@ -1,11 +1,11 @@
 package com.dml.base.view.ui.signup.information
 
+import com.dml.base.Configure
 import com.dml.base.connection.DefaultRequestObserver
 import com.dml.base.network.ErrorResponse
 import com.dml.base.network.api.service.APIService
-import com.dml.base.network.model.UserSignUpRequest
-import com.dml.base.network.model.UserSignUpResponse
-import com.dml.base.view.ui.signup.information.SignUpInformationFragment.Gender
+import com.dml.base.network.model.UserUpdateRequest
+import com.dml.base.network.model.UserUpdateResponse
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -14,7 +14,7 @@ class SignUpInformationPresenter(var view: SignUpInformationContract.View
                                  , var service: APIService
                                  , var compositeDisposable: CompositeDisposable) : SignUpInformationContract.Presenter {
 
-    private var selectedGender: SignUpInformationFragment.Gender? = null
+    private var selectedGender: String? = null
 
     init {
         view.setPresenter(this)
@@ -36,23 +36,23 @@ class SignUpInformationPresenter(var view: SignUpInformationContract.View
         view.showCountryDialog()
     }
 
-    override fun onMaleButtonClicked(gender: Gender) {
+    override fun onMaleButtonClicked(gender: String) {
         if (selectedGender == null || selectedGender != null && selectedGender != gender) {
-            selectedGender = Gender.Male
+            selectedGender = Configure.GENDER_MALE
             view.tintMaleButton()
         }
     }
 
-    override fun onFemaleButtonClicked(gender: Gender) {
+    override fun onFemaleButtonClicked(gender: String) {
         if (selectedGender == null || selectedGender != null && selectedGender != gender) {
-            selectedGender = Gender.Female
+            selectedGender = Configure.GENDER_FEMALE
             view.tintFemaleButton()
         }
     }
 
-    override fun onOtherGenderButtonClicked(gender: Gender) {
+    override fun onOtherGenderButtonClicked(gender: String) {
         if (selectedGender == null || selectedGender != null && selectedGender != gender) {
-            selectedGender = Gender.Other
+            selectedGender = Configure.GENDER_OTHER
             view.tintOtherGenderButton()
         }
     }
@@ -64,7 +64,7 @@ class SignUpInformationPresenter(var view: SignUpInformationContract.View
                                      , gender: String
                                      , educationLevel: String) {
 
-        val userUpdateRequest = UserSignUpRequest()
+        val userUpdateRequest = UserUpdateRequest()
         userUpdateRequest.apply {
             user.apply {
                 if (!firstName.isEmpty() && !firstName.isBlank())
@@ -85,11 +85,11 @@ class SignUpInformationPresenter(var view: SignUpInformationContract.View
         updateUserRequest(userUpdateRequest)
     }
 
-    override fun updateUserRequest(userUpdateRequest: UserSignUpRequest) {
+    override fun updateUserRequest(userUpdateRequest: UserUpdateRequest) {
         service.updateUserRequest(userUpdateRequest)
                 ?.subscribeOn(Schedulers.io())
                 ?.observeOn(AndroidSchedulers.mainThread())
-                ?.subscribeWith(object : DefaultRequestObserver<UserSignUpResponse>() {
+                ?.subscribeWith(object : DefaultRequestObserver<UserUpdateResponse>() {
                     override fun onErrorResponse(errorResponse: ErrorResponse) {
                         view.showErrorResponse(errorResponse)
                     }
@@ -97,8 +97,7 @@ class SignUpInformationPresenter(var view: SignUpInformationContract.View
                     override fun onErrorUnknown() {
                     }
 
-                    override fun onNext(modelUser: UserSignUpResponse) {
-                        view.saveJWT(modelUser.meta.jwt)
+                    override fun onNext(response: UserUpdateResponse) {
                         view.redirectToConnectPage()
                     }
 

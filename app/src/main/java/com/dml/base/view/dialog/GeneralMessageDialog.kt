@@ -37,7 +37,13 @@ class GeneralMessageDialog : BaseDialogFragment() {
         else
             dialogView.descTextView?.text = getString(descId)
 
-        dialogView.iconImageView?.setImageResource(image)
+        if (descId != 0 || desc != "")
+            dialogView.descTextView?.visibility = View.VISIBLE
+
+        if (image != 0) {
+            dialogView.iconImageView?.setImageResource(image)
+            dialogView.iconImageView?.visibility = View.VISIBLE
+        }
 
         dialogView.confirmButton?.apply {
             if (rightButtonTextId == 0)
@@ -54,18 +60,18 @@ class GeneralMessageDialog : BaseDialogFragment() {
         }
 
         dialogView.cancelButton?.apply {
-            if (leftButtonTextId == 0) {
+            if (leftButtonTextId != 0) {
                 setTextString(leftButtonText)
                 visibility = View.VISIBLE
                 setBackground(R.drawable.button_white)
                 setTextColor(R.color.text_green)
-                buttonSpace.visibility = View.VISIBLE
+                dialogView.buttonSpace?.visibility = View.VISIBLE
             } else if (!leftButtonText.isNullOrEmpty()) {
                 setText(leftButtonTextId)
                 visibility = View.VISIBLE
                 setBackground(R.drawable.button_white)
                 setTextColor(R.color.text_green)
-                buttonSpace.visibility = View.VISIBLE
+                dialogView.buttonSpace?.visibility = View.VISIBLE
             }
 
             setOnClickListener {

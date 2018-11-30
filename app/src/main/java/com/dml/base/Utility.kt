@@ -138,5 +138,12 @@ class Utility {
             }
             return false
         }
+
+        fun getEducationLevelValue(context: Context, position: Int): String {
+            return if (position < 0)
+                ""
+            else
+                context.resources.getStringArray(R.array.array_education_level_value)[position]
+        }
     }
 }

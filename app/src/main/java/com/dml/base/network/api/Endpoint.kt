@@ -1,9 +1,6 @@
 package com.dml.base.network.api
 
-import com.dml.base.network.model.UserLoginRequest
-import com.dml.base.network.model.UserLoginResponse
-import com.dml.base.network.model.UserSignUpRequest
-import com.dml.base.network.model.UserSignUpResponse
+import com.dml.base.network.model.*
 import io.reactivex.Observable
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -15,7 +12,7 @@ interface Endpoint {
     fun postUserSignUp(@Body body: UserSignUpRequest): Observable<UserSignUpResponse>
 
     @PUT("/api/users")
-    fun updateUser(@Body body: UserSignUpRequest): Observable<UserSignUpResponse>
+    fun updateUser(@Body body: UserUpdateRequest): Observable<UserUpdateResponse>
 
     @POST("/api/users/authenticate")
     fun postUserLogin(@Body body: UserLoginRequest): Observable<UserLoginResponse>

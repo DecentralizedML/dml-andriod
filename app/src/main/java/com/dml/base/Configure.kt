@@ -15,5 +15,9 @@ class Configure {
 
         const val ETHEREUM_ENDPOINT = "https://ropsten.infura.io/v3/35d1fc3bab224128896134a95884dc5c"
         const val API_DOMAIN = "https://dml-api.dev.kyokan.io/"
+
+        const val GENDER_MALE = "male"
+        const val GENDER_FEMALE = "female"
+        const val GENDER_OTHER = "other"
     }
 }
