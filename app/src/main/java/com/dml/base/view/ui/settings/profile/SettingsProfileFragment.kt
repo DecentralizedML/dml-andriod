@@ -65,8 +65,8 @@ class SettingsProfileFragment : BaseFragment(), SettingsProfileContract.View {
                         firstNameEditText.text.toString()
                         , lastNameEditText.text.toString()
                         , countryEditText.text.toString()
-                        , selectedGender
                         , dateOfBirthEditText.text.toString()
+                        , selectedGender
                         , Utility.getEducationLevelValue(context, educationLevelAdapter.getSelectedPosition())
                 )
             }

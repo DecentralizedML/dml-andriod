@@ -7,7 +7,6 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dml.base.Configure
-import com.dml.base.Preferences
 import com.dml.base.R
 import com.dml.base.Utility
 import com.dml.base.base.BaseFragment
@@ -63,8 +62,8 @@ class SignUpInformationFragment : BaseFragment(), SignUpInformationContract.View
                         firstNameEditText.text.toString()
                         , lastNameEditText.text.toString()
                         , countryEditText.text.toString()
-                        , selectedGender
                         , dateOfBirthEditText.text.toString()
+                        , selectedGender
                         , Utility.getEducationLevelValue(context, educationLevelAdapter.getSelectedPosition())
                 )
             }
